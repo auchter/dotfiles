@@ -1,0 +1,144 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 27
+radius = 6.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;0"
+font-1 = "FontAwesome:pixelsize=14;0"
+font-2 = "material\-wifi:pixelsize=14;0"
+font-3 = "Material Icons:pixelsize=14;2"
+
+modules-left = ewmh mpd
+modules-center = xwindow
+modules-right = backlight-acpi volume vpn wlan battery battery_power
+
+tray-position = right
+tray-padding = 2
+
+enable-ipc = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:80:...%
+
+[module/vpn]
+type = custom/script
+exec = echo ''
+exec-if = pgrep -x vpnc 
+interval = 5
+format-prefix = "%{T4}"
+click-middle = pkill vpnc 
+
+[module/ewmh]
+type = internal/xworkspaces
+
+[module/mpd]
+type = internal/mpd
+format-online =  %{T4}<icon-prev> <toggle> <icon-next>%{T-} <label-song> <label-time>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 40
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+format = <label>
+label =  %percentage%%
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0 
+interval = 3.0
+
+format-connected = %{T3}<ramp-signal>%{T-} <label-connected>
+label-connected = %essid%
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+time-format = %Hh%M
+
+label-discharging = %percentage%% %time%
+format-charging = %{T2}%{T-} <label-charging>
+format-discharging = %{T2}<ramp-capacity>%{T-} <label-discharging>
+label-full =
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/battery_power]
+type = custom/script
+exec = awk '{printf "%.02fW\n", $1 / 1000000.}' /sys/class/power_supply/BAT0/power_now
+interval = 5
+exec-if = grep -q Discharging /sys/class/power_supply/BAT0/status
+
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 5
+
+; vim:ft=dosini

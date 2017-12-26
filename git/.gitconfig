@@ -1,0 +1,8 @@
+[user]
+	name = Michael Auchter
+	email = a@phire.org
+[rerere]
+	enabled = true
+[alias]
+	# From https://stackoverflow.com/a/5188364
+	list-branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
