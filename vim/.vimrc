@@ -39,6 +39,8 @@ set ls=2
 set ruler
 set scrolloff=3
 set nowrap
+set nu
+set smartcase
 
 set wildignore+=*.o,*.so,*.dll,*.a,*.vi,*.exe,*.cd,*.obj
 set wildignore+=*.ko,tags
@@ -52,8 +54,13 @@ nmap <C-k> <C-w><C-k>
 nmap <C-l> <C-w><C-l>
 
 cmap w!! w !sudo tee % >/dev/null
+com! CD cd %:p:h
 
 set ts=8 sw=8 sts=8 noexpandtab
+
+au BufRead,BufNewFile *.dtsi set filetype=dts
+au BufRead,BufNewFile *.dtso set filetype=dts
+au BufRead,BufNewFile *.its set filetype=dts
 
 au FileType java setl sw=4 sts=4 ts=4 noexpandtab
 au FileType python setl sw=4 sts=4 ts=4 expandtab
@@ -63,3 +70,5 @@ au FileType cpp setl sw=4 sts=4 ts=4 expandtab
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,*0<comma>
 
 set backupdir=~/.vim-backup
+
+set colorcolumn=80
