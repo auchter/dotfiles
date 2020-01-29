@@ -1,8 +1,15 @@
-[user]
-	name = Michael Auchter
-	email = a@phire.org
+[include]
+	path = ~/.gitidentity
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[merge]
+	renamelimit = 65535
+	ff = only
 [rerere]
 	enabled = true
+[http]
+	cookiefile = ~/.gitcookies
 [alias]
 	# From https://stackoverflow.com/a/5188364
 	list-branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
