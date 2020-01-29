@@ -6,12 +6,19 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
 
 colorscheme molokai
+
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_contrast_light='hard'
+" let g:gruvbox_contrast_dark='hard'
+
 syntax on
 
 set vb t_vb=
