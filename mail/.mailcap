@@ -1,1 +1,6 @@
 text/html; elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
+image/jpeg; feh %s;
+image/png; feh %s;
+application/pdf; mupdf %s;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; soffice %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice %s;
