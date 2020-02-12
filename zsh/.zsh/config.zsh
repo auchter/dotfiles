@@ -3,7 +3,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 REPORTTIME=10
-eval `dircolors -b ~/.zsh/dircolors`
+which dircolors >/dev/null && eval `dircolors -b ~/.zsh/dircolors`
 
 setopt SHARE_HISTORY
 setopt APPEND_HISTORY
