@@ -9,6 +9,7 @@ Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'preservim/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -74,3 +75,8 @@ set cinkeys=0{,0},0),:,0#,!^F,o,O,e,*0<comma>
 set backupdir=~/.vim-backup
 
 set colorcolumn=80
+
+" nerdtree
+nmap <leader>nv :NERDTreeToggleVCS<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
