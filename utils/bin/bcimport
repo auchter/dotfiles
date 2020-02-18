@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# bcimport - import an album from bandcamp
+# bcimport <url>
+
+set -e
+set -x
+
+url=$1
+tmpfile=$(mktemp -p $HOME/tmp)
+tmpdir=$(mktemp -d -p $HOME/tmp)
+
+curl "$url" > "$tmpfile"
+unzip "$tmpfile" -d "$tmpdir"
+rm -f "$tmpfile"
+beet import "$tmpdir"
+rm -rf "$tmpdir"
