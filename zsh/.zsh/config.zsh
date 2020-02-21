@@ -5,10 +5,8 @@ SAVEHIST=10000
 REPORTTIME=10
 which dircolors >/dev/null && eval `dircolors -b ~/.zsh/dircolors`
 
-setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt CORRECT
 setopt COMPLETE_IN_WORD
