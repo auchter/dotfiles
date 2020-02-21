@@ -49,6 +49,7 @@ set wildignore+=*.o,*.so,*.dll,*.a,*.vi,*.exe,*.cd,*.obj
 set wildignore+=*.ko,tags
 set wildignore+=*.sln,*.vcproj,*.vspscc,*.dsw,*.dsp
 set wildignore+=*.png,*.pdf,*.bmp,*.jpg,*.jpeg,*.gif
+set wildignore+=*.dtb,*.dtbo
 
 " Some easier movement
 nmap <C-h> <C-w><C-h>
@@ -80,3 +81,4 @@ set colorcolumn=80
 nmap <leader>nv :NERDTreeToggleVCS<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
+let NERDTreeRespectWildIgnore=1
