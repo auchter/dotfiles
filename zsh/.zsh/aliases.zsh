@@ -11,4 +11,7 @@ alias gp="git push"
 alias gr="git rebase"
 alias gs="git status"
 
+alias gdc="git describe --contains"
+alias grm="git commit --reuse-message=HEAD@{1}"
+
 alias bb="bitbake"
