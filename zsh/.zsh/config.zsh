@@ -18,4 +18,5 @@ export EDITOR="vim"
 [[ -e `which firefox-bin 2>/dev/null` ]] && export BROWSER="firefox-bin"
 [[ -e `which firefox 2>/dev/null` ]] && export BROWSER="firefox"
 export PATH=$PATH:$ZSH/bin
+export PATH=$PATH:$HOME/.local/bin
 export LC_CTYPE=en_US.UTF8
