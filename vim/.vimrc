@@ -70,6 +70,7 @@ au FileType java setl sw=4 sts=4 ts=4 noexpandtab
 au FileType python setl sw=4 sts=4 ts=4 expandtab
 au FileType haskell setl sw=4 sts=4 ts=8 expandtab
 au FileType cpp setl sw=8 sts=8 ts=8 noexpandtab
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,*0<comma>
 
