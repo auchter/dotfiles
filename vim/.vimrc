@@ -85,3 +85,5 @@ nmap <leader>nv :NERDTreeToggleVCS<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
+
+let g:vimwiki_dir_link='index'
