@@ -76,7 +76,7 @@ au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set cinkeys=0{,0},0),:,0#,!^F,o,O,e,*0<comma>
 
-set backupdir=~/.vim-backup
+set backupdir=~/.vim/backup
 
 set colorcolumn=80
 
