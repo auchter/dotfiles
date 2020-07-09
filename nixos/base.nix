@@ -10,7 +10,6 @@
     fail2ban
     git
     inetutils
-    miniflux
     mtr
     nginx
     stow 
