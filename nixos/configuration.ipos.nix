@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
-let hostname="ipos";
-in
 {
-  networking.hostName = hostname;
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
@@ -12,6 +9,8 @@ in
       ./miniflux.nix
     ];
 
+  networking.hostName = "ipos";
+  networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.interfaces.enp0s4.useDHCP = true;
 
