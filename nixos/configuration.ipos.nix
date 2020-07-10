@@ -1,6 +1,17 @@
 { config, pkgs, ... }:
 
+let hostname="ipos";
+in
 {
+  networking.hostName = hostname;
+  imports =
+    [ # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
+      ./base.nix
+      ./users.nix
+      ./miniflux.nix
+    ];
+
   networking.useDHCP = false;
   networking.interfaces.enp0s4.useDHCP = true;
 
