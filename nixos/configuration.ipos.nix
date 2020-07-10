@@ -13,6 +13,7 @@
   networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.interfaces.enp0s4.useDHCP = true;
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
   boot.loader.grub.extraConfig = ''
@@ -23,4 +24,19 @@
 
   boot.loader.grub.device = "nodev";
   boot.loader.timeout = 10;
+
+  security.acme.acceptTerms = true;
+  security.acme.email = "michael.auchter@gmail.com";
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          root = "/var/www/phire.org";
+        };
+      };
+    };
+  };
 }
