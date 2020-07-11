@@ -51,7 +51,7 @@
           root = "/var/www/phire.org";
         };
         locations."/miniflux/" = {
-          proxyPass = "http://localhost:9111";
+          proxyPass = "http://" + config.services.miniflux.config.LISTEN_ADDR;
           proxyWebsockets = true;
           extraConfig =
             "proxy_redirect off;" +
