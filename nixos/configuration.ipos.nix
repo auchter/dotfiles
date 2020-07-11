@@ -32,6 +32,7 @@
 
   services.miniflux = {
     enable = true;
+    adminCredentialsFile = "/home/a/.secrets/miniflux-admin-creds";
     config = {
       CLEANUP_FREQUENCY = "48";
       LISTEN_ADDR = "localhost:9111";
