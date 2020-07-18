@@ -12,8 +12,10 @@
     inetutils
     mtr
     nginx
+    nmap
     stow 
     sysstat
+    python3
     tmux
     vim
     wget
