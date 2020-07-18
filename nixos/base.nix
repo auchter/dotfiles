@@ -3,9 +3,6 @@
 {
   time.timeZone = "UTC";
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-
   environment.systemPackages = with pkgs; [
     fail2ban
     git
