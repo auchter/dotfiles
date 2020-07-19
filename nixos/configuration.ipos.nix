@@ -32,9 +32,8 @@
 
   services.miniflux = {
     enable = true;
-    adminCredentialsFile = "/home/a/.secrets/miniflux-admin-creds";
     config = {
-      CLEANUP_FREQUENCY = "48";
+      CLEANUP_FREQUENCY_HOURS = "48";
       LISTEN_ADDR = "localhost:9111";
       BASE_URL = "http://phire.org/miniflux/";
     };
