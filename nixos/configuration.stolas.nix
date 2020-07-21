@@ -21,6 +21,11 @@
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/6df923c0-ad42-4ef7-a5b8-eed82ef98aca";
+    fsType = "ext4";
+  };
+
   virtualisation.docker.enable = true;
   docker-containers.hass = {
     image = "homeassistant/home-assistant:stable";
