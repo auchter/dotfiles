@@ -26,6 +26,16 @@
     fsType = "ext4";
   };
 
+  fileSystems."/export/music" = {
+    device = "/mnt/storage/music";
+    options = [ "bind" ];
+  };
+
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /export/music 192.168.1.0/24(ro,no_subtree_check)
+  '';
+
   virtualisation.docker.enable = true;
   docker-containers.hass = {
     image = "homeassistant/home-assistant:stable";
@@ -39,5 +49,8 @@
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 8123 ];
+  networking.firewall.allowedTCPPorts = [
+    8123 # home-assistant
+    2049 # nfs
+  ];
 }
