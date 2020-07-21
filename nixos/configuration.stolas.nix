@@ -36,6 +36,27 @@
     /export/music 192.168.1.0/24(ro,no_subtree_check)
   '';
 
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    extraConfig = ''
+      workgroup = PHIRE
+      server string = stolas
+      netbios name = stolas
+      security = user
+      hosts allow = 192.168.1.0/24 localhost
+      guest account = nobody
+    '';
+    shares = {
+      music = {
+        path = "/export/music";
+        browseable = "yes";
+        "read only" = "yes";
+        "guest ok" = "yes";
+      };
+    };
+  };
+
   virtualisation.docker.enable = true;
   docker-containers.hass = {
     image = "homeassistant/home-assistant:stable";
@@ -52,5 +73,10 @@
   networking.firewall.allowedTCPPorts = [
     8123 # home-assistant
     2049 # nfs
+    139 445 # samba
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    137 138 # samba
   ];
 }
