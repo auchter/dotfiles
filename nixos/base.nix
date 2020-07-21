@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     fail2ban
     git
+    htop
     inetutils
     mtr
     nginx
