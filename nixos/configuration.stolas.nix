@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -17,6 +17,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.fail2ban.ignoreIP = [ "192.168.1.0/24" ];
+
+  nix.maxJobs = lib.mkDefault 4;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   virtualisation.docker.enable = true;
   docker-containers.hass = {
