@@ -34,7 +34,7 @@
     enable = true;
     config = {
       CLEANUP_FREQUENCY_HOURS = "48";
-      LISTEN_ADDR = "localhost:9111";
+      LISTEN_ADDR = "127.0.0.1:9111";
       BASE_URL = "http://phire.org/miniflux/";
     };
   };
