@@ -59,7 +59,7 @@
 
   virtualisation.docker.enable = true;
   docker-containers.hass = {
-    image = "homeassistant/home-assistant:stable";
+    image = "homeassistant/home-assistant@sha256:97219675e8e619be2bf56065d1a87c1a3670987d296f2e27984396813ba84367";
     volumes = [
       "/home/a/.config/home-assistant:/config"
       "/etc/localtime:/etc/localtime:ro"
