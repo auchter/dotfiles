@@ -71,7 +71,7 @@ au BufRead,BufNewFile *.its set filetype=dts
 au FileType java setl sw=4 sts=4 ts=4 noexpandtab
 au FileType python setl sw=4 sts=4 ts=4 expandtab
 au FileType haskell setl sw=4 sts=4 ts=8 expandtab
-au FileType cpp setl sw=4 sts=4 ts=4 expandtab
+" au FileType cpp setl sw=4 sts=4 ts=4 expandtab
 au FileType cmake setl sw=4 sts=4 ts=4 expandtab
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
