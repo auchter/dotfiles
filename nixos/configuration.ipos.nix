@@ -39,6 +39,11 @@
     };
   };
 
+  services.grocy = {
+    enable = true;
+    hostName = "grocy.phire.org";
+  };
+
   security.acme.acceptTerms = true;
   security.acme.email = "michael.auchter@gmail.com";
   services.nginx = {
