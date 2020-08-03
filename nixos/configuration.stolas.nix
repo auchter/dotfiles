@@ -57,6 +57,28 @@
     };
   };
 
+  security.acme.acceptTerms = true;
+  security.acme.email = "michael.auchter@gmail.com";
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "independent.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8123";
+          proxyWebsockets = true;
+          extraConfig =
+            "proxy_redirect off;" +
+            "proxy_set_header Host $host;" +
+            "proxy_set_header X-Real-IP $remote_addr;" +
+            "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;" +
+            "proxy_set_header X-Forwarded-Proto $scheme;";
+        };
+      };
+    };
+  };
+
   virtualisation.docker.enable = true;
   docker-containers.hass = {
     image = "homeassistant/home-assistant@sha256:97219675e8e619be2bf56065d1a87c1a3670987d296f2e27984396813ba84367";
@@ -71,7 +93,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    8123 # home-assistant
+    80 443 # nginx
     2049 # nfs
     139 445 # samba
   ];
