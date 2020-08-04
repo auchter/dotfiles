@@ -31,9 +31,15 @@
     options = [ "bind" ];
   };
 
+  fileSystems."/export/photos" = {
+    device = "/mnt/storage/photos";
+    options = [ "bind" ];
+  };
+
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /export/music 192.168.1.0/24(ro,no_subtree_check)
+    /export/photos 192.168.1.0/24(ro,no_subtree_check)
   '';
 
   services.samba = {
