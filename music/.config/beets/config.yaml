@@ -1,5 +1,5 @@
 library: library.db
-directory: /mnt/storage/tagged
+directory: /mnt/storage/music
 
 import:
     write: yes
