@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # bcimport - import an album from bandcamp
 # bcimport <url>
