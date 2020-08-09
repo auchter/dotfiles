@@ -1,4 +1,4 @@
-library: library.db
+library: /mnt/storage/music/beets.db
 directory: /mnt/storage/music
 
 import:
