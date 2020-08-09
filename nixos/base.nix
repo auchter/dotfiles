@@ -15,6 +15,7 @@
     sysstat
     python3
     tmux
+    unzip
     vim
     wget
     zsh
