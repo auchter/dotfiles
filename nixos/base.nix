@@ -24,6 +24,13 @@
   services.sshd.enable = true;
   services.fail2ban.enable = true;
 
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "2606:4700:4700::1111"
+    "2606:4700:4700::1001"
+  ];
+
   nix.gc.automatic = true;
   nix.gc.dates = "03:20";
 
