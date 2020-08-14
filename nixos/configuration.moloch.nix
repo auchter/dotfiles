@@ -32,6 +32,8 @@
 
   hardware.pulseaudio.enable = true;
 
+  powerManagement.powertop.enable = true;
+
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
