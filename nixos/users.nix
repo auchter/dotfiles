@@ -7,6 +7,8 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "audio"
+      "video"
     ];
     home = "/home/a";
     shell = pkgs.zsh;
