@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+battery=/sys/class/power_supply/BAT0
+
+power=$(awk '{ printf "%0.2f W", $1 / 1000000 }' < $battery/power_now)
+status=$(cat $battery/status)
+
+echo $power
+echo $power
+[ $status = "Discharging" ] && echo "#FF0000"
+[ $status = "Charging" ] && echo "#00FF00"

@@ -1,0 +1,15 @@
+[date]
+command=date "+%Y-%m-%d %H:%M"
+interval=5
+
+[power]
+command=/home/a/.config/i3blocks/battery_power
+interval=5
+
+[battery]
+command=/home/a/.config/i3blocks/battery
+interval=5
+
+[accesspoint]
+command=iwgetid -r
+interval=5
