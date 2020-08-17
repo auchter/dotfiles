@@ -100,6 +100,15 @@
 
   programs.waybar.enable = true;
 
+  location.latitude = 30.0;
+  location.longitude = 97.0;
+
+  services.redshift = {
+    enable = true;
+    package = pkgs.redshift-wlr;
+    provider = "geoclue2";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
