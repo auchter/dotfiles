@@ -56,6 +56,7 @@
     notify-desktop
     powertop
     qutebrowser
+    usbutils
     wob
     (
       pkgs.writeTextFile {
