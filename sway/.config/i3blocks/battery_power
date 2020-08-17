@@ -9,3 +9,5 @@ echo $power
 echo $power
 [ $status = "Discharging" ] && echo "#FF0000"
 [ $status = "Charging" ] && echo "#00FF00"
+
+exit 0
