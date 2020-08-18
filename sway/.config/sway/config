@@ -141,6 +141,20 @@ input "1739:0:Synaptics_TM3289-021" {
 
 bindsym XF86MonBrightnessUp exec brightnessctl -m s 5%+ | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob
 bindsym XF86MonBrightnessDown exec brightnessctl -m s 5%- | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob
+
+# I'm a reasonable person, but you might not be able to guess this by the
+# following crap. Anyway, this is nice since I can adjust the volume while muted
+
+bindsym XF86AudioMute exec amixer set Master toggle | \
+	sed -e 's/%//g' -e 's/\[//g' -e 's/]//g' | \
+	awk '/.*off.*/ { print 0; exit } /Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec amixer -M set Master playback 5%- | \
+	sed -e 's/%//g' -e 's/\[//g' -e 's/]//g' | \
+	awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob
+bindsym XF86AudioRaiseVolume exec amixer -M set Master playback 5%+ | \
+	sed -e 's/%//g' -e 's/\[//g' -e 's/]//g' | \
+	awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob
+
 #
 # Resizing containers:
 #
