@@ -22,7 +22,12 @@
   ];
 
   services.sshd.enable = true;
-  services.fail2ban.enable = true;
+  services.fail2ban = {
+    enable = true;
+    bantime-increment = {
+      enable = true;
+    };
+  };
 
   networking.nameservers = [
     "1.1.1.1"
