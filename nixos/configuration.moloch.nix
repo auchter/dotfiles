@@ -10,10 +10,17 @@
 
   networking.hostName = "moloch";
   networking.domain = "phire.org";
-  networking.wireless.enable = true;
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
+
+  networking.wireless = {
+    enable = true;
+    extraConfig = ''
+      ctrl_interface=/var/run/wpa_supplicant
+      ctrl_interface_group=wheel
+    '';
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
