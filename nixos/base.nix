@@ -4,6 +4,7 @@
   time.timeZone = "UTC";
 
   environment.systemPackages = with pkgs; [
+    cryptsetup
     fail2ban
     git
     htop
