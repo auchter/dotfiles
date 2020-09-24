@@ -63,6 +63,7 @@
     bc
     brightnessctl
     dmenu
+    feh
     i3blocks
     mupdf
     notify-desktop
