@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     cryptsetup
     fail2ban
+    flac
     git
     htop
     inetutils
