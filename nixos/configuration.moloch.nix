@@ -58,12 +58,17 @@
     ];
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "google-chrome"
+  ];
+
   environment.systemPackages = with pkgs; [
     alacritty
     bc
     brightnessctl
     dmenu
     feh
+    google-chrome
     i3blocks
     mupdf
     notify-desktop
