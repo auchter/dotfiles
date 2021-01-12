@@ -6,6 +6,9 @@
 [merge]
 	renamelimit = 65535
 	ff = only
+[pull]
+	ff = only
+
 [rerere]
 	enabled = true
 [http]
