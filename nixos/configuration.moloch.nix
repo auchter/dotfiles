@@ -70,7 +70,9 @@
     feh
     google-chrome
     i3blocks
+    mpv
     mupdf
+    ncmpc
     notify-desktop
     powertop
     qutebrowser
