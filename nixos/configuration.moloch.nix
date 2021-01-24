@@ -37,6 +37,8 @@
     };
   };
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
