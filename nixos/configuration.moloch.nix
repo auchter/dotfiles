@@ -20,6 +20,11 @@
       ctrl_interface=/var/run/wpa_supplicant
       ctrl_interface_group=wheel
     '';
+    networks = {
+      ATT4LE4qDJ = {
+        psk = "4nyz7zw%yt2m";
+      };
+    };
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -130,6 +135,8 @@
     enable = true;
     package = pkgs.redshift-wlr;
   };
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

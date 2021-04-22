@@ -9,6 +9,7 @@
       "networkmanager"
       "audio"
       "video"
+      "docker"
     ];
     home = "/home/a";
     shell = pkgs.zsh;
