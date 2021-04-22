@@ -14,6 +14,7 @@
     mtr
     nginx
     nmap
+    pass
     pinentry-curses
     stow 
     sysstat
