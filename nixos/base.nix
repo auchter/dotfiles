@@ -8,11 +8,13 @@
     fail2ban
     flac
     git
+    gnupg
     htop
     inetutils
     mtr
     nginx
     nmap
+    pinentry-curses
     stow 
     sysstat
     python3
@@ -29,6 +31,13 @@
     bantime-increment = {
       enable = true;
     };
+  };
+
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   networking.nameservers = [
