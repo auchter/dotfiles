@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     beets
+    ikiwiki
   ];
 
   fileSystems."/mnt/storage" = {
