@@ -26,7 +26,11 @@
     zsh
   ];
 
-  services.sshd.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
+  services.sshguard.enable = true;
   services.fail2ban = {
     enable = true;
     bantime-increment = {
