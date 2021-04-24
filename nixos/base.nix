@@ -12,6 +12,7 @@
     htop
     inetutils
     mtr
+    moreutils
     nginx
     nmap
     pass
