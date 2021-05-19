@@ -83,6 +83,7 @@
     notify-desktop
     powertop
     qutebrowser
+    signal-desktop
     usbutils
     wob
     (
