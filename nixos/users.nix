@@ -10,6 +10,7 @@
       "audio"
       "video"
       "docker"
+      "dialout"
     ];
     home = "/home/a";
     shell = pkgs.zsh;
