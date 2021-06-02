@@ -102,6 +102,11 @@
             "proxy_set_header X-Forwarded-Proto $scheme;";
         };
       };
+      "stolas.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        root = "/srv/stolas.phire.org";
+      };
       "a.phire.org" = {
         forceSSL = true;
         enableACME = true;
