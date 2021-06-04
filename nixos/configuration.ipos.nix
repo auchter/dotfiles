@@ -49,6 +49,11 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
+      "auchter.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        root = "/var/www/auchter.phire.org";
+      };
       "phire.org" = {
         forceSSL = true;
         enableACME = true;
