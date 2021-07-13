@@ -67,6 +67,7 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "google-chrome"
+    "obsidian"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -81,6 +82,7 @@
     mupdf
     ncmpc
     notify-desktop
+    obsidian
     powertop
     qutebrowser
     signal-desktop
