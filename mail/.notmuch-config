@@ -30,7 +30,7 @@ path=/home/a/Maildir
 #
 [user]
 name=Michael Auchter
-primary_email=michael.auchter@ni.com
+primary_email=a@phire.org
 
 # Configuration for "notmuch new"
 #

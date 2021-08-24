@@ -2,11 +2,11 @@ set record="~/Maildir/Sent Items"
 set spoolfile="~/Maildir/INBOX"
 set mbox_type=Maildir
 set folder=~/Maildir
-set from = "Michael Auchter <michael.auchter@ni.com>"
+set from = "Michael Auchter <a@phire.org>"
 set realname = "Michael Auchter"
 set alias_file=~/.cache/mutt-alias
 set header_cache=~/.cache/mutt-headers/
-set sendmail = /usr/bin/msmtp
+set sendmail = msmtp
 set sort=threads
 set sort_aux = reverse-last-date-received
 #set sort_aux = reverse-last-date-sent
@@ -17,6 +17,8 @@ set forward_quote
 set mime_forward=yes
 set mime_forward_rest=yes
 set index_format = "%4C %Z %{%d %b %H:%M}   %-20.20L   %s" 
+
+mailboxes =INBOX =capmetro =indy =Archive =Sent
 
 set mailcap_path = ~/.mailcap
 
