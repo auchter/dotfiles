@@ -6,6 +6,7 @@
       /etc/nixos/hardware-configuration.nix
       ./base.nix
       ./users.nix
+      ./mail.nix
     ];
 
   networking.hostName = "moloch";
