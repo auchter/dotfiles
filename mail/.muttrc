@@ -1,4 +1,4 @@
-set record="~/Maildir/Sent Items"
+set record="~/Maildir/Sent"
 set spoolfile="~/Maildir/INBOX"
 set mbox_type=Maildir
 set folder=~/Maildir
