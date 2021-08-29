@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    elinks
     neomutt
     notmuch
     notmuch-mutt
