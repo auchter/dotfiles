@@ -16,3 +16,4 @@ alias grm="git commit --reuse-message=HEAD@{1}"
 
 alias bb="bitbake"
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+alias sshot='grim -g "$(slurp)"'

@@ -58,8 +58,10 @@
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
+      grim
       kanshi
       mako
+      slurp
       swayidle
       swaylock
       waybar
