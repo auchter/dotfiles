@@ -58,12 +58,12 @@
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      xwayland
-      waybar
-      mako
       kanshi
+      mako
+      swayidle
+      swaylock
+      waybar
+      xwayland
     ];
   };
 
