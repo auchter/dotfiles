@@ -18,15 +18,6 @@
   networking.wireless = {
     enable = true;
     interfaces = [ "wlp2s0" ];
-    extraConfig = ''
-      ctrl_interface=/var/run/wpa_supplicant
-      ctrl_interface_group=wheel
-    '';
-    networks = {
-      ATT4LE4qDJ = {
-        psk = "4nyz7zw%yt2m";
-      };
-    };
   };
 
   boot.loader.systemd-boot.enable = true;
