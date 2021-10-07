@@ -63,6 +63,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "google-chrome"
     "obsidian"
+    "unifi-controller"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -81,7 +82,9 @@
     powertop
     qutebrowser
     signal-desktop
+    unifi
     usbutils
+    wireshark
     wob
     (
       pkgs.writeTextFile {
@@ -133,6 +136,8 @@
     enable = true;
     package = pkgs.redshift-wlr;
   };
+
+  services.unifi.enable = true;
 
   virtualisation.docker.enable = true;
 
