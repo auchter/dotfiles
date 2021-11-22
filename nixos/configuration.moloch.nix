@@ -7,6 +7,7 @@
       ./base.nix
       ./users.nix
       ./mail.nix
+      ./syncthing.nix
     ];
 
   networking.hostName = "moloch";
