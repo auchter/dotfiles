@@ -26,6 +26,39 @@
     2234 8000
   ];
 
+  fileSystems = {
+    "/n/orobas/films" = {
+      device = "orobas.local.phire.org:/export/films";
+      fsType = "nfs";
+      options = [
+        "nfsvers=4.2"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=600"
+        "noauto"
+      ];
+    };
+    "/n/orobas/tv" = {
+      device = "orobas.local.phire.org:/export/tv";
+      fsType = "nfs";
+      options = [
+        "nfsvers=4.2"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=600"
+        "noauto"
+      ];
+    };
+    "/n/orobas/music" = {
+      device = "orobas.local.phire.org:/export/music";
+      fsType = "nfs";
+      options = [
+        "nfsvers=4.2"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=600"
+        "noauto"
+      ];
+    };
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;

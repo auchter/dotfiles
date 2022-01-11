@@ -13,6 +13,7 @@
     inetutils
     mtr
     moreutils
+    nfs-utils
     nginx
     nmap
     pass
