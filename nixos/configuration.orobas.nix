@@ -11,7 +11,15 @@
   networking.hostName = "orobas";
   networking.domain = "phire.org";
   networking.useDHCP = false;
+  networking.vlans = {
+    vlan_iot = {
+      id = 10;
+      interface = "enp0s10";
+    };
+  };
+
   networking.interfaces.enp0s10.useDHCP = true;
+  networking.interfaces.vlan_iot.useDHCP = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
