@@ -8,6 +8,7 @@
       ./users.nix
       ./mail.nix
       ./syncthing.nix
+#      <nix-ld/modules/nix-ld.nix>
     ];
 
   networking.hostName = "moloch";
@@ -20,6 +21,10 @@
     enable = true;
     interfaces = [ "wlp2s0" ];
   };
+
+  networking.firewall.allowedTCPPorts = [
+    2234 8000
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -83,6 +88,7 @@
     powertop
     qutebrowser
     signal-desktop
+    snapcast
     unifi
     usbutils
     wireshark
@@ -139,6 +145,20 @@
   };
 
   services.unifi.enable = true;
+
+  services.snapserver = {
+    enable = false;
+    codec = "flac";
+    sampleFormat = "48000:16:2";
+    openFirewall = true;
+    listenAddress = "0.0.0.0";
+    streams = {
+      pipe = {
+        type = "pipe";
+        location = "/run/snapserver/pipe";
+      };
+    };
+  };
 
   virtualisation.docker.enable = true;
 
