@@ -11,6 +11,7 @@
     gnupg
     htop
     inetutils
+    jq
     mtr
     moreutils
     nfs-utils
