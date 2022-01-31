@@ -11,6 +11,12 @@
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
+
+  nix.package = pkgs.nixUnstable;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   networking.hostName = "moloch";
   networking.domain = "phire.org";
   networking.useDHCP = false;
