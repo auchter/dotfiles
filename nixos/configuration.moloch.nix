@@ -170,21 +170,6 @@
     enable = true;
     package = pkgs.redshift-wlr;
   };
-
-  services.snapserver = {
-    enable = false;
-    codec = "flac";
-    sampleFormat = "48000:16:2";
-    openFirewall = true;
-    listenAddress = "0.0.0.0";
-    streams = {
-      pipe = {
-        type = "pipe";
-        location = "/run/snapserver/pipe";
-      };
-    };
-  };
-
   virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
