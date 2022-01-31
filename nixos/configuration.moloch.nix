@@ -61,14 +61,10 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "nodev";
 
   boot.initrd.luks.devices = {
     root = {
-      device = "/dev/disk/by-uuid/0a0fa5cb-d138-44ca-bd12-bae076518b15";
+      device = "/dev/nvme0n1p2";
       preLVM = true;
       allowDiscards = true;
     };
