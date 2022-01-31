@@ -98,7 +98,6 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "google-chrome"
     "obsidian"
-    "unifi-controller"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -118,7 +117,6 @@
     qutebrowser
     signal-desktop
     snapcast
-    unifi
     usbutils
     wireshark
     wob
@@ -172,8 +170,6 @@
     enable = true;
     package = pkgs.redshift-wlr;
   };
-
-  services.unifi.enable = true;
 
   services.snapserver = {
     enable = false;
