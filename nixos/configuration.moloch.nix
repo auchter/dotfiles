@@ -112,6 +112,7 @@
     brightnessctl
     dmenu
     feh
+    firefox
     google-chrome
     i3blocks
     mpv
