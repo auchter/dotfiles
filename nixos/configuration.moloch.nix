@@ -162,14 +162,6 @@
 
   programs.waybar.enable = true;
 
-  location.latitude = 30.0;
-  location.longitude = 97.0;
-  location.provider = "geoclue2";
-
-  services.redshift = {
-    enable = true;
-    package = pkgs.redshift-wlr;
-  };
   virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
