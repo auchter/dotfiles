@@ -130,6 +130,7 @@
     usbutils
     wireshark
     wob
+    zbar
     (
       pkgs.writeTextFile {
         name = "startsway";
