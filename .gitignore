@@ -1,2 +1,4 @@
 mail/.config/offlineimap/pythonfile.py
 *.pyc
+zsh/.zsh/secrets.zsh
+music/.config/ncmpcpp/error.log
