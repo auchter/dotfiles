@@ -111,6 +111,7 @@
     bc
     brightnessctl
     dmenu
+    exiftool
     feh
     firefox
     google-chrome
