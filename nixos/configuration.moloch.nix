@@ -115,6 +115,7 @@
     feh
     firefox
     google-chrome
+    home-assistant-cli
     i3blocks
     mpv
     mupdf
