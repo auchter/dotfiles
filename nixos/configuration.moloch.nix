@@ -113,6 +113,7 @@
     dmenu
     exiftool
     feh
+    ffmpeg
     firefox
     google-chrome
     home-assistant-cli
@@ -121,6 +122,7 @@
     mupdf
     ncmpc
     ncmpcpp
+    nicotine-plus
     notify-desktop
     obsidian
     powertop
