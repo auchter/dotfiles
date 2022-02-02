@@ -3,6 +3,8 @@
 {
   time.timeZone = "UTC";
 
+  networking.search = [ "phire.org" ];
+
   environment.systemPackages = with pkgs; [
     cryptsetup
     fail2ban
