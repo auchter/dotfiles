@@ -10,6 +10,8 @@
     enable = true;
     virtualHosts = {
       "gotify.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:" + builtins.toString config.services.gotify.port;
           proxyWebsockets = true;
