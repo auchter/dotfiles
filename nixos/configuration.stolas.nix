@@ -6,6 +6,7 @@
       /etc/nixos/hardware-configuration.nix
       ./base.nix
       ./users.nix
+      ./modules/acme.nix
     ];
 
   networking.hostName = "stolas";
@@ -69,8 +70,6 @@
     };
   };
 
-  security.acme.acceptTerms = true;
-  security.acme.email = "michael.auchter@gmail.com";
   services.nginx = {
     enable = true;
     virtualHosts = {
