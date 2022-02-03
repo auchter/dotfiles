@@ -7,6 +7,7 @@
       ./modules/base.nix
       ./modules/users.nix
       ./modules/acme.nix
+      ./modules/miniflux.nix
     ];
 
   networking.hostName = "ipos";
@@ -25,19 +26,6 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
   boot.loader.timeout = 10;
-
-  environment.systemPackages = with pkgs; [
-    miniflux
-  ];
-
-  services.miniflux = {
-    enable = true;
-    config = {
-      CLEANUP_FREQUENCY_HOURS = "48";
-      LISTEN_ADDR = "127.0.0.1:9111";
-      BASE_URL = "http://phire.org/miniflux/";
-    };
-  };
 
   services.grocy = {
     enable = true;
@@ -62,16 +50,6 @@
         enableACME = true;
         locations."/" = {
           root = "/var/www/phire.org";
-        };
-        locations."/miniflux/" = {
-          proxyPass = "http://" + config.services.miniflux.config.LISTEN_ADDR;
-          proxyWebsockets = true;
-          extraConfig =
-            "proxy_redirect off;" +
-            "proxy_set_header Host $host;" +
-            "proxy_set_header X-Real-IP $remote_addr;" +
-            "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;" +
-            "proxy_set_header X-Forwarded-Proto $scheme;";
         };
         locations."/gotify/" = {
           proxyPass = "http://localhost:" + builtins.toString config.services.gotify.port;
