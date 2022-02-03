@@ -27,11 +27,6 @@
   boot.loader.grub.device = "nodev";
   boot.loader.timeout = 10;
 
-  services.grocy = {
-    enable = true;
-    hostName = "grocy.phire.org";
-  };
-
   services.gotify = {
     enable = true;
     port = 9812;
