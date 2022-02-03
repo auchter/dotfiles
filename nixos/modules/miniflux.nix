@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  vhost = "miniflux.phire.org";
+in
 {
   environment.systemPackages = with pkgs; [
     miniflux
@@ -10,14 +13,14 @@
     config = {
       CLEANUP_FREQUENCY_HOURS = "48";
       LISTEN_ADDR = "127.0.0.1:9111";
-      BASE_URL = "http://miniflux.phire.org/";
+      BASE_URL = "http://${vhost}/";
     };
   };
 
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "miniflux.phire.org" = {
+      "${vhost}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
