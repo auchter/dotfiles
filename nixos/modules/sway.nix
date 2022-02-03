@@ -41,7 +41,6 @@
     powertop
     qutebrowser
     signal-desktop
-    snapcast
     usbutils
     wireshark
     wob
