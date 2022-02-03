@@ -6,6 +6,7 @@
       /etc/nixos/hardware-configuration.nix
       ./modules/base.nix
       ./modules/users.nix
+      ./modules/mpd.nix
     ];
 
   networking.hostName = "orobas";
@@ -83,6 +84,13 @@
         "guest ok" = "yes";
       };
     };
+  };
+
+  services.mpd = {
+    musicDirectory = "/mnt/storage/music";
+    extraConfig = ''
+      log_file "syslog"
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [
