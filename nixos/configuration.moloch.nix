@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       ./modules/base.nix
+      ./modules/flakes.nix
       ./modules/users.nix
       ./modules/mail.nix
       ./modules/soulseek.nix
@@ -12,12 +13,6 @@
       ./modules/syncthing.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
-
-
-  nix.package = pkgs.nixUnstable;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
 
   networking.hostName = "moloch";
   networking.useDHCP = false;
