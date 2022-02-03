@@ -11,6 +11,7 @@
       ./modules/soulseek.nix
       ./modules/sway.nix
       ./modules/syncthing.nix
+      ./modules/dev.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
