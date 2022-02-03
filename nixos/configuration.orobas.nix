@@ -9,7 +9,6 @@
     ];
 
   networking.hostName = "orobas";
-  networking.useDHCP = false;
   networking.vlans = {
     vlan_iot = {
       id = 10;

@@ -5,6 +5,7 @@
 
   networking.domain = "phire.org";
   networking.search = [ config.networking.domain ];
+  networking.useDHCP = false;
 
   environment.systemPackages = with pkgs; [
     cryptsetup

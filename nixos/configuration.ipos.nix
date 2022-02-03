@@ -12,7 +12,6 @@
     ];
 
   networking.hostName = "ipos";
-  networking.useDHCP = false;
   networking.interfaces.enp0s4.useDHCP = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
