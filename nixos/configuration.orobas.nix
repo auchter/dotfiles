@@ -4,8 +4,8 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ./base.nix
-      ./users.nix
+      ./modules/base.nix
+      ./modules/users.nix
     ];
 
   networking.hostName = "orobas";

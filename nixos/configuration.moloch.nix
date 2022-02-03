@@ -4,10 +4,10 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ./base.nix
-      ./users.nix
-      ./mail.nix
-      ./syncthing.nix
+      ./modules/base.nix
+      ./modules/users.nix
+      ./modules/mail.nix
+      ./modules/syncthing.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
