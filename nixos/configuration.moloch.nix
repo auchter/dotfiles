@@ -18,7 +18,6 @@
   '';
 
   networking.hostName = "moloch";
-  networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;

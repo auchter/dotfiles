@@ -9,7 +9,6 @@
     ];
 
   networking.hostName = "orobas";
-  networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.vlans = {
     vlan_iot = {

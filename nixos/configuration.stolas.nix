@@ -9,7 +9,6 @@
     ];
 
   networking.hostName = "stolas";
-  networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
 

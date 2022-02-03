@@ -3,7 +3,8 @@
 {
   time.timeZone = "UTC";
 
-  networking.search = [ "phire.org" ];
+  networking.domain = "phire.org";
+  networking.search = [ config.networking.domain ];
 
   environment.systemPackages = with pkgs; [
     cryptsetup

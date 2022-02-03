@@ -9,7 +9,6 @@
     ];
 
   networking.hostName = "ipos";
-  networking.domain = "phire.org";
   networking.useDHCP = false;
   networking.interfaces.enp0s4.useDHCP = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
