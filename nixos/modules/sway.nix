@@ -35,7 +35,6 @@
     mupdf
     ncmpc
     ncmpcpp
-    nicotine-plus
     notify-desktop
     obsidian
     powertop

@@ -7,6 +7,7 @@
       ./modules/base.nix
       ./modules/users.nix
       ./modules/mail.nix
+      ./modules/soulseek.nix
       ./modules/sway.nix
       ./modules/syncthing.nix
 #      <nix-ld/modules/nix-ld.nix>
@@ -27,10 +28,6 @@
     enable = true;
     interfaces = [ "wlp2s0" ];
   };
-
-  networking.firewall.allowedTCPPorts = [
-    2234 8000
-  ];
 
   fileSystems = {
     "/n/orobas/films" = {
