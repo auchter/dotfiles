@@ -21,7 +21,6 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    brightnessctl
     dmenu
     exiftool
     feh
@@ -34,7 +33,6 @@
     mupdf
     notify-desktop
     obsidian
-    powertop
     qutebrowser
     signal-desktop
     usbutils

@@ -13,6 +13,7 @@
       ./modules/syncthing.nix
       ./modules/dev.nix
       ./modules/mpd-client.nix
+      ./modules/laptop.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
@@ -59,8 +60,6 @@
   };
 
   hardware.bluetooth.enable = true;
-
-  powerManagement.powertop.enable = true;
 
   virtualisation.docker.enable = true;
 
