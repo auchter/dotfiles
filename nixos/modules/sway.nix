@@ -33,8 +33,6 @@
     i3blocks
     mpv
     mupdf
-    ncmpc
-    ncmpcpp
     notify-desktop
     obsidian
     powertop

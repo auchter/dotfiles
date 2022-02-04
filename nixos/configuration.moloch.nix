@@ -12,6 +12,7 @@
       ./modules/sway.nix
       ./modules/syncthing.nix
       ./modules/dev.nix
+      ./modules/mpd-client.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
