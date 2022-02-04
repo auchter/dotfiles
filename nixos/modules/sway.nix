@@ -21,7 +21,6 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    bc
     brightnessctl
     dmenu
     exiftool
