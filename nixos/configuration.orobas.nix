@@ -21,6 +21,7 @@
 
   networking.interfaces.enp0s10.useDHCP = true;
   networking.interfaces.vlan_iot.useDHCP = true;
+  networking.dhcpcd.persistent = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
