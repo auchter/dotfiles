@@ -49,7 +49,7 @@
 
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /export/music 192.168.0.0/24(ro,no_subtree_check)
+    /export/music 192.168.0.0/24(ro,no_subtree_check) 192.168.10.0/24(ro,no_subtree_check)
     /export/tv 192.168.0.0/24(ro,no_subtree_check)
     /export/films 192.168.0.0/24(ro,no_subtree_check)
   '';
