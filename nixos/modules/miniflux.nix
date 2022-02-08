@@ -15,6 +15,7 @@ in
       LISTEN_ADDR = "127.0.0.1:9111";
       BASE_URL = "http://${vhost}/";
     };
+    adminCredentialsFile = "/etc/nixos/miniflux-admin-credentials";
   };
 
   services.nginx = {
