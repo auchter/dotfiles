@@ -11,6 +11,7 @@
     cryptsetup
     fail2ban
     flac
+    git
     gnupg
     htop
     inetutils
