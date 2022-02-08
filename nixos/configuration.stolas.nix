@@ -9,6 +9,8 @@
       ./modules/acme.nix
       ./modules/airsonic.nix
       ./modules/ikiwiki.nix
+      ./modules/mta.nix
+      ./modules/smartd.nix
     ];
 
   networking.hostName = "stolas";
