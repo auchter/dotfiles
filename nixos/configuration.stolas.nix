@@ -93,17 +93,20 @@
     };
   };
 
-  virtualisation.docker.enable = true;
-  docker-containers.hass = {
-    image = "homeassistant/home-assistant:2021.5.5";
-    volumes = [
-      "/home/a/.config/home-assistant:/config"
-      "/etc/localtime:/etc/localtime:ro"
-    ];
-    extraDockerOptions = [
-      "--net=host"
-      "--device=/dev/ttyACM0"
-    ];
+  virtualisation.oci-containers = {
+    containers = {
+      hass = {
+        image = "homeassistant/home-assistant:2021.5.5";
+        volumes = [
+          "/home/a/.config/home-assistant:/config"
+          "/etc/localtime:/etc/localtime:ro"
+        ];
+        extraOptions = [
+          "--net=host"
+          "--device=/dev/ttyACM0"
+        ];
+      };
+    };
   };
 
   networking.firewall.allowedTCPPorts = [
