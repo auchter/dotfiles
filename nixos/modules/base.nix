@@ -23,6 +23,7 @@
     nmap
     pass
     pinentry-curses
+    pwgen
     stow 
     sysstat
     python3
