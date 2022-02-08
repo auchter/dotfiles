@@ -2,7 +2,6 @@
 
 {
   services.postfix = {
-    hostname = "phire.org";
     enable = true;
     canonical = ''
       /.+/ nix@phire.org
