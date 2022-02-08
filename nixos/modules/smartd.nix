@@ -9,7 +9,6 @@
         sender = "nix@phire.org";
         recipient = "a@phire.org";
       };
-      test = true;
     };
   };
 }
