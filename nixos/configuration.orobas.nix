@@ -7,6 +7,8 @@
       ./modules/base.nix
       ./modules/users.nix
       ./modules/mpd.nix
+      ./modules/mta.nix
+      ./modules/smartd.nix
     ];
 
   networking.hostName = "orobas";
