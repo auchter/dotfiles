@@ -56,5 +56,10 @@
 
   nix.gc.automatic = true;
   nix.gc.dates = "03:20";
+
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
 }
 
