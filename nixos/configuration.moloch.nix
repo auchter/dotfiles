@@ -38,7 +38,7 @@
           "noauto"
         ];
       })
-    [ "films" "music" "tv" ]
+    [ "music" "videos" "personal" ]
   );
 
   boot.loader.systemd-boot.enable = true;
