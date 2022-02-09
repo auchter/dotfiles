@@ -11,6 +11,7 @@
       ./modules/ikiwiki.nix
       ./modules/mta.nix
       ./modules/smartd.nix
+      ./modules/gitolite.nix
     ];
 
   networking.hostName = "stolas";
