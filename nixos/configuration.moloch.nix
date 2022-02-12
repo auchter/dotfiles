@@ -7,14 +7,14 @@
       ./modules/base.nix
       ./modules/flakes.nix
       ./modules/users.nix
-      ./modules/mail.nix
       ./modules/soulseek.nix
-      ./modules/sway.nix
       ./modules/syncthing.nix
       ./modules/dev.nix
       ./modules/mpd-client.nix
       ./modules/laptop.nix
       ./modules/unfree.nix
+      ./modules/home-manager.nix
+      ./modules/geoclue.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
@@ -52,6 +52,10 @@
       allowDiscards = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    home-assistant-cli
+  ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
