@@ -14,6 +14,7 @@
       ./modules/dev.nix
       ./modules/mpd-client.nix
       ./modules/laptop.nix
+      ./modules/unfree.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
