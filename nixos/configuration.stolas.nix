@@ -12,6 +12,8 @@
       ./modules/mta.nix
       ./modules/smartd.nix
       ./modules/gitolite.nix
+      ./modules/plex.nix
+      ./modules/unfree.nix
     ];
 
   networking.hostName = "stolas";
