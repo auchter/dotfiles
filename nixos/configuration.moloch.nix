@@ -60,6 +60,11 @@
     package = pkgs.pulseaudioFull;
   };
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
   hardware.bluetooth.enable = true;
 
   virtualisation.docker.enable = true;
