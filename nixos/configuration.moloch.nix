@@ -25,7 +25,17 @@
     interfaces = [ "wlp2s0" ];
   };
 
-  fileSystems = lib.listToAttrs (
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/87175706-59e6-4205-8ab4-876fad8eff32";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/F245-5E19";
+      fsType = "vfat";
+    };
+  } // lib.listToAttrs (
     map (name:
       lib.nameValuePair "/n/orobas/${name}" {
         device = "orobas.local.phire.org:/export/${name}";
@@ -55,16 +65,6 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/87175706-59e6-4205-8ab4-876fad8eff32";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F245-5E19";
-      fsType = "vfat";
-    };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/7ca12d65-9109-4dcd-871c-d3eaa0f62e75"; }
