@@ -1,7 +1,0 @@
-[user]
-	name = Michael Auchter
-	email = michael.auchter@ni.com
-[sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.office365.com
-	smtpuser = michael.auchter@ni.com
