@@ -2,9 +2,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./modules/base.nix
+    [ ./modules/base.nix
       ./modules/flakes.nix
       ./modules/users.nix
       ./modules/soulseek.nix
@@ -52,6 +50,29 @@
       allowDiscards = true;
     };
   };
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/87175706-59e6-4205-8ab4-876fad8eff32";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/F245-5E19";
+      fsType = "vfat";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/7ca12d65-9109-4dcd-871c-d3eaa0f62e75"; }
+    ];
+
+  powerManagement.cpuFreqGovernor = "powersave";
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.video.hidpi.enable = true;
 
   environment.systemPackages = with pkgs; [
     home-assistant-cli
