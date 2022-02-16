@@ -5,7 +5,16 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
+    homeConfigurations = {
+      "a@moloch" = home-manager.lib.homeManagerConfiguration {
+        username = "a";
+        system = "x86_64-linux";
+        configuration = "./home-manager/home.nix";
+        homeDirectory = "/home/a";
+      };
+    };
+
     nixosConfigurations = {
       moloch = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
