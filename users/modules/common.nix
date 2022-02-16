@@ -1,15 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./graphical.nix
-  ];
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "a";
-  home.homeDirectory = "/home/a";
-
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
@@ -21,8 +12,6 @@
 
   programs.git = {
     enable = true;
-    userName = "Michael Auchter";
-    userEmail = "a@phire.org";
     aliases = {
       # From https://stackoverflow.com/a/5188364
       list-branches = "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'";
@@ -200,20 +189,9 @@
       bb="bitbake";
       fixssh="eval $(tmux showenv -s SSH_AUTH_SOCK)";
       hm-switch = "home-manager switch --flake ~/dotfiles";
+      rebuild-system = "sudo nixos-rebuild switch --flake '.#'";
     };
   };
 
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "21.11";
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
