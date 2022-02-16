@@ -2,13 +2,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./modules/base.nix
-      ./modules/users.nix
-      ./modules/acme.nix
-      ./modules/miniflux.nix
-      ./modules/gotify.nix
+    [ ./hardware-configuration.nix
+      ../../nixos/modules/base.nix
+      ../../nixos/modules/users.nix
+      ../../nixos/modules/acme.nix
+      ../../nixos/modules/miniflux.nix
+      ../../nixos/modules/gotify.nix
     ];
 
   networking.hostName = "ipos";
