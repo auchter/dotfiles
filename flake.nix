@@ -12,6 +12,7 @@
         system = "x86_64-linux";
         configuration = import ./home-manager/home.nix;
         homeDirectory = "/home/a";
+        stateVersion = "21.11";
       };
     };
 
