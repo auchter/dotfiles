@@ -69,7 +69,7 @@
     enable = true;
   };
 
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = lib.mkForce true;
 
   home.packages = with pkgs; [
     font-awesome
