@@ -10,7 +10,7 @@
       "a@moloch" = home-manager.lib.homeManagerConfiguration {
         username = "a";
         system = "x86_64-linux";
-        configuration = "./home-manager/home.nix";
+        configuration = import ./home-manager/home.nix;
         homeDirectory = "/home/a";
       };
     };
