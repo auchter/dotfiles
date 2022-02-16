@@ -14,7 +14,7 @@
             home-manager.users.a = import ./users/a.nix;
             home-manager.users.guest = import ./users/guest.nix;
           }
-          ./nixos/configuration.moloch.nix
+          ./hosts/moloch/configuration.nix
         ];
       };
     };

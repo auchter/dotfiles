@@ -2,16 +2,17 @@
 
 {
   imports =
-    [ ./modules/base.nix
-      ./modules/flakes.nix
-      ./modules/users.nix
-      ./modules/soulseek.nix
-      ./modules/syncthing.nix
-      ./modules/dev.nix
-      ./modules/mpd-client.nix
-      ./modules/laptop.nix
-      ./modules/unfree.nix
-      ./modules/geoclue.nix
+    [ ./hardware-configuration.nix
+      ../../nixos/modules/base.nix
+      ../../nixos/modules/flakes.nix
+      ../../nixos/modules/users.nix
+      ../../nixos/modules/soulseek.nix
+      ../../nixos/modules/syncthing.nix
+      ../../nixos/modules/dev.nix
+      ../../nixos/modules/mpd-client.nix
+      ../../nixos/modules/laptop.nix
+      ../../nixos/modules/unfree.nix
+      ../../nixos/modules/geoclue.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
@@ -24,17 +25,7 @@
     interfaces = [ "wlp2s0" ];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/87175706-59e6-4205-8ab4-876fad8eff32";
-      fsType = "ext4";
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-uuid/F245-5E19";
-      fsType = "vfat";
-    };
-  } // lib.listToAttrs (
+  fileSystems = lib.listToAttrs (
     map (name:
       lib.nameValuePair "/n/orobas/${name}" {
         device = "orobas.local.phire.org:/export/${name}";
@@ -59,19 +50,6 @@
       allowDiscards = true;
     };
   };
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/7ca12d65-9109-4dcd-871c-d3eaa0f62e75"; }
-    ];
-
-  powerManagement.cpuFreqGovernor = "powersave";
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.video.hidpi.enable = true;
 
   environment.systemPackages = with pkgs; [
     home-assistant-cli
