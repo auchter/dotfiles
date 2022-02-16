@@ -7,7 +7,10 @@
       "gammastep" = {
         isAllowed = true;
         isSystem = true;
-        users = [ "1000" ];
+        users = with config.users.users; map builtins.toString [
+          a.uid
+          guest.uid
+        ];
       };
     };
   };

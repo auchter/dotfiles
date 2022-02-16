@@ -35,6 +35,7 @@ in
         "audio"
         "video"
       ];
+      uid = 1001;
       openssh.authorizedKeys.keys = keys;
     };
 

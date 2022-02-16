@@ -19,7 +19,13 @@
     nixosConfigurations = {
       moloch = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/configuration.moloch.nix ];
+        modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager.users.a = import ./home-manager/moloch.nix;
+            home-manager.users.guest = import ./home-manager/guest.nix;
+          }
+          ./nixos/configuration.moloch.nix
+        ];
       };
     };
   };
