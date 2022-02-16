@@ -11,7 +11,6 @@
       ./modules/mpd-client.nix
       ./modules/laptop.nix
       ./modules/unfree.nix
-      ./modules/home-manager.nix
       ./modules/geoclue.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
