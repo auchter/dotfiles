@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a.nix;
+            home-manager.users.a = import ./users/a-headless.nix;
           }
           ./hosts/ipos/configuration.nix
         ];
