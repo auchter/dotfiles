@@ -199,6 +199,7 @@
 
       bb="bitbake";
       fixssh="eval $(tmux showenv -s SSH_AUTH_SOCK)";
+      hm-switch = "home-manager switch --flake ~/dotfiles";
     };
   };
 

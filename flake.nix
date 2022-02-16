@@ -9,9 +9,9 @@
     homeConfigurations = {
       "a@moloch" = home-manager.lib.homeManagerConfiguration {
         username = "a";
-        system = "x86_64-linux";
-        configuration = import ./home-manager/home.nix;
         homeDirectory = "/home/a";
+        system = "x86_64-linux";
+        configuration = import ./home-manager/moloch.nix;
         stateVersion = "21.11";
       };
     };
