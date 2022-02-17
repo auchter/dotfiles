@@ -84,10 +84,6 @@
     wob
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "obsidian"
-  ];
-
   # obsidian currently depends on an old electron version, ugh
   nixpkgs.config.permittedInsecurePackages = [ "electron-13.6.9" ];
 

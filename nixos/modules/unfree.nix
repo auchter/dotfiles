@@ -5,5 +5,6 @@
     "google-chrome"
     "obsidian"
     "plexmediaserver"
+    "roomeqwizard"
   ];
 }
