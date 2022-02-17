@@ -14,7 +14,7 @@
             home-manager.users.a = import ./users/a.nix;
             home-manager.users.guest = import ./users/guest.nix;
           }
-          ./hosts/moloch/configuration.nix
+          ./systems/moloch/configuration.nix
         ];
       };
       ipos = nixpkgs.lib.nixosSystem {
@@ -23,7 +23,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.users.a = import ./users/a-headless.nix;
           }
-          ./hosts/ipos/configuration.nix
+          ./systems/ipos/configuration.nix
         ];
       };
       stolas = nixpkgs.lib.nixosSystem {
@@ -32,7 +32,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.users.a = import ./users/a-headless.nix;
           }
-          ./hosts/stolas/configuration.nix
+          ./systems/stolas/configuration.nix
         ];
       };
       orobas = nixpkgs.lib.nixosSystem {
@@ -41,7 +41,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.users.a = import ./users/a-headless.nix;
           }
-          ./hosts/orobas/configuration.nix
+          ./systems/orobas/configuration.nix
         ];
       };
     };
