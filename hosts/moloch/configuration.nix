@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../../nixos/modules/base.nix
-      ../../nixos/modules/flakes.nix
       ../../nixos/modules/users.nix
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
