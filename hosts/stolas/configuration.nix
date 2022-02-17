@@ -2,18 +2,17 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./modules/base.nix
-      ./modules/users.nix
-      ./modules/acme.nix
-      ./modules/airsonic.nix
-      ./modules/ikiwiki.nix
-      ./modules/mta.nix
-      ./modules/smartd.nix
-      ./modules/gitolite.nix
-      ./modules/plex.nix
-      ./modules/unfree.nix
+    [ ./hardware-configuration.nix
+      ../../nixos/modules/base.nix
+      ../../nixos/modules/users.nix
+      ../../nixos/modules/acme.nix
+      ../../nixos/modules/airsonic.nix
+      ../../nixos/modules/ikiwiki.nix
+      ../../nixos/modules/mta.nix
+      ../../nixos/modules/smartd.nix
+      ../../nixos/modules/gitolite.nix
+      ../../nixos/modules/plex.nix
+      ../../nixos/modules/unfree.nix
     ];
 
   networking.hostName = "stolas";
