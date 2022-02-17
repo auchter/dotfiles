@@ -2,13 +2,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./modules/base.nix
-      ./modules/users.nix
-      ./modules/mpd.nix
-      ./modules/mta.nix
-      ./modules/smartd.nix
+    [ ./hardware-configuration.nix
+      ../../nixos/modules/base.nix
+      ../../nixos/modules/users.nix
+      ../../nixos/modules/mpd.nix
+      ../../nixos/modules/mta.nix
+      ../../nixos/modules/smartd.nix
     ];
 
   networking.hostName = "orobas";

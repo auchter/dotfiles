@@ -35,6 +35,15 @@
           ./hosts/stolas/configuration.nix
         ];
       };
+      orobas = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager.users.a = import ./users/a-headless.nix;
+          }
+          ./hosts/orobas/configuration.nix
+        ];
+      };
     };
   };
 }
