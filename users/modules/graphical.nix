@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       font.size = 12.0;
-      font.normal.family = "Roboto Mono";
+      font.normal.family = "Noto Sans Mono";
     };
   };
 
@@ -75,6 +75,11 @@
   home.packages = with pkgs; [
     font-awesome
     roboto-mono
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-extra
+    noto-fonts-emoji
+    noto-fonts-emoji-blob-bin
     grim
     slurp
     dmenu
