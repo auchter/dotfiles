@@ -48,6 +48,7 @@
         "XF86MonBrightnessDown" = adjustBrightness "1%-";
         "XF86AudioRaiseVolume" = adjustVolume "5%+";
         "XF86AudioLowerVolume" = adjustVolume "5%-";
+        "XF86AudioMicMute" = "exec amixer set Capture toggle";
       };
       bars = [
         {
