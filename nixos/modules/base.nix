@@ -8,6 +8,7 @@
   networking.useDHCP = false;
 
   environment.systemPackages = with pkgs; [
+    age
     cryptsetup
     fail2ban
     flac

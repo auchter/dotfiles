@@ -1,0 +1,26 @@
+keys:
+  - &admin_a age19fc4ty8uyhgtp5ywsn0mm33vl5g2kwk6c668hk3rewlct8zd7ujsuau5pu
+  - &system_moloch age1cqzcnkrlap79dfywzg22qlsmyvswed04ljn6thjzh0ljpvwrjudqsq78ru
+  - &system_ipos age1depmjeuv8lmjf82h5sl04h4em7dknvzxkrfwxek86q69kevyt45sjq8507
+  - &system_stolas age14vfktvmkluy3ap083zrma403qgq0tfj0tj6fegkt6kd36h2fdagskyykyz
+  - &system_orobas age1339vfu82ups8gwfyfcpktdr4mjh0yntun28k6edvkl6knv20jcgstag04t
+# nix-shell -p sops --run "sops secrets/example.yaml"
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_moloch
+        - *system_ipos
+        - *system_stolas
+        - *system_orobas
+  - path_regex: systems/ipos/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_ipos
+  - path_regex: systems/moloch/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_moloch

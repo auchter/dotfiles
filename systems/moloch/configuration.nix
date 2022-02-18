@@ -12,6 +12,7 @@
       ../../nixos/modules/laptop.nix
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/geoclue.nix
+      ../../nixos/modules/sops.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
@@ -22,6 +23,14 @@
   networking.wireless = {
     enable = true;
     interfaces = [ "wlp2s0" ];
+  };
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.secrets.migadu_password = {
+    owner = config.users.users.a.name;
+  };
+  sops.secrets.hass_token = {
+    owner = config.users.users.a.name;
   };
 
   fileSystems = lib.listToAttrs (

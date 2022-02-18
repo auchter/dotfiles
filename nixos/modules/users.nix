@@ -21,6 +21,7 @@ in
         "video"
         "docker"
         "dialout"
+        config.users.groups.keys.name
       ];
       home = "/home/a";
       shell = pkgs.zsh;
