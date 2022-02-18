@@ -11,7 +11,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a.nix;
+            home-manager.users.a = import ./users/a/a-moloch.nix;
             home-manager.users.guest = import ./users/guest.nix;
           }
           ./systems/moloch/configuration.nix
@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a-headless.nix;
+            home-manager.users.a = import ./users/a/a-server.nix;
           }
           ./systems/ipos/configuration.nix
         ];
@@ -30,7 +30,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a-headless.nix;
+            home-manager.users.a = import ./users/a/a-server.nix;
           }
           ./systems/stolas/configuration.nix
         ];
@@ -39,7 +39,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a-headless.nix;
+            home-manager.users.a = import ./users/a/a-server.nix;
           }
           ./systems/orobas/configuration.nix
         ];

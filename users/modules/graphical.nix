@@ -4,7 +4,6 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = 12.0;
       font.normal.family = "Noto Sans Mono";
     };
   };
@@ -25,20 +24,6 @@
       terminal = "alacritty";
       modifier = "Mod4";
       workspaceAutoBackAndForth = true;
-      input = { # swaymsg - t get_inputs
-        "1739:0:Synaptics_TM3289-021" = {
-          dwt = "enabled";
-          tap = "enabled";
-          pointer_accel = "0.8";
-        };
-      };
-      output = { # swaymsg -t get_outputs
-        eDP-1 = {
-          resolution = "2560x1440";
-          position = "0,0";
-          scale = "1";
-        };
-      };
       keybindings = let
         adjustBrightness = amount: "exec brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
         adjustVolume = amount: "exec amixer -M set Master playback ${amount} | sed -e 's/%//g' -e 's/\\[//g' -e 's/]//g' | awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob";

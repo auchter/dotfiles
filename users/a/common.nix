@@ -1,10 +1,6 @@
 { config, pkgs, lib, ...}:
 
 {
-  imports = [
-    ./modules/common.nix
-  ];
-
   home.username = "a";
   home.homeDirectory = "/home/a";
   home.stateVersion = "21.11";
@@ -13,4 +9,6 @@
     userName = "Michael Auchter";
     userEmail = "a@phire.org";
   };
+
+  programs.home-manager.enable = true;
 }
