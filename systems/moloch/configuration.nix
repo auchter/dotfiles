@@ -79,6 +79,34 @@
 
   virtualisation.docker.enable = true;
 
+  home-manager.users.a = {
+    accounts.email.accounts = {
+      "a@phire.org" = {
+        address = "a@phire.org";
+        primary = true;
+        realName = "Michael Auchter";
+        userName = "a@phire.org";
+        passwordCommand = "cat ${config.sops.secrets.migadu_password.path}";
+        folders.inbox = "INBOX";
+        imap.host = "imap.migadu.com";
+        smtp.host = "smtp.migadu.com";
+        offlineimap.enable = true;
+        notmuch.enable = true;
+        neomutt.enable = true;
+        msmtp.enable = true;
+      };
+    };
+
+    programs.notmuch.enable = true;
+    programs.neomutt.enable = true;
+    programs.msmtp.enable = true;
+  };
+
+  services.offlineimap = {
+    enable = true;
+    install = true;
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
