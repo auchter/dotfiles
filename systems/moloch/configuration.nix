@@ -100,6 +100,12 @@
     programs.notmuch.enable = true;
     programs.neomutt.enable = true;
     programs.msmtp.enable = true;
+
+    home.sessionVariables = {
+      HASS_SERVER = "https://home.phire.org";
+      HASS_TOKEN = "$(cat ${config.sops.secrets.hass_token.path})";
+      MPD_HOST = "phire-preamp";
+    };
   };
 
   services.offlineimap = {
