@@ -24,3 +24,13 @@ creation_rules:
       - age:
         - *admin_a
         - *system_moloch
+  - path_regex: systems/stolas/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_stolas
+  - path_regex: systems/orobas/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_orobas

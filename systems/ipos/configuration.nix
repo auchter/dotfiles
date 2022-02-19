@@ -8,7 +8,11 @@
       ../../nixos/modules/acme.nix
       ../../nixos/modules/miniflux.nix
       ../../nixos/modules/gotify.nix
+      ../../nixos/modules/sops.nix
+      ../../nixos/modules/wg-server.nix
     ];
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
 
   networking.hostName = "ipos";
   networking.interfaces.enp0s4.useDHCP = true;

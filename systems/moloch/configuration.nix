@@ -13,6 +13,7 @@
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/geoclue.nix
       ../../nixos/modules/sops.nix
+      ../../nixos/modules/wg-client.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
