@@ -35,4 +35,8 @@
   programs.alacritty.settings = {
     font.size = 12.0;
   };
+
+  home.packages = with pkgs; [
+    kicad
+  ];
 }
