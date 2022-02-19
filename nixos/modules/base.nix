@@ -25,6 +25,7 @@
     pass
     pinentry-curses
     pwgen
+    sops
     stow 
     sysstat
     python3
