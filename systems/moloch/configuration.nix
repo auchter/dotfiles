@@ -101,6 +101,7 @@
     programs.notmuch.enable = true;
     programs.neomutt.enable = true;
     programs.msmtp.enable = true;
+    programs.offlineimap.enable = true;
 
     home.sessionVariables = {
       HASS_SERVER = "https://home.phire.org";
