@@ -103,6 +103,13 @@
     programs.msmtp.enable = true;
     programs.offlineimap.enable = true;
 
+    home.file.".mailcap".text = ''
+      text/html; elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
+      image/jpeg; feh %s;
+      image/png; feh %s;
+      application/pdf; mupdf %s;
+    '';
+
     home.sessionVariables = {
       HASS_SERVER = "https://home.phire.org";
       HASS_TOKEN = "$(cat ${config.sops.secrets.hass_token.path})";
