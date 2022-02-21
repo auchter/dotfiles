@@ -14,6 +14,7 @@
       ../../nixos/modules/geoclue.nix
       ../../nixos/modules/sops.nix
       ../../nixos/modules/wg-client.nix
+      ../../nixos/modules/wifi.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
