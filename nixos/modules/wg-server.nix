@@ -21,6 +21,14 @@
           publicKey = "9zI5XY0ZWsMI1YHpq4+q5zEU7s/0VYSnIZU/pJODoAs=";
           allowedIPs = [ "10.100.0.2/32" ];
         }
+        { # stolas
+          publicKey = "jd0IBUGjSLjPqz8IxgwQ/43/qfAZnR2eOa+NUMbbWTE=";
+          allowedIPs = [ "10.100.0.3/32" ];
+        }
+        { # orobas
+          publicKey = "qJoRq6SwcmbutGVYv5F74kTrbsPTHBBjGrlYFOwgHQQ=";
+          allowedIPs = [ "10.100.0.4/32" ];
+        }
       ];
     };
   };
