@@ -7,7 +7,6 @@
 
   networking.wireguard.interfaces = {
     wg0 = {
-      ips = [ "10.100.0.2/24" ];
       listenPort = 51820;
       privateKeyFile = config.sops.secrets.wireguard_private.path;
       peers = [

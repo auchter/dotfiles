@@ -36,6 +36,7 @@
             home-manager.users.a = import ./users/a/a-server.nix;
           }
           ./systems/stolas/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
       orobas = nixpkgs.lib.nixosSystem {
@@ -45,6 +46,7 @@
             home-manager.users.a = import ./users/a/a-server.nix;
           }
           ./systems/orobas/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };

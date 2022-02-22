@@ -8,6 +8,7 @@
       ../../nixos/modules/mpd.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
+      ../../nixos/modules/wg-client.nix
     ];
 
   networking.hostName = "orobas";
@@ -17,6 +18,9 @@
       interface = "enp0s10";
     };
   };
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  networking.wireguard.interfaces.wg0.ips = [ "10.100.0.4/24" ];
 
   services.fail2ban.ignoreIP = [ "192.168.0.0/24" ];
 

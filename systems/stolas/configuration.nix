@@ -13,10 +13,14 @@
       ../../nixos/modules/gitolite.nix
       ../../nixos/modules/plex.nix
       ../../nixos/modules/unfree.nix
+      ../../nixos/modules/wg-client.nix
     ];
 
   networking.hostName = "stolas";
   networking.interfaces.eno1.useDHCP = true;
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  networking.wireguard.interfaces.wg0.ips = [ "10.100.0.3/24" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
