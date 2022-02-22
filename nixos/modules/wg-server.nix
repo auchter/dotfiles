@@ -29,6 +29,10 @@
           publicKey = "qJoRq6SwcmbutGVYv5F74kTrbsPTHBBjGrlYFOwgHQQ=";
           allowedIPs = [ "10.100.0.4/32" ];
         }
+        { # pixel 5
+          publicKey = "ioMtg6Y3xPPs15JmSYXK8GZi+MLqDjrjo8/RsybuE3s=";
+          allowedIPs = [ "10.100.0.5/32" ];
+        }
       ];
     };
   };
