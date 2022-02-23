@@ -37,6 +37,7 @@
   };
 
   home.packages = with pkgs; [
+    esphome
     kicad
   ];
 }
