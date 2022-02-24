@@ -29,6 +29,8 @@ in
     };
   };
 
+  services.fail2ban.ignoreIP = [ "10.100.0.0/24" ];
+
   networking.wireguard.interfaces = {
     wg0 = {
       listenPort = 51820;

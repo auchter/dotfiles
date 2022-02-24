@@ -29,6 +29,8 @@
     10.100.0.5 pixel5.internal
   '';
 
+  services.fail2ban.ignoreIP = [ "10.100.0.0/24" ];
+
   networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "10.100.0.1/24" ];
