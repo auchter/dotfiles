@@ -12,6 +12,8 @@ in
     unbound_conf=${unbound_resolv}
   '';
 
+  systemd.services.unbound.restartTriggers = [ unbound_resolv ];
+
   services.unbound = {
     enable = true;
     settings = {
