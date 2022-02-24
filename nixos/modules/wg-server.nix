@@ -9,7 +9,25 @@
     internalInterfaces = [ "wg0" ];
   };
 
-  networking.firewall.allowedUDPPorts = [ 51820 ];
+  networking.firewall = {
+    allowedUDPPorts = [ 53 51820 ];
+    allowedTCPPorts = [ 53 ];
+  };
+
+  services.dnsmasq = {
+    enable = true;
+    extraConfig = ''
+      interface=wg0
+    '';
+  };
+
+  networking.extraHosts = ''
+    10.100.0.1 ipos.internal
+    10.100.0.2 moloch.internal
+    10.100.0.3 stolas.internal
+    10.100.0.4 orobas.internal
+    10.100.0.5 pixel5.internal
+  '';
 
   networking.wireguard.interfaces = {
     wg0 = {
