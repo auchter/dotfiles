@@ -70,6 +70,7 @@
     dmenu
     feh
     mpv
+    mupdf
     obsidian
     signal-desktop
     wob
