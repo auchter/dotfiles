@@ -33,6 +33,9 @@
   sops.secrets.migadu_password = {
     owner = config.users.users.a.name;
   };
+  sops.secrets.gmail_password = {
+    owner = config.users.users.a.name;
+  };
   sops.secrets.hass_token = {
     owner = config.users.users.a.name;
   };
@@ -94,6 +97,20 @@
         folders.inbox = "INBOX";
         imap.host = "imap.migadu.com";
         smtp.host = "smtp.migadu.com";
+        offlineimap.enable = true;
+        notmuch.enable = true;
+        neomutt.enable = true;
+        msmtp.enable = true;
+      };
+      "michael.auchter@gmail.com" = {
+        address = "michael.auchter@gmail.com";
+        primary = false;
+        realName = "Michael Auchter";
+        userName = "michael.auchter@gmail.com";
+        passwordCommand = "cat ${config.sops.secrets.gmail_password.path}";
+        folders.inbox = "INBOX";
+        imap.host = "imap.gmail.com";
+        smtp.host = "smtp.gmail.com";
         offlineimap.enable = true;
         notmuch.enable = true;
         neomutt.enable = true;
