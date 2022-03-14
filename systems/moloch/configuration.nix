@@ -109,8 +109,7 @@
         userName = "michael.auchter@gmail.com";
         passwordCommand = "cat ${config.sops.secrets.gmail_password.path}";
         folders.inbox = "INBOX";
-        imap.host = "imap.gmail.com";
-        smtp.host = "smtp.gmail.com";
+        flavor = "gmail.com";
         offlineimap.enable = true;
         notmuch.enable = true;
         neomutt.enable = true;
