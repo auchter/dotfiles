@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -73,6 +71,7 @@
     mupdf
     obsidian
     signal-desktop
+    swaylock
     wob
   ];
 
