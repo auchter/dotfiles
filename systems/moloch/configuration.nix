@@ -110,7 +110,12 @@
         passwordCommand = "cat ${config.sops.secrets.gmail_password.path}";
         folders.inbox = "INBOX";
         flavor = "gmail.com";
-        offlineimap.enable = true;
+        offlineimap = {
+          enable = true;
+          extraConfig.account = {
+            maxage = "2022-03-09"; # last Google Takeout date
+          };
+        };
         notmuch.enable = true;
         neomutt.enable = true;
         msmtp.enable = true;
