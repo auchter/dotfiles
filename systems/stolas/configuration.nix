@@ -14,6 +14,7 @@
       ../../nixos/modules/plex.nix
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/wg-client.nix
+      ../../nixos/modules/radicale.nix
     ];
 
   networking.hostName = "stolas";
