@@ -110,11 +110,8 @@
         passwordCommand = "cat ${config.sops.secrets.gmail_password.path}";
         folders.inbox = "INBOX";
         flavor = "gmail.com";
-        offlineimap = {
+        lieer = {
           enable = true;
-          extraConfig.account = {
-            maxage = "2022-03-09"; # last Google Takeout date
-          };
         };
         notmuch.enable = true;
         neomutt.enable = true;
@@ -126,6 +123,7 @@
     programs.neomutt.enable = true;
     programs.msmtp.enable = true;
     programs.offlineimap.enable = true;
+    programs.lieer.enable = true;
 
     home.file.".mailcap".text = ''
       text/html; elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
