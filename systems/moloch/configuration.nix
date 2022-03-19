@@ -124,6 +124,7 @@
     programs.msmtp.enable = true;
     programs.offlineimap.enable = true;
     programs.lieer.enable = true;
+    programs.alot.enable = true;
 
     home.file.".mailcap".text = ''
       text/html; elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
