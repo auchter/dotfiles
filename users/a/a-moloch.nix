@@ -23,6 +23,9 @@
 
   home.packages = with pkgs; [
     esphome
+    khard
+    khal
     kicad
+    vdirsyncer
   ];
 }
