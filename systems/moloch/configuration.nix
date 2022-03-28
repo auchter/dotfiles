@@ -39,6 +39,9 @@
   sops.secrets.hass_token = {
     owner = config.users.users.a.name;
   };
+  sops.secrets.radicale_password = {
+    owner = config.users.users.a.name;
+  };
 
   fileSystems = lib.listToAttrs (
     map (name:
@@ -138,6 +141,84 @@
       HASS_TOKEN = "$(cat ${config.sops.secrets.hass_token.path})";
       MPD_HOST = "phire-preamp";
     };
+
+    home.packages = with pkgs; [
+      khal
+      khard
+      vdirsyncer
+    ];
+
+    xdg.configFile."vdirsyncer/config".text = ''
+      [general]
+      status_path = "~/.vdirsyncer/status/"
+
+      [pair contacts]
+      a = "contacts_local"
+      b = "contacts_remote"
+      collections = ["from a", "from b"]
+
+      [storage contacts_local]
+      type = "filesystem"
+      path = "~/.contacts"
+      fileext = ".vcf"
+
+      [storage contacts_remote]
+      type = "carddav"
+      url = "https://radicale.phire.org"
+      username = "a"
+      password.fetch = ["command", "cat", "${config.sops.secrets.radicale_password.path}"]
+
+      [pair calendar]
+      a = "calendar_local"
+      b = "calendar_remote"
+      collections = ["from a", "from b"]
+
+      [storage calendar_local]
+      type = "filesystem"
+      path = "~/.calendars"
+      fileext = ".ics"
+
+      [storage calendar_remote]
+      type = "caldav"
+      url = "https://radicale.phire.org"
+      username = "a"
+      password.fetch = ["command", "cat", "${config.sops.secrets.radicale_password.path}"]
+    '';
+
+    xdg.configFile."khard/khard.conf".text = ''
+      [addressbooks]
+      [[contacts]]
+      path = ~/.contacts/348ac56f-198f-c8a4-a671-9d13de60eb4b
+
+      [general]
+      default_action = list
+      merge_editor = vimdiff
+
+      [contact table]
+      show_nicknames = yes
+      show_uids = no
+    '';
+
+    xdg.configFile."khal/config".text = ''
+      [calendars]
+
+      [[calendar_local]]
+      path = ~/.calendars/*
+      type = discover
+
+      [locale]
+      timeformat = %H:%M
+      dateformat = %Y-%m-%d
+      longdateformat = %Y-%m-%d
+      datetimeformat = %Y-%m-%d %H:%M
+      longdatetimeformat = %Y-%m-%d %H:%M
+      local_timezone = America/Chicago
+      default_timezone = America/Chicago
+
+      [default]
+      default_calendar = 9bacadaa-74d7-e673-249c-0b3859a3e2c3
+    '';
+
   };
 
   services.offlineimap = {
