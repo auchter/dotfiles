@@ -221,6 +221,33 @@
 
   };
 
+  systemd.user.services.vdirsyncer = {
+    description = "vdirsyncer sync";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
+    };
+  };
+
+  systemd.user.timers.vdirsyncer = {
+    description = "vdirsyncer sync";
+    timerConfig = {
+      OnCalendar = "*:0/5";
+      Unit = "vdirsyncer.service";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
+  # systemd doesn't support recursive directory watches.
+  # could watch each specific directory instead, though...
+  #systemd.user.paths.vdirsyncer = {
+  #  pathConfig = {
+  #    Unit = "vdirsyncer.service";
+  #    PathChanged = [ "${config.users.users.a.home}/.calendars" "${config.users.users.a.home}/.contacts" ];
+  #  };
+  #  wantedBy = [ "default.target" ];
+  #};
+
   services.offlineimap = {
     enable = true;
     install = true;
