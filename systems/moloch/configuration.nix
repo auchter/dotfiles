@@ -197,6 +197,7 @@
       [contact table]
       show_nicknames = yes
       show_uids = no
+      localize_dates = no
     '';
 
     xdg.configFile."khal/config".text = ''
