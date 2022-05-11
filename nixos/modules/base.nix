@@ -25,6 +25,7 @@
     pass
     pinentry-curses
     pwgen
+    restic
     sops
     stow 
     sysstat
