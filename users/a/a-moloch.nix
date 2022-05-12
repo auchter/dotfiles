@@ -23,6 +23,7 @@
 
   home.packages = with pkgs; [
     esphome
+    exiftool
     kicad
     zotero
   ];
