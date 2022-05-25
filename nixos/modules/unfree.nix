@@ -6,5 +6,6 @@
     "obsidian"
     "plexmediaserver"
     "roomeqwizard"
+    "unifi-controller"
   ];
 }

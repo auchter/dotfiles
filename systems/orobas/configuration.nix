@@ -9,6 +9,8 @@
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/wg-client.nix
+      ../../nixos/modules/unfree.nix
+      ../../nixos/modules/unifi.nix
     ];
 
   networking.hostName = "orobas";
