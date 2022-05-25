@@ -12,12 +12,6 @@
     ];
 
   networking.hostName = "orobas";
-  networking.vlans = {
-    vlan_iot = {
-      id = 10;
-      interface = "enp0s10";
-    };
-  };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   networking.wireguard.interfaces.wg0.ips = [ "10.100.0.4/24" ];
@@ -25,7 +19,6 @@
   services.fail2ban.ignoreIP = [ "192.168.0.0/24" ];
 
   networking.interfaces.enp0s10.useDHCP = true;
-  networking.interfaces.vlan_iot.useDHCP = true;
   networking.dhcpcd.persistent = true;
 
   boot.loader.grub.enable = true;
