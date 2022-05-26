@@ -25,12 +25,15 @@
       keybindings = let
         adjustBrightness = amount: "exec brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
         adjustVolume = amount: "exec amixer -M set Master playback ${amount} | sed -e 's/%//g' -e 's/\\[//g' -e 's/]//g' | awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob";
+        adjustSnapcastVolume = direction: "exec hass-cli service call media_player.volume_${direction} --arguments entity_id=media_player.snapcast_client_phire_preamp | awk '/volume_level: / { print $2 * 100 }' > $SWAYSOCK.wob";
       in lib.mkOptionDefault {
         "XF86AudioMute" = "exec amixer set Master toggle";
         "XF86MonBrightnessUp" = adjustBrightness "1%+";
         "XF86MonBrightnessDown" = adjustBrightness "1%-";
         "XF86AudioRaiseVolume" = adjustVolume "5%+";
         "XF86AudioLowerVolume" = adjustVolume "5%-";
+        "Shift+XF86AudioRaiseVolume" = adjustSnapcastVolume "up";
+        "Shift+XF86AudioLowerVolume" = adjustSnapcastVolume "down";
         "XF86AudioMicMute" = "exec amixer set Capture toggle";
       };
       bars = [
