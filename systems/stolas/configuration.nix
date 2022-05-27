@@ -105,14 +105,26 @@
   virtualisation.oci-containers = {
     containers = {
       hass = {
-        image = "homeassistant/home-assistant:2021.5.5";
+        image = "homeassistant/home-assistant:2022.5.5";
         volumes = [
           "/home/a/.config/home-assistant:/config"
           "/etc/localtime:/etc/localtime:ro"
         ];
         extraOptions = [
           "--net=host"
-          "--device=/dev/ttyACM0"
+        ];
+      };
+      zwavejs2mqtt = {
+        image = "zwavejs/zwavejs2mqtt:6.9.0";
+        volumes = [
+          "/home/a/.config/zwavejs:/usr/src/app/store"
+        ];
+        ports = [
+          "8091:8091"
+          "3000:3000"
+        ];
+        extraOptions = [
+          "--device=/dev/ttyACM0:/dev/zwave"
         ];
       };
     };
