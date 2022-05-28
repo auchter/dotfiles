@@ -109,6 +109,8 @@
         volumes = [
           "/home/a/.config/home-assistant:/config"
           "/etc/localtime:/etc/localtime:ro"
+          "/mnt/storage/music:/media/music:ro"
+          "/mnt/storage/videos:/media/videos:ro"
         ];
         extraOptions = [
           "--net=host"
