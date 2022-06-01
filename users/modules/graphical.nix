@@ -81,29 +81,29 @@
   # obsidian currently depends on an old electron version, ugh
   nixpkgs.config.permittedInsecurePackages = [ "electron-13.6.9" ];
 
-  #services.swayidle = {
-  #  enable = true;
-  #  events = [
-  #    {
-  #      event = "resume";
-  #      command = "swaymsg \"output * dpms on\"";
-  #    }
-  #    {
-  #      event = "before-sleep";
-  #      command = "swaylock -f -c 000000";
-  #    }
-  #  ];
-  #  timeouts = [
-  #    {
-  #      timeout = 1200;
-  #      command = "swaylock -f -c 000000";
-  #    }
-  #    {
-  #      timeout = 1400;
-  #      command = "swaymsg \"output * dpms off\"";
-  #    }
-  #  ];
-  #};
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "after-resume";
+        command = ''swaymsg "output * dpms on"'';
+      }
+      {
+        event = "before-sleep";
+        command = "swaylock -f -c 000000";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 1200;
+        command = "swaylock -f -c 000000";
+      }
+      {
+        timeout = 1400;
+        command = ''swaymsg "output * dpms off"'';
+      }
+    ];
+  };
 
   programs.mako = {
     enable = true;
