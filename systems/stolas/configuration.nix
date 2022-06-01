@@ -129,6 +129,11 @@
           "--device=/dev/ttyACM0:/dev/zwave"
         ];
       };
+      appdaemon = {
+        image = "acockburn/appdaemon:4.2.1";
+        volumes = [ "/home/a/.config/home-assistant/appdaemon:/conf" ];
+        ports = [ "5050:5050" ];
+      };
     };
   };
 
@@ -136,6 +141,7 @@
     80 443 # nginx
     2049 # nfs
     139 445 # samba
+    5050
   ];
 
   networking.firewall.allowedUDPPorts = [
