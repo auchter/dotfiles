@@ -98,10 +98,6 @@
         timeout = 1200;
         command = "swaylock -f -c 000000";
       }
-      {
-        timeout = 1400;
-        command = ''swaymsg "output * dpms off"'';
-      }
     ];
   };
 
