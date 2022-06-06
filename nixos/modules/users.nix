@@ -43,5 +43,12 @@ in
     root = {
       openssh.authorizedKeys.keys = keys;
     };
+
+    mugsy = {
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyZ93Sfs2on2A148vdLDabkLp3k+8CQhUX1LDNQqImj6PyUKcTqOSZ//r+aF4iQv01IY8VynKpMgW4jl1jiQ1Hm7H5PFhp8TG3cZ3mokdUJm82QeQkVtExLWo335GbqGd6vtSl0lFYEp/4N8fu2urSCc0NqdEAk/QFZ26YDuNRHCWQwRxpB0tC3yGyjTSCvAYBCT9UCzSLffBkgUB2M2QmVIZc9KmEKqZTTLEy7gglfcOaQRPjtv2WOiop/rqVfuHqVC2WSIcJeWWXG1LZzoz/56zCnHTFIY4/7cuKQ9hj7IgIJMlpiXTaqoNp0mONuPo/Q8dwVwkIJym7PQVDEUeEbcjTarcNjxpikA2pFy6hkruANpuF9k49KUwGx1dYOGZAph/wZA6HxMPxRx+0aBjZUcNNvHh1lH+51KNgJzOstMUXXu5Y+t+ART9RnBq2g7obe5QlIpGwly0QZv7RPnjpN+lUGZvT0R1PBdVuvqX4dwVDOGn3YgtOIotYH3Li5Hs= mugsy@Jeffs-MacBook-Air.local"
+      ];
+    };
   };
 }
