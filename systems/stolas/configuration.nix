@@ -77,6 +77,14 @@
     };
   };
 
+  services.minidlna = {
+    enable = true;
+    mediaDirs = [
+      "/mnt/storage/music"
+      "/mnt/storage/videos"
+    ];
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts = {
@@ -142,10 +150,12 @@
     2049 # nfs
     139 445 # samba
     5050
+    8200 # minidlna
   ];
 
   networking.firewall.allowedUDPPorts = [
     137 138 # samba
+    1900 # minidlna
   ];
 
   # This value determines the NixOS release from which the default
