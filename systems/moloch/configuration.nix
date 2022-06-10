@@ -15,6 +15,7 @@
       ../../nixos/modules/sops.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix
+      ../../nixos/modules/restic.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
@@ -42,6 +43,8 @@
   sops.secrets.radicale_password = {
     owner = config.users.users.a.name;
   };
+  sops.secrets.restic_password = {};
+  sops.secrets.restic_env = {};
 
   fileSystems = lib.listToAttrs (
     map (name:
@@ -57,6 +60,15 @@
       })
     [ "music" "videos" "personal" ]
   );
+
+  services.restic.backups.backblaze = {
+    paths = [
+      "/home/a/photos"
+      "/home/a/Maildir"
+      "/home/a/obsidian"
+      "/home/a/proj"
+    ];
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
