@@ -59,6 +59,7 @@
   fonts.fontconfig.enable = lib.mkForce true;
 
   home.packages = with pkgs; [
+    anki
     font-awesome
     roboto-mono
     noto-fonts
