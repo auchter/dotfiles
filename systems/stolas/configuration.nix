@@ -15,12 +15,16 @@
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/radicale.nix
+      ../../nixos/modules/restic.nix
     ];
 
   networking.hostName = "stolas";
   networking.interfaces.eno1.useDHCP = true;
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.secrets.restic_password = {};
+  sops.secrets.restic_env = {};
+
   networking.wireguard.interfaces.wg0.ips = [ "10.100.0.3/24" ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,6 +34,12 @@
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+
+  services.restic.backups.backblaze.paths = [
+    "/mnt/storage/photos"
+    "/var/lib/gitolite"
+    "/var/lib/radicale"
+  ];
 
   environment.systemPackages = with pkgs; [
     beets
