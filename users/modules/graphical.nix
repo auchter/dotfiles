@@ -60,6 +60,7 @@
 
   home.packages = with pkgs; [
     anki
+    darktable
     font-awesome
     roboto-mono
     noto-fonts
