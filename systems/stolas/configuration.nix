@@ -39,6 +39,7 @@
     "/mnt/storage/photos"
     "/var/lib/gitolite"
     "/var/lib/radicale"
+    "/mnt/storage/music"
   ];
 
   environment.systemPackages = with pkgs; [
