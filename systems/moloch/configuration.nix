@@ -16,6 +16,7 @@
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix
       ../../nixos/modules/restic.nix
+      ./kde-connect.nix
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
