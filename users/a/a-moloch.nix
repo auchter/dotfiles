@@ -12,6 +12,7 @@
     ../modules/roomeqwizard.nix
     ../modules/tmux.nix
     ../modules/vim.nix
+    ../modules/viddy.nix
     ../modules/zsh.nix
     ../modules/thinkpad_x1c6.nix
   ];
