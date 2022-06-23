@@ -24,7 +24,7 @@ in
   '' +
   builtins.foldl' (x: y: x + y) "" (
     builtins.attrValues (
-      lib.mapAttrs (short: url: "<li>${short} = <a href=\"${url}\">${url}</a></li>") sites )) +
+      lib.mapAttrs (short: url: "    <li>${short} = <a href=\"${url}\">${url}</a></li>\n") sites )) +
   ''
       </ul></body>
     </html>
