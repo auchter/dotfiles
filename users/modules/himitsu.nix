@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     himitsu
     himitsu-firefox
+    himitsu-keyring
     hiprompt-gtk-py
-    keyring
   ];
 
   home.file.".mozilla/native-messaging-hosts/himitsu.json".source =
