@@ -14,6 +14,10 @@ let
     chinafamily = "https://chinafamilytx.com/menu/64123353";
     holdout = "https://holdoutbrewing.com/menus";
     tlocs = "https://tlocs-hotdogs-103892-107872.square.site/";
+    deedee = "https://deedeeatx.square.site/";
+    oddwood = "https://www.oddwoodales.com/take-out-menu";
+    batch = "https://www.toasttab.com/batch-craft-beer-kolaches/v3";
+    bummer = "https://www.toasttab.com/little-brother-bar/v3/";
   };
 in
 {
