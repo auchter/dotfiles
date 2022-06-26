@@ -18,6 +18,7 @@ let
     oddwood = "https://www.oddwoodales.com/take-out-menu";
     batch = "https://www.toasttab.com/batch-craft-beer-kolaches/v3";
     bummer = "https://www.toasttab.com/little-brother-bar/v3/";
+    meanwhile = "https://www.meanwhilebeer.com/beer";
   };
 in
 {
