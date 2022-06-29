@@ -4,6 +4,7 @@
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      auto-git-diff
       fugitive
       gitgutter
       gruvbox
