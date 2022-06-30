@@ -1,4 +1,8 @@
 { config, lib, pkgs, ... }: {
+  imports = [
+    ./waybar.nix
+  ];
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -50,10 +54,6 @@
       exec_always mkfifo $SWAYSOCK.wob
       exec_always tail -f $SWAYSOCK.wob | wob
     '';
-  };
-
-  programs.waybar = {
-    enable = true;
   };
 
   fonts.fontconfig.enable = lib.mkForce true;
