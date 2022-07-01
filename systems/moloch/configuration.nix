@@ -156,6 +156,7 @@
     };
 
     home.packages = with pkgs; [
+      elinks
       khal
       khard
       vdirsyncer
