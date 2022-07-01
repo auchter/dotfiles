@@ -86,6 +86,8 @@
           backlight = {
               format = "{percent}% {icon}";
               format-icons = ["" ""];
+              on-scroll-up = "brightnessctl -m s 1%+";
+              on-scroll-down = "brightnessctl -m s 1%-";
           };
           battery = {
               states = {
