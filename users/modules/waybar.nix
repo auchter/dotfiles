@@ -94,10 +94,10 @@
                   warning = 30;
                   critical = 15;
               };
-              format = "{capacity}% {icon}";
+              format = "{capacity}% {power}W {icon}";
               format-charging = "{capacity}% ";
               format-plugged = "{capacity}% ";
-              format-alt = "{time} {icon}";
+              format-alt = "{time} {power}W {icon}";
               format-icons = ["" "" "" "" ""];
           };
           network = {
