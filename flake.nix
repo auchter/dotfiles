@@ -49,6 +49,12 @@
           sops-nix.nixosModules.sops
         ];
       };
+      volac = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./systems/volac/configuration.nix
+        ];
+      };
     };
   };
 }
