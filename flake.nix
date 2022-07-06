@@ -52,6 +52,9 @@
       volac = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager.users.a = import ./users/a/a-server.nix;
+          }
           ./systems/volac/configuration.nix
         ];
       };
