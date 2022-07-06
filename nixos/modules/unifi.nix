@@ -3,6 +3,7 @@
 {
   services.unifi = {
     enable = true;
+    openFirewall = true;
   };
 
   # for admin gui
