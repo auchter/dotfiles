@@ -13,7 +13,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   networking.hostName = "volac";
-  time.timeZone = "America/New_York";
+  networking.interfaces.eth0.useDHCP = true;
 
   # Temporary...
   users.users.nixos = {
