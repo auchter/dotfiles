@@ -17,6 +17,25 @@
   networking.hostName = "volac";
   networking.interfaces.eth0.useDHCP = true;
 
+  virtualisation.oci-containers = {
+    containers = {
+      hass = {
+        image = "homeassistant/home-assistant:2022.6.0";
+        volumes = [
+          "/var/lib/home-assistant:/config"
+          "/etc/localtime:/etc/localtime:ro"
+        ];
+        extraOptions = [
+          "--net=host"
+        ];
+      };
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [
+    8123
+  ];
+
   # Temporary...
   users.users.nixos = {
     isNormalUser = true;
