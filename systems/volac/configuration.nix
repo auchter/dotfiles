@@ -38,6 +38,15 @@
     8543 # port for weather station access
   ];
 
+  services.mosquitto = {
+    enable = true;
+    listeners = [ {
+      acl = [ "pattern readwrite #" ];
+      omitPasswordAuth = true;
+      settings.allow_anonymous = true;
+    } ];
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts = {
