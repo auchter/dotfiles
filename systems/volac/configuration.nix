@@ -8,6 +8,7 @@
       ../../nixos/modules/users.nix
       ../../nixos/modules/acme.nix
       ../../nixos/modules/unfree.nix
+      ./adsb.nix
     ];
 
   boot.loader.grub.enable = false;
