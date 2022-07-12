@@ -45,7 +45,7 @@ in {
     altitude = altitude;
     host = "feed.adsbexchange.com";
     port = 31090;
-    user = "testuser";
+    user = siteName;
     input = {
       type = "dump1090";
       host = "localhost";
