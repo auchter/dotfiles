@@ -33,6 +33,7 @@
 
   networking.firewall.allowedTCPPorts = [
     8123 # home-assistant
+    1400 # home-assistant / sonos
     80 443 # nginx
     8543 # port for weather station access
   ];
