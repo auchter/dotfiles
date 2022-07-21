@@ -48,6 +48,10 @@
     } ];
   };
 
+  services.ws2902-mqtt = {
+    enable = true;
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts = {
