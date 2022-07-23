@@ -46,6 +46,13 @@
           root = "/var/www/phire.org";
         };
       };
+      "tmp.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          root = "/var/www/tmp.phire.org";
+        };
+      };
     };
   };
 
