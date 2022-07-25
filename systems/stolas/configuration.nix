@@ -3,8 +3,8 @@
 {
   imports =
     [ ./hardware-configuration.nix
+      ../common
       ../../nixos/modules/base.nix
-      ../../nixos/modules/users.nix
       ../../nixos/modules/airsonic.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
