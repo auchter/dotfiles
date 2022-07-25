@@ -21,6 +21,8 @@
 
   services.sshguard.enable = true;
 
+  programs.mosh.enable = true;
+
   security = {
     acme = {
       acceptTerms = true;
@@ -40,4 +42,13 @@
     "roomeqwizard"
     "unifi-controller"
   ];
+
+  networking.useDHCP = false;
+
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 }

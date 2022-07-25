@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/base.nix
       ../../nixos/modules/mpd.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix

@@ -5,7 +5,6 @@
     [ 
       ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/base.nix
       ./adsb.nix
     ];
 
