@@ -21,7 +21,7 @@
         }
         (./. + "/systems/${hostname}/configuration.nix")
         sops-nix.nixosModules.sops
-      ];
+      ] ++ (builtins.attrValues (import ./modules/nixos));
     };
   in
   {

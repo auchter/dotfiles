@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/airsonic.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/plex.nix
@@ -14,6 +13,11 @@
     ];
 
   networking.interfaces.eno1.useDHCP = true;
+
+  modules.airsonic = {
+    enable = true;
+    host = "airsonic.phire.org";
+  };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.secrets.restic_password = {};
