@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ../../nixos/modules/base.nix
       ../../nixos/modules/users.nix
-      ../../nixos/modules/acme.nix
       ../../nixos/modules/unfree.nix
       ./adsb.nix
     ];

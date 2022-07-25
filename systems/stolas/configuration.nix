@@ -5,7 +5,6 @@
     [ ./hardware-configuration.nix
       ../../nixos/modules/base.nix
       ../../nixos/modules/users.nix
-      ../../nixos/modules/acme.nix
       ../../nixos/modules/airsonic.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix

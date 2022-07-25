@@ -51,6 +51,13 @@
     };
   };
 
+  security = {
+    acme = {
+      acceptTerms = true;
+      defaults.email = "a@phire.org";
+    };
+  };
+
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   programs.gnupg.agent = {

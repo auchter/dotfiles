@@ -5,7 +5,6 @@
     [ ./hardware-configuration.nix
       ../../nixos/modules/base.nix
       ../../nixos/modules/users.nix
-      ../../nixos/modules/acme.nix
       ../../nixos/modules/miniflux.nix
       ../../nixos/modules/gophire.nix
       ../../nixos/modules/sops.nix
