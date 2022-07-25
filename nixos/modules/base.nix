@@ -1,10 +1,6 @@
 { config, pkgs, options, ... }:
 
 {
-  time.timeZone = "UTC";
-
-  networking.domain = "phire.org";
-  networking.search = [ config.networking.domain ];
   networking.useDHCP = false;
 
   environment.systemPackages = with pkgs; [
@@ -39,22 +35,11 @@
 
   programs.mosh.enable = true;
 
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-  };
-  services.sshguard.enable = true;
+
   services.fail2ban = {
     enable = true;
     bantime-increment = {
       enable = true;
-    };
-  };
-
-  security = {
-    acme = {
-      acceptTerms = true;
-      defaults.email = "michael.auchter@gmail.com";
     };
   };
 
@@ -75,10 +60,5 @@
     allowReboot = true;
     dates = "10:00";
   };
-
-  nix.package = pkgs.nixUnstable;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
 }
 
