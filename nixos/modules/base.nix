@@ -41,16 +41,5 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  nix.gc = {
-    automatic = true;
-    dates = "10:20";
-  };
-
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = true;
-    dates = "10:00";
-  };
 }
 
