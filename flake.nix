@@ -17,7 +17,6 @@
         }
         home-manager.nixosModules.home-manager {
           home-manager.users.a = import (./. + "/users/a/a-${a-flavor}.nix");
-          home-manager.users.guest = import ./users/guest.nix;
         }
         (./. + "/systems/${hostname}/configuration.nix")
         sops-nix.nixosModules.sops
