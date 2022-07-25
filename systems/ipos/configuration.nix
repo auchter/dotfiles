@@ -7,7 +7,6 @@
       ../../nixos/modules/base.nix
       ../../nixos/modules/miniflux.nix
       ../../nixos/modules/gophire.nix
-      ../../nixos/modules/sops.nix
       ../../nixos/modules/wg-server.nix
     ];
 

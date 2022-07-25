@@ -3,6 +3,7 @@
 {
   imports = [
     ./users.nix
+    ./sops.nix
   ];
 
   time.timeZone = "UTC";
