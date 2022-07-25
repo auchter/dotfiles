@@ -11,7 +11,6 @@
       ../../nixos/modules/wifi.nix
       ../../nixos/modules/restic.nix
       ./kde-connect.nix
-#      <nix-ld/modules/nix-ld.nix>
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
