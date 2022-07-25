@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ../common
       ../../nixos/modules/base.nix
-      ../../nixos/modules/unfree.nix
       ./adsb.nix
     ];
 

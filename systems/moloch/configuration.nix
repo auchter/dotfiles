@@ -9,7 +9,6 @@
       ../../nixos/modules/syncthing.nix
       ../../nixos/modules/dev.nix
       ../../nixos/modules/laptop.nix
-      ../../nixos/modules/unfree.nix
       ../../nixos/modules/sops.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix

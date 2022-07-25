@@ -9,7 +9,6 @@
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/plex.nix
-      ../../nixos/modules/unfree.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/radicale.nix
       ../../nixos/modules/restic.nix

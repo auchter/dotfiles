@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }:
+{ config, pkgs, options, lib, ... }:
 
 {
   imports = [
@@ -30,4 +30,12 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "google-chrome"
+    "obsidian"
+    "plexmediaserver"
+    "roomeqwizard"
+    "unifi-controller"
+  ];
 }

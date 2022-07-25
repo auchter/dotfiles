@@ -3,7 +3,6 @@
 {
   imports = [
     ./common.nix
-    ../../nixos/modules/unfree.nix
     ../modules/git.nix
     ../modules/gpg-agent.nix
     ../modules/graphical.nix
