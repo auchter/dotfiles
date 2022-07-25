@@ -11,7 +11,6 @@
       ../../nixos/modules/mpd-client.nix
       ../../nixos/modules/laptop.nix
       ../../nixos/modules/unfree.nix
-      ../../nixos/modules/geoclue.nix
       ../../nixos/modules/sops.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix

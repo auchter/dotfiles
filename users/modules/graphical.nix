@@ -14,11 +14,6 @@
     enable = true;
   };
 
-  services.gammastep = {
-    enable = false;
-    provider = "geoclue2";
-  };
-
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
