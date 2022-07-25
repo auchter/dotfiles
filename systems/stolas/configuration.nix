@@ -16,7 +16,6 @@
       ../../nixos/modules/restic.nix
     ];
 
-  networking.hostName = "stolas";
   networking.interfaces.eno1.useDHCP = true;
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;

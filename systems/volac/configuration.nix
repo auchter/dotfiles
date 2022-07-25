@@ -14,7 +14,6 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "volac";
   networking.interfaces.eth0.useDHCP = true;
 
   virtualisation.oci-containers = {

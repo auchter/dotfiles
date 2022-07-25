@@ -14,7 +14,6 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
-  networking.hostName = "ipos";
   networking.interfaces.enp0s4.useDHCP = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 

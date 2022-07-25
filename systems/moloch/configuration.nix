@@ -20,7 +20,6 @@
 #      <nix-ld/modules/nix-ld.nix>
     ];
 
-  networking.hostName = "moloch";
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 

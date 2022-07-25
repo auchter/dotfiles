@@ -13,8 +13,6 @@
       ../../nixos/modules/unifi.nix
     ];
 
-  networking.hostName = "orobas";
-
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   networking.wireguard.interfaces.wg0.ips = [ "10.100.0.4/24" ];
 
