@@ -35,14 +35,6 @@
 
   programs.mosh.enable = true;
 
-
-  services.fail2ban = {
-    enable = true;
-    bantime-increment = {
-      enable = true;
-    };
-  };
-
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   programs.gnupg.agent = {

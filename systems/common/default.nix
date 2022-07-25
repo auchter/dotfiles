@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./fail2ban.nix
     ./users.nix
     ./sops.nix
   ];
