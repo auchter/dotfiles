@@ -7,7 +7,6 @@
       ../../nixos/modules/users.nix
       ../../nixos/modules/acme.nix
       ../../nixos/modules/airsonic.nix
-      ../../nixos/modules/ikiwiki.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/plex.nix
