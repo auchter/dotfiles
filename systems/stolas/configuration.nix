@@ -10,7 +10,6 @@
       ../../nixos/modules/ikiwiki.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
-      ../../nixos/modules/gitolite.nix
       ../../nixos/modules/plex.nix
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/wg-client.nix
@@ -37,7 +36,6 @@
 
   services.restic.backups.backblaze.paths = [
     "/mnt/storage/photos"
-    "/var/lib/gitolite"
     "/var/lib/radicale"
     "/mnt/storage/music"
   ];
