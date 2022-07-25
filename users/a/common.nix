@@ -15,4 +15,10 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+  home.packages = with pkgs; [
+    bc
+    bmap-tools
+    dterm
+  ];
 }
