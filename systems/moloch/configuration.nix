@@ -8,7 +8,6 @@
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
       ../../nixos/modules/dev.nix
-      ../../nixos/modules/mpd-client.nix
       ../../nixos/modules/laptop.nix
       ../../nixos/modules/unfree.nix
       ../../nixos/modules/sops.nix

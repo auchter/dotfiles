@@ -33,5 +33,9 @@
     exiftool
     kicad
     zotero
+
+    mpc_cli
+    ncmpc
+    ncmpcpp
   ];
 }
