@@ -54,7 +54,7 @@
   security = {
     acme = {
       acceptTerms = true;
-      defaults.email = "a@phire.org";
+      defaults.email = "michael.auchter@gmail.com";
     };
   };
 
