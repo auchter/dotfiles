@@ -6,58 +6,28 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }: {
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
+  let
+    mkSystem = hostname: system: a-flavor:
+    nixpkgs.lib.nixosSystem {
+      system = system;
+      modules = [
+        home-manager.nixosModules.home-manager {
+          home-manager.users.a = import (./. + "/users/a/a-${a-flavor}.nix");
+          home-manager.users.guest = import ./users/guest.nix;
+        }
+        (./. + "/systems/${hostname}/configuration.nix")
+        sops-nix.nixosModules.sops
+      ];
+    };
+  in
+  {
     nixosConfigurations = {
-      moloch = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a/a-moloch.nix;
-            home-manager.users.guest = import ./users/guest.nix;
-          }
-          ./systems/moloch/configuration.nix
-          sops-nix.nixosModules.sops
-        ];
-      };
-      ipos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a/a-server.nix;
-          }
-          ./systems/ipos/configuration.nix
-          sops-nix.nixosModules.sops
-        ];
-      };
-      stolas = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a/a-server.nix;
-          }
-          ./systems/stolas/configuration.nix
-          sops-nix.nixosModules.sops
-        ];
-      };
-      orobas = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a/a-server.nix;
-          }
-          ./systems/orobas/configuration.nix
-          sops-nix.nixosModules.sops
-        ];
-      };
-      volac = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.users.a = import ./users/a/a-server.nix;
-          }
-          ./systems/volac/configuration.nix
-        ];
-      };
+      moloch = mkSystem "moloch" "x86_64-linux" "moloch";
+      ipos = mkSystem "ipos" "x86_64-linux" "server";
+      stolas = mkSystem "stolas" "x86_64-linux" "server";
+      orobas = mkSystem "orobas" "x86_64-linux" "server";
+      volac = mkSystem "volac" "aarch64-linux" "server";
     };
   };
 }
