@@ -17,8 +17,15 @@
   };
 
   home.packages = with pkgs; [
+    age
     bc
     bmap-tools
     dterm
+    htop
+    jq
+    moreutils
+    nmap
+    tmux
+    wget
   ];
 }
