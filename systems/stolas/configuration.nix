@@ -6,7 +6,6 @@
       ../common
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
-      ../../nixos/modules/plex.nix
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/radicale.nix
       ../../nixos/modules/restic.nix
@@ -17,6 +16,11 @@
   modules.airsonic = {
     enable = true;
     host = "airsonic.phire.org";
+  };
+
+  services.plex = {
+    enable = true;
+    openFirewall = true;
   };
 
   modules.home-assistant = {
