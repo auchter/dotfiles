@@ -36,6 +36,8 @@
     configDir = "/var/lib/home-assistant";
   };
 
+  hardware.rtl-sdr.enable = true;
+
   # Temporary...
   users.users.nixos = {
     isNormalUser = true;

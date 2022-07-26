@@ -9,8 +9,6 @@ let
   mlatPort = 30104; # port for mlat-client to send mlat data to readsb
   adsbPort = 30005; # port that readsb outputs beast data
 in {
-  hardware.rtl-sdr.enable = true;
-
   # mostly so the viewadsb tool is available...
   environment.systemPackages = with pkgs; [
     readsb
