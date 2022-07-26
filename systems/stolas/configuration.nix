@@ -111,17 +111,6 @@
     ];
   };
 
-  services.nginx = {
-    enable = true;
-    virtualHosts = {
-      "stolas.phire.org" = {
-        forceSSL = true;
-        enableACME = true;
-        root = "/srv/stolas.phire.org";
-      };
-    };
-  };
-
   networking.firewall.allowedTCPPorts = [
     80 443 # nginx
     2049 # nfs
