@@ -5,7 +5,6 @@
     [ 
       ./hardware-configuration.nix
       ../common
-      ./adsb.nix
     ];
 
   boot.loader.grub.enable = false;
@@ -37,6 +36,16 @@
   };
 
   hardware.rtl-sdr.enable = true;
+
+  modules.ads-b = {
+    enable = true;
+    latitude = 43.981064;
+    longitude = -83.181330;
+    altitude = 183.0;
+    uuid = "6a97aa61-e1b4-4185-9225-c67306e5f968";
+    siteName = "caseville";
+    vhost = "caseville.phire.org";
+  };
 
   # Temporary...
   users.users.nixos = {
