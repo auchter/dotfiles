@@ -10,7 +10,6 @@
       ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix
       ../../nixos/modules/restic.nix
-      ./kde-connect.nix
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
