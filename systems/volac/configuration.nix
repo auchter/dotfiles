@@ -13,25 +13,7 @@
 
   networking.interfaces.eth0.useDHCP = true;
 
-  virtualisation.oci-containers = {
-    containers = {
-      hass = {
-        image = "homeassistant/home-assistant:2022.6.0";
-        volumes = [
-          "/var/lib/home-assistant:/config"
-          "/etc/localtime:/etc/localtime:ro"
-        ];
-        extraOptions = [
-          "--net=host"
-        ];
-      };
-    };
-  };
-
   networking.firewall.allowedTCPPorts = [
-    8123 # home-assistant
-    1400 # home-assistant / sonos
-    80 443 # nginx
     8543 # port for weather station access
   ];
 
@@ -46,6 +28,12 @@
 
   services.ws2902-mqtt = {
     enable = true;
+  };
+
+  modules.home-assistant = {
+    enable = true;
+    vhost = "cottage.phire.org";
+    configDir = "/var/lib/home-assistant";
   };
 
   services.nginx = {
