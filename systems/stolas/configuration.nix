@@ -19,6 +19,20 @@
     host = "airsonic.phire.org";
   };
 
+  modules.home-assistant = {
+    enable = true;
+    vhost = "independent.phire.org";
+    configDir = "/home/a/.config/home-assistant";
+    appdaemon = {
+      enable = true;
+    };
+    zwavejs = {
+      enable = true;
+      adapter = "/dev/ttyACM0";
+      configDir = "/home/a/.config/zwavejs";
+    };
+  };
+
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.secrets.restic_password = {};
   sops.secrets.restic_env = {};
@@ -96,20 +110,6 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "independent.phire.org" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8123";
-          proxyWebsockets = true;
-          extraConfig =
-            "proxy_redirect off;" +
-            "proxy_set_header Host $host;" +
-            "proxy_set_header X-Real-IP $remote_addr;" +
-            "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;" +
-            "proxy_set_header X-Forwarded-Proto $scheme;";
-        };
-      };
       "stolas.phire.org" = {
         forceSSL = true;
         enableACME = true;
@@ -118,46 +118,10 @@
     };
   };
 
-  virtualisation.oci-containers = {
-    containers = {
-      hass = {
-        image = "homeassistant/home-assistant:2022.6.0";
-        volumes = [
-          "/home/a/.config/home-assistant:/config"
-          "/etc/localtime:/etc/localtime:ro"
-          "/mnt/storage/music:/media/music:ro"
-          "/mnt/storage/videos:/media/videos:ro"
-        ];
-        extraOptions = [
-          "--net=host"
-        ];
-      };
-      zwavejs2mqtt = {
-        image = "zwavejs/zwavejs2mqtt:6.10.0";
-        volumes = [
-          "/home/a/.config/zwavejs:/usr/src/app/store"
-        ];
-        ports = [
-          "8091:8091"
-          "3000:3000"
-        ];
-        extraOptions = [
-          "--device=/dev/ttyACM0:/dev/zwave"
-        ];
-      };
-      appdaemon = {
-        image = "acockburn/appdaemon:4.2.1";
-        volumes = [ "/home/a/.config/home-assistant/appdaemon:/conf" ];
-        ports = [ "5050:5050" ];
-      };
-    };
-  };
-
   networking.firewall.allowedTCPPorts = [
     80 443 # nginx
     2049 # nfs
     139 445 # samba
-    5050
     8200 # minidlna
   ];
 
