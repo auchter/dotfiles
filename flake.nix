@@ -31,6 +31,9 @@
       stolas = mkSystem "stolas" "x86_64-linux" "server";
       orobas = mkSystem "orobas" "x86_64-linux" "server";
       volac = mkSystem "volac" "aarch64-linux" "server";
+
+      ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
+      gpg-provision = mkSystem "gpg-provision" "x86_64-linux" "server";
     };
   };
 }
