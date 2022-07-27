@@ -11,6 +11,12 @@
     mkSystem = hostname: system: a-flavor:
     nixpkgs.lib.nixosSystem {
       system = system;
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          (import ./overlay { inherit nixpkgs; })
+        ];
+      };
       modules = [
         {
           networking.hostName = hostname;
