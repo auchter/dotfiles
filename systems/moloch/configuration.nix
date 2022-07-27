@@ -23,18 +23,6 @@
   };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
-  sops.secrets.migadu_password = {
-    owner = config.users.users.a.name;
-  };
-  sops.secrets.gmail_password = {
-    owner = config.users.users.a.name;
-  };
-  sops.secrets.hass_token = {
-    owner = config.users.users.a.name;
-  };
-  sops.secrets.radicale_password = {
-    owner = config.users.users.a.name;
-  };
   sops.secrets.restic_password = {};
   sops.secrets.restic_env = {};
 
@@ -100,7 +88,7 @@
         primary = true;
         realName = "Michael Auchter";
         userName = "a@phire.org";
-        passwordCommand = "cat ${config.sops.secrets.migadu_password.path}";
+        passwordCommand = "${pkgs.pass}/bin/pass email/a@phire.org";
         folders.inbox = "INBOX";
         imap.host = "imap.migadu.com";
         smtp.host = "smtp.migadu.com";
@@ -114,7 +102,7 @@
         primary = false;
         realName = "Michael Auchter";
         userName = "michael.auchter@gmail.com";
-        passwordCommand = "cat ${config.sops.secrets.gmail_password.path}";
+        passwordCommand = "${pkgs.pass}/bin/pass tokens/gmail";
         folders.inbox = "INBOX";
         flavor = "gmail.com";
         lieer = {
@@ -142,7 +130,7 @@
 
     home.sessionVariables = {
       HASS_SERVER = "https://home.phire.org";
-      HASS_TOKEN = "$(cat ${config.sops.secrets.hass_token.path})";
+      HASS_TOKEN = "$(${pkgs.pass}/bin/pass tokens/hass)";
       MPD_HOST = "phire-preamp";
     };
 
@@ -171,7 +159,7 @@
       type = "carddav"
       url = "https://radicale.phire.org"
       username = "a"
-      password.fetch = ["command", "cat", "${config.sops.secrets.radicale_password.path}"]
+      password.fetch = ["command", "${pkgs.pass}/bin/pass", "radicale"]
 
       [pair calendar]
       a = "calendar_local"
@@ -187,7 +175,7 @@
       type = "caldav"
       url = "https://radicale.phire.org"
       username = "a"
-      password.fetch = ["command", "cat", "${config.sops.secrets.radicale_password.path}"]
+      password.fetch = ["command", "${pkgs.pass}/bin/pass", "radicale"]
     '';
 
     xdg.configFile."khard/khard.conf".text = ''
