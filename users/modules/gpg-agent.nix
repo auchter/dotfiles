@@ -4,6 +4,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
+    pinentryFlavor = "curses";
   };
 
   programs.gpg = let
