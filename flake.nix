@@ -13,6 +13,7 @@
       system = system;
       pkgs = import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
         overlays = [
           (import ./overlay { inherit nixpkgs; })
         ];
