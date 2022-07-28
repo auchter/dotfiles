@@ -77,21 +77,6 @@
 
   virtualisation.docker.enable = true;
 
-  home-manager.users.a = {
-    programs.notmuch.enable = true;
-    programs.neomutt.enable = true;
-    programs.msmtp.enable = true;
-    programs.offlineimap.enable = true;
-    programs.lieer.enable = true;
-    programs.alot.enable = true;
-
-    home.sessionVariables = {
-      HASS_SERVER = "https://home.phire.org";
-      HASS_TOKEN = "$(${pkgs.pass}/bin/pass tokens/hass)";
-      MPD_HOST = "phire-preamp";
-    };
-  };
-
   services.offlineimap = {
     enable = true;
     install = true;
