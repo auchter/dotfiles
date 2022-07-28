@@ -1,2 +1,3 @@
 {
+  calendar = ./calendar.nix;
 }

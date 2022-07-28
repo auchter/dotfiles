@@ -24,6 +24,7 @@
         }
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
+          home-manager.sharedModules = builtins.attrValues (import ./modules/home-manager);
           home-manager.users.a = import (./. + "/users/a/a-${a-flavor}.nix");
         }
         (./. + "/systems/${hostname}/configuration.nix")
