@@ -32,6 +32,8 @@
     khal
     khard
     vdirsyncer
+
+    home-assistant-cli
   ];
 
   accounts.email.accounts = {
