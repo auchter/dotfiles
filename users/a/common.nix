@@ -31,7 +31,6 @@
     elinks
     khal
     khard
-    vdirsyncer
 
     home-assistant-cli
   ];
@@ -75,42 +74,42 @@
     application/pdf; mupdf %s;
   '';
 
-  xdg.configFile."vdirsyncer/config".text = ''
-    [general]
-    status_path = "~/.vdirsyncer/status/"
-
-    [pair contacts]
-    a = "contacts_local"
-    b = "contacts_remote"
-    collections = ["from a", "from b"]
-
-    [storage contacts_local]
-    type = "filesystem"
-    path = "~/.contacts"
-    fileext = ".vcf"
-
-    [storage contacts_remote]
-    type = "carddav"
-    url = "https://radicale.phire.org"
-    username = "a"
-    password.fetch = ["command", "${pkgs.pass}/bin/pass", "radicale"]
-
-    [pair calendar]
-    a = "calendar_local"
-    b = "calendar_remote"
-    collections = ["from a", "from b"]
-
-    [storage calendar_local]
-    type = "filesystem"
-    path = "~/.calendars"
-    fileext = ".ics"
-
-    [storage calendar_remote]
-    type = "caldav"
-    url = "https://radicale.phire.org"
-    username = "a"
-    password.fetch = ["command", "${pkgs.pass}/bin/pass", "radicale"]
-  '';
+  modules.vdirsyncer = let
+    radicaleConfig = type: {
+      type = type;
+      url = "https://radicale.phire.org";
+      username = "a";
+      "password.fetch" = ["command" "${pkgs.pass}/bin/pass" "radicale"];
+    };
+  in {
+    enable = true;
+    storage = {
+      contacts_local = {
+        type = "filesystem";
+        path = "~/.contacts";
+        fileext = ".vcf";
+      };
+      calendar_local = {
+        type = "filesystem";
+        path = "~/.calendars";
+        fileext = ".ics";
+      };
+      contacts_remote = radicaleConfig "carddav";
+      calendar_remote = radicaleConfig "caldav";
+    };
+    pairs = {
+      contacts = {
+        a = "contacts_local";
+        b = "contacts_remote";
+        collections = ["from a" "from b"];
+      };
+      calendar = {
+        a = "calendar_local";
+        b = "calendar_remote";
+        collections = ["from a" "from b"];
+      };
+    };
+  };
 
   xdg.configFile."khard/khard.conf".text = ''
     [addressbooks]
