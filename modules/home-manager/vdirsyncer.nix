@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.calendar;
+  cfg = config.modules.vdirsyncer;
 in {
   options.modules.calendar = {
-    enable = mkEnableOption "Calendaring";
+    enable = mkEnableOption "vdirsyncer";
   };
 }

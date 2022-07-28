@@ -1,3 +1,3 @@
 {
-  calendar = ./calendar.nix;
+  vdirsyncer = ./vdirsyncer.nix;
 }
