@@ -15,7 +15,7 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
-  networking.wireguard.interfaces.wg0.ips = [ "10.100.0.2/24" ];
+  networking.wg-quick.interfaces.wg0.address = [ "10.100.0.2/24" ];
 
   networking.wireless = {
     enable = true;

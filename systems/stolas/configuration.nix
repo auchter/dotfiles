@@ -41,7 +41,7 @@
   sops.secrets.restic_password = {};
   sops.secrets.restic_env = {};
 
-  networking.wireguard.interfaces.wg0.ips = [ "10.100.0.3/24" ];
+  networking.wg-quick.interfaces.wg0.ips = [ "10.100.0.3/24" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -12,7 +12,7 @@
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
-  networking.wireguard.interfaces.wg0.ips = [ "10.100.0.4/24" ];
+  networking.wg-quick.interfaces.wg0.ips = [ "10.100.0.4/24" ];
 
   services.fail2ban.ignoreIP = [ "192.168.0.0/24" ];
 
