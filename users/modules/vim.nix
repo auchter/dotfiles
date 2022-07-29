@@ -3,6 +3,9 @@
 {
   programs.vim = {
     enable = true;
+    packageConfigurable = pkgs.vim_configurable.override {
+      guiSupport = false;
+    };
     plugins = with pkgs.vimPlugins; [
       auto-git-diff
       fugitive

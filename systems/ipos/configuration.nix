@@ -13,7 +13,7 @@
   modules.wireguard.server = {
     enable = true;
     externalInterface = "enp0s4";
-  }
+  };
 
   networking.interfaces.enp0s4.useDHCP = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
