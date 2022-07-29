@@ -6,12 +6,16 @@
       ../common
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
-      ../../nixos/modules/wg-client.nix
       ../../nixos/modules/radicale.nix
       ../../nixos/modules/restic.nix
     ];
 
   networking.interfaces.eno1.useDHCP = true;
+
+  modules.wireguard.client = {
+    enable = true;
+    server = "ipos";
+  };
 
   modules.airsonic = {
     enable = true;
@@ -40,8 +44,6 @@
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.secrets.restic_password = {};
   sops.secrets.restic_env = {};
-
-  networking.wg-quick.interfaces.wg0.ips = [ "10.100.0.3/24" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

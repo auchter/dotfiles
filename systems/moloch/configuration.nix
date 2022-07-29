@@ -7,7 +7,6 @@
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
       ../../nixos/modules/laptop.nix
-      ../../nixos/modules/wg-client.nix
       ../../nixos/modules/wifi.nix
       ../../nixos/modules/restic.nix
     ];
@@ -15,7 +14,10 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
-  networking.wg-quick.interfaces.wg0.address = [ "10.100.0.2/24" ];
+  modules.wireguard.client = {
+    enable = true;
+    server = "ipos";
+  };
 
   networking.wireless = {
     enable = true;

@@ -6,10 +6,14 @@
       ../common
       ../../nixos/modules/miniflux.nix
       ../../nixos/modules/gophire.nix
-      ../../nixos/modules/wg-server.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
+
+  modules.wireguard.server = {
+    enable = true;
+    externalInterface = "enp0s4";
+  }
 
   networking.interfaces.enp0s4.useDHCP = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];

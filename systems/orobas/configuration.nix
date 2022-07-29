@@ -7,12 +7,15 @@
       ../../nixos/modules/mpd.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
-      ../../nixos/modules/wg-client.nix
       ../../nixos/modules/unifi.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
-  networking.wg-quick.interfaces.wg0.ips = [ "10.100.0.4/24" ];
+
+  modules.wireguard.client = {
+    enable = true;
+    server = "ipos";
+  };
 
   services.fail2ban.ignoreIP = [ "192.168.0.0/24" ];
 
