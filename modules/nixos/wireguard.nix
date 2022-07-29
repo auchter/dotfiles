@@ -47,56 +47,59 @@ in {
     };
   };
 
-  config = mkIf (cfg.server.enable || cfg.client.enable) {
-    services.fail2ban.ignoreIP = [ networkMask ];
-  } // mkIf cfg.server.enable {
-    sops.secrets.wireguard_private = {};
-    networking.nat = {
-      enable = true;
-      externalInterface = cfg.server.externalInterface;
-      internalInterfaces = [ interface ];
-    };
+  config = mkMerge [
+    (mkIf cfg.server.enable {
+      sops.secrets.wireguard_private = {};
+      services.fail2ban.ignoreIP = [ networkMask ];
+      networking.nat = {
+        enable = true;
+        externalInterface = cfg.server.externalInterface;
+        internalInterfaces = [ interface ];
+      };
 
-    networking.firewall = {
-      allowedUDPPorts = [ 53 port ];
-      allowedTCPPorts = [ 53 ];
-    };
+      networking.firewall = {
+        allowedUDPPorts = [ 53 port ];
+        allowedTCPPorts = [ 53 ];
+      };
 
-    services.dnsmasq = {
-      enable = true;
-      extraConfig = ''
-        interface=${interface}
-      '';
-    };
+      services.dnsmasq = {
+        enable = true;
+        extraConfig = ''
+          interface=${interface}
+        '';
+      };
 
-    networking.extraHosts = mapAttrs (host: info: "${info.ip} ${host}.internal") hosts;
+      networking.extraHosts = concatStringsSep "\n" (mapAttrsToList (host: info: "${info.ip} ${host}.internal") hosts);
 
-    networking.wireguard.interfaces.${interface} = {
-      ips = [ "10.100.0.1/24" ];
-      listenPort = port;
-      privateKeyFile = config.sops.secrets.wireguard_private.path;
-      peers = mapAttrs (host: info: {
-        publicKey = info.publicKey;
-        allowedIPs = [ "${info.ip}/32" ];
-      }) hosts;
-    };
-  } // mkIf cfg.client.enable {
-    sops.secrets.wireguard_private = {};
-    networking.firewall.allowedUDPPorts = [ port ];
+      networking.wireguard.interfaces."${interface}" = {
+        ips = [ "10.100.0.1/24" ];
+        listenPort = port;
+        privateKeyFile = config.sops.secrets.wireguard_private.path;
+        peers = mapAttrsToList (host: info: {
+          publicKey = info.publicKey;
+          allowedIPs = [ "${info.ip}/32" ];
+        }) hosts;
+      };
+    })
+    (mkIf cfg.client.enable {
+      sops.secrets.wireguard_private = {};
+      networking.firewall.allowedUDPPorts = [ port ];
+      services.fail2ban.ignoreIP = [ networkMask ];
 
-    networking.wg-quick.interfaces."${interface}" = {
-      listenPort = port;
-      privateKeyFile = config.sops.secrets.wireguard_private.path;
-      dns = [ hosts."${cfg.client.server}".ip ];
-      address = [ hosts."${config.networking.hostName}".ip ];
-      peers = [
-        {
-          publicKey = hosts."${cfg.client.server}".publicKey;
-          allowedIPs = [ networkMask ];
-          endpoint = "${cfg.client.server}.phire.org:${toString port}";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
+      networking.wg-quick.interfaces."${interface}" = {
+        listenPort = port;
+        privateKeyFile = config.sops.secrets.wireguard_private.path;
+     #   dns = [ hosts."${cfg.client.server}".ip ];
+        address = [ hosts."${config.networking.hostName}".ip ];
+        peers = [
+          {
+            publicKey = hosts."${cfg.client.server}".publicKey;
+            allowedIPs = [ networkMask ];
+            endpoint = "${cfg.client.server}.phire.org:${toString port}";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    })
+  ];
 }
