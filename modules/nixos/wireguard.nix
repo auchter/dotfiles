@@ -48,9 +48,12 @@ in {
   };
 
   config = mkMerge [
+    (mkIf (cfg.server.enable || cfg.client.enable) {
+      services.fail2ban.ignoreIP = [ networkMask ];
+      networking.extraHosts = concatStringsSep "\n" (mapAttrsToList (host: info: "${info.ip} ${host}.internal") hosts);
+    })
     (mkIf cfg.server.enable {
       sops.secrets.wireguard_private = {};
-      services.fail2ban.ignoreIP = [ networkMask ];
       networking.nat = {
         enable = true;
         externalInterface = cfg.server.externalInterface;
@@ -69,8 +72,6 @@ in {
         '';
       };
 
-      networking.extraHosts = concatStringsSep "\n" (mapAttrsToList (host: info: "${info.ip} ${host}.internal") hosts);
-
       networking.wireguard.interfaces."${interface}" = {
         ips = [ "10.100.0.1/24" ];
         listenPort = port;
@@ -84,12 +85,10 @@ in {
     (mkIf cfg.client.enable {
       sops.secrets.wireguard_private = {};
       networking.firewall.allowedUDPPorts = [ port ];
-      services.fail2ban.ignoreIP = [ networkMask ];
 
       networking.wg-quick.interfaces."${interface}" = {
         listenPort = port;
         privateKeyFile = config.sops.secrets.wireguard_private.path;
-     #   dns = [ hosts."${cfg.client.server}".ip ];
         address = [ hosts."${config.networking.hostName}".ip ];
         peers = [
           {
