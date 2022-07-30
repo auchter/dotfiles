@@ -6,7 +6,6 @@
     ../modules/git.nix
     ../modules/gpg-agent.nix
     ../modules/graphical.nix
-    ../modules/himitsu.nix
     ../modules/ncmpcpp.nix
     ../modules/password-store.nix
     ../modules/roomeqwizard.nix
