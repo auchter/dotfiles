@@ -84,6 +84,14 @@
     install = true;
   };
 
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplip ];
+  };
+
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
   # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
   programs.sway.enable = true;
 
