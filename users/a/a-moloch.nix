@@ -171,4 +171,9 @@
     [default]
     default_calendar = 9bacadaa-74d7-e673-249c-0b3859a3e2c3
   '';
+
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
 }
