@@ -21,11 +21,6 @@
     font.size = 12.0;
   };
 
-  programs.himitsu = {
-    enable = true;
-    browsers = [ "firefox" ];
-  };
-
   home.packages = with pkgs; [
     esphome
     exiftool
