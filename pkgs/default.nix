@@ -5,7 +5,7 @@
   dterm = pkgs.callPackage ./dterm { };
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
-  mlat-client = pkgs.callPackage ./mlat-client { };
+  mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   readsb = pkgs.callPackage ./readsb { };
   tar1090 = pkgs.callPackage ./tar1090 { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
