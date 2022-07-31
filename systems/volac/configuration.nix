@@ -12,6 +12,12 @@
 
   networking.interfaces.eth0.useDHCP = true;
 
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  modules.wireguard.client = {
+    enable = true;
+    server = "ipos";
+  };
+
   networking.firewall.allowedTCPPorts = [
     8543 # port for weather station access
   ];

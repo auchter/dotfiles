@@ -25,6 +25,10 @@ let
       publicKey = "ioMtg6Y3xPPs15JmSYXK8GZi+MLqDjrjo8/RsybuE3s=";
       ip = "10.100.0.5";
     };
+    volac = {
+      publicKey = "1R5PC7XTcDtNy5J3EFb5dkRlO2hdbIIx5nfbsWysgAk=";
+      ip = "10.100.0.6";
+    };
   };
   port = 51820;
   interface = "wg0";
