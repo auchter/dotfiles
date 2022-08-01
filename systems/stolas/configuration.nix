@@ -12,6 +12,10 @@
 
   networking.interfaces.eno1.useDHCP = true;
 
+  modules.logo-site = {
+    logo = ./stolas.png;
+  };
+
   modules.wireguard.client = {
     enable = true;
     server = "ipos";

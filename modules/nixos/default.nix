@@ -2,6 +2,7 @@
   ads-b = ./ads-b.nix;
   airsonic = ./airsonic.nix;
   home-assistant = ./home-assistant.nix;
+  logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;
   readsb = ./readsb.nix;
   tar1090 = ./tar1090.nix;
