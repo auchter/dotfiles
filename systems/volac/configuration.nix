@@ -12,6 +12,12 @@
 
   networking.interfaces.eth0.useDHCP = true;
 
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/6f4bc97f-bdfb-40c2-bd9e-aec97b31ab6f";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   modules.wireguard.client = {
     enable = true;
