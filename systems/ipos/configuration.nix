@@ -48,6 +48,13 @@
     terminal_output serial
   '';
 
+  services.soju = {
+    enable = true;
+    listen = [ "irc+insecure://10.100.0.1:6667" ];
+    # Can remove once https://github.com/NixOS/nixpkgs/pull/184845 is merged
+    tlsCertificate = null;
+  };
+
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
