@@ -1,6 +1,7 @@
 {
   ads-b = ./ads-b.nix;
   airsonic = ./airsonic.nix;
+  gocodes = ./gocodes.nix;
   home-assistant = ./home-assistant.nix;
   logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;

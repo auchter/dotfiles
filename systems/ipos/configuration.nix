@@ -5,7 +5,6 @@
     [ ./hardware-configuration.nix
       ../common
       ../../nixos/modules/miniflux.nix
-      ../../nixos/modules/gophire.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
@@ -13,6 +12,30 @@
   modules.wireguard.server = {
     enable = true;
     externalInterface = "enp0s4";
+  };
+
+  modules.gocodes = {
+    enable = true;
+    vhost = "go.phire.org";
+    siteMap = {
+      hn = "https://news.ycombinator.com";
+      liveoak = "https://liveoakbrewing.com/taproom/";
+      pinthouse = "https://pinthouse.com/burnet/beer/beer-on-tap";
+      zilker = "https://zilkerbeer.com/?v=47e5dceea252#seasonals-beer";
+      spicyboys = "https://spicyboyschicken.square.site/?location=11eb52928bec852a8648ac1f6bbbd01e";
+      cuantos = "https://www.cuantostacosaustin.com/s/order";
+      betterhalf = "https://www.betterhalfbar.com/menu";
+      dh = "https://www.draughthouse.com/drinks";
+      workhorse = "https://workhorsebar.e-tab.com/workhorsebar/venue/5ea0812fad8074513197d76a/menu";
+      chinafamily = "https://chinafamilytx.com/menu/64123353";
+      holdout = "https://holdoutbrewing.com/menus";
+      tlocs = "https://tlocs-hotdogs-103892-107872.square.site/";
+      deedee = "https://deedeeatx.square.site/";
+      oddwood = "https://www.oddwoodales.com/take-out-menu";
+      batch = "https://www.toasttab.com/batch-craft-beer-kolaches/v3";
+      bummer = "https://www.toasttab.com/little-brother-bar/v3/";
+      meanwhile = "https://www.meanwhilebeer.com/beer";
+    };
   };
 
   networking.interfaces.enp0s4.useDHCP = true;
