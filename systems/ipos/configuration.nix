@@ -55,6 +55,11 @@
     tlsCertificate = null;
   };
 
+  services.panopticon = {
+    enable = true;
+    vhost = "panopticon.phire.org";
+  };
+
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
