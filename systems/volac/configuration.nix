@@ -18,6 +18,27 @@
     options = [ "nofail" ];
   };
 
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    extraConfig = ''
+      workgroup = PHIRE
+      server string = ${config.networking.hostName}
+      netbios name = ${config.networking.hostName}
+      security = user
+      hosts allow = 192.168.0.0/24 localhost
+      guest account = nobody
+    '';
+    shares = {
+      photos = {
+        path = "/mnt/storage/photos";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+      };
+    };
+  };
+
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   modules.wireguard.client = {
     enable = true;
