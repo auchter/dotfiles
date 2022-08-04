@@ -6,6 +6,7 @@
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
+  panopticon = pkgs.callPackage ./panopticon { };
   readsb = pkgs.callPackage ./readsb { };
   tar1090 = pkgs.callPackage ./tar1090 { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
