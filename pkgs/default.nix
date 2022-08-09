@@ -8,6 +8,7 @@
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   panopticon = pkgs.callPackage ./panopticon { };
   python-brutefir = pkgs.callPackage ./python-brutefir { };
+  python-powermate = pkgs.callPackage ./python-powermate { };
   readsb = pkgs.callPackage ./readsb { };
   tar1090 = pkgs.callPackage ./tar1090 { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
