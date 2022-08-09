@@ -87,6 +87,34 @@
           root = "/var/www/tmp.phire.org";
         };
       };
+      "michau.ch" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".root = pkgs.writeTextDir "index.html" ''
+	  <!doctype html>
+	  <html lang="en">
+	    <head>
+	      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	      <title>mich auch</title>
+	      <style>
+		body {
+		  font-family: monospace;
+		  text-align: center;
+		}
+		.t {
+		  font-variant: small-caps;
+		}
+	      </style>
+	    </head>
+	    <body>
+	      <h1>
+	      <span class="t">mich</span>ael<br/>
+	      <span class="t">auch</span>ter<br/>
+	      </h1>
+	    </body>
+	  </html>
+	'';
+      };
     };
   };
 
