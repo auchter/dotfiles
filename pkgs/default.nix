@@ -7,6 +7,7 @@
   glscopeclient = pkgs.callPackage ./glscopeclient { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   panopticon = pkgs.callPackage ./panopticon { };
+  pyhifid = pkgs.callPackage ./pyhifid { };
   python-brutefir = pkgs.callPackage ./python-brutefir { };
   python-powermate = pkgs.callPackage ./python-powermate { };
   readsb = pkgs.callPackage ./readsb { };
