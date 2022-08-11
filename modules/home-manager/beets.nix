@@ -30,10 +30,19 @@ in {
         original_date = true;
         languages = [ "en" "de" ];
         plugins = [
+          "badfiles"
           "fetchart"
+          "lastimport"
           "missing"
           "replaygain"
         ];
+        badfiles = {
+          check_on_import = true;
+          commands = {
+            "flac" = "${pkgs.flac}/bin/flac -wst";
+            "mp3" = "${pkgs.mp3val}/bin/mp3val";
+          };
+        };
         lastfm.user = "auchter";
         missing = {
           format = "$albumartist - $album - $title";
