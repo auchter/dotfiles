@@ -14,6 +14,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = [
+      pkgs.ffmpeg # for replaygain
+    ];
+
     programs.beets = {
       enable = true;
       settings = {
@@ -23,7 +27,22 @@ in {
           copy = false;
           move = true;
         };
-        plugins = [ "fetchart" ];
+        original_date = true;
+        languages = [ "en" "de" ];
+        plugins = [
+          "fetchart"
+          "missing"
+          "replaygain"
+        ];
+        lastfm.user = "auchter";
+        missing = {
+          format = "$albumartist - $album - $title";
+          count = false;
+          total = false;
+        };
+        replaygain = {
+          backend = "ffmpeg";
+        };
       };
     };
   };
