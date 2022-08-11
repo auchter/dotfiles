@@ -94,10 +94,10 @@
   };
 
   home.file.".mailcap".text = ''
-    text/html; elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
-    image/jpeg; feh %s;
-    image/png; feh %s;
-    application/pdf; mupdf %s;
+    text/html; ${pkgs.elinks}/bin/elinks -dump -dump-width 1000 '%s'; needsterminal; description=HTML Text; nametemplate=%s.html; copiousoutput
+    image/jpeg; ${pkgs.feh}/bin/feh %s;
+    image/png; ${pkgs.feh}/bin/feh %s;
+    application/pdf; ${pkgs.mupdf}/bin/mupdf %s;
   '';
 
   modules.vdirsyncer = let
