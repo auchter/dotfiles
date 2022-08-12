@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
   let
-    mkSystem = hostname: system: a-flavor:
+    mkSystem = hostname: system:
     nixpkgs.lib.nixosSystem {
       system = system;
       pkgs = import nixpkgs {
@@ -27,7 +27,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.sharedModules = builtins.attrValues (import ./modules/home-manager);
           home-manager.users.a = nixpkgs.lib.mkMerge ([
-            (import (./. + "/users/a/a-${a-flavor}.nix"))
+            (import (./. + "/users/a.nix"))
           ] ++
             (let
               path = ./. + "/systems/${hostname}/home.nix";
@@ -41,14 +41,14 @@
   in
   {
     nixosConfigurations = {
-      moloch = mkSystem "moloch" "x86_64-linux" "moloch";
-      ipos = mkSystem "ipos" "x86_64-linux" "server";
-      stolas = mkSystem "stolas" "x86_64-linux" "server";
-      orobas = mkSystem "orobas" "x86_64-linux" "server";
-      volac = mkSystem "volac" "aarch64-linux" "server";
+      moloch = mkSystem "moloch" "x86_64-linux";
+      ipos = mkSystem "ipos" "x86_64-linux";
+      stolas = mkSystem "stolas" "x86_64-linux";
+      orobas = mkSystem "orobas" "x86_64-linux";
+      volac = mkSystem "volac" "aarch64-linux";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
-      gpg-provision = mkSystem "gpg-provision" "x86_64-linux" "server";
+      gpg-provision = mkSystem "gpg-provision" "x86_64-linux";
     };
   };
 }

@@ -11,4 +11,10 @@
   };
 
   programs.home-manager.enable = true;
+
+  modules.git.enable = true;
+  modules.tmux.enable = true;
+  modules.vim.enable = true;
+  modules.zsh.enable = true;
 }
+
