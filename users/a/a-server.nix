@@ -3,11 +3,11 @@
 {
   imports = [
     ./common.nix
-    ../modules/git.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
     ../modules/zsh.nix
   ];
 
+  modules.git.enable = true;
   modules.vim.enable = true;
 }

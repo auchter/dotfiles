@@ -3,7 +3,6 @@
 {
   imports = [
     ./common.nix
-    ../modules/git.nix
     ../modules/gpg-agent.nix
     ../modules/password-store.nix
     ../modules/roomeqwizard.nix
@@ -51,6 +50,7 @@
 
   modules.calendar.enable = true;
   modules.email.enable = true;
+  modules.git.enable = true;
   modules.graphical.enable = true;
   modules.vim.enable = true;
 
