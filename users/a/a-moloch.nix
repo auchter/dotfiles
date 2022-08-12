@@ -5,7 +5,6 @@
     ./common.nix
     ../modules/git.nix
     ../modules/gpg-agent.nix
-    ../modules/ncmpcpp.nix
     ../modules/password-store.nix
     ../modules/roomeqwizard.nix
     ../modules/tmux.nix

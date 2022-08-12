@@ -3,5 +3,6 @@
   calendar = ./calendar.nix;
   email = ./email.nix;
   graphical = ./graphical.nix;
+  mpd-client = ./mpd-client.nix;
   vdirsyncer = ./vdirsyncer.nix;
 }
