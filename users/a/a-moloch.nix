@@ -27,6 +27,12 @@
     wget
 
     roomeqwizard
+
+    feh
+    mpv
+    mupdf
+    obsidian
+    signal-desktop
   ];
 
 
