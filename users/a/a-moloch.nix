@@ -3,7 +3,6 @@
 {
   imports = [
     ./common.nix
-    ../modules/tmux.nix
     ../modules/viddy.nix
     ../modules/thinkpad_x1c6.nix
   ];
@@ -33,7 +32,6 @@
     jq
     moreutils
     nmap
-    tmux
     wget
 
     roomeqwizard
@@ -51,6 +49,7 @@
   modules.git.enable = true;
   modules.gpg.enable = true;
   modules.graphical.enable = true;
+  modules.tmux.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;
 

@@ -6,6 +6,7 @@
   gpg = ./gpg.nix;
   graphical = ./graphical.nix;
   mpd-client = ./mpd-client.nix;
+  tmux = ./tmux.nix;
   vdirsyncer = ./vdirsyncer.nix;
   vim = ./vim.nix;
   zsh = ./zsh.nix;
