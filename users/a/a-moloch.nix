@@ -8,7 +8,6 @@
     ../modules/password-store.nix
     ../modules/roomeqwizard.nix
     ../modules/tmux.nix
-    ../modules/vim.nix
     ../modules/viddy.nix
     ../modules/zsh.nix
     ../modules/thinkpad_x1c6.nix
@@ -43,6 +42,7 @@
     wget
   ];
 
+
   home.sessionVariables = {
     HASS_SERVER = "https://home.phire.org";
     HASS_TOKEN = "$(${pkgs.pass}/bin/pass tokens/hass)";
@@ -52,6 +52,7 @@
   modules.calendar.enable = true;
   modules.email.enable = true;
   modules.graphical.enable = true;
+  modules.vim.enable = true;
 
   modules.beets = {
     enable = true;

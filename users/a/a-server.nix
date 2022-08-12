@@ -6,7 +6,8 @@
     ../modules/git.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
-    ../modules/vim.nix
     ../modules/zsh.nix
   ];
+
+  modules.vim.enable = true;
 }
