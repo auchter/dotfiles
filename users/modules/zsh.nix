@@ -36,9 +36,7 @@
       gdc="git describe --contains";
       grm="git commit --reuse-message=HEAD@{1}";
 
-      bb="bitbake";
       fixssh="eval $(tmux showenv -s SSH_AUTH_SOCK)";
-      hm-switch = "home-manager switch --flake ~/dotfiles";
       rebuild-system = "sudo nixos-rebuild switch --flake '.#'";
     };
   };
