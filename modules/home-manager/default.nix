@@ -4,7 +4,7 @@
   development = ./development.nix;
   email = ./email.nix;
   git = ./git.nix;
-  gpg = ./gpg.nix;
+  gpg = ./gpg;
   graphical = ./graphical.nix;
   mpd-client = ./mpd-client.nix;
   tmux = ./tmux.nix;
