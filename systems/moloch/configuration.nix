@@ -14,6 +14,8 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
+  powerManagement.powertop.enable = true;
+
   modules.wireguard.client = {
     enable = true;
     server = "ipos";
