@@ -3,7 +3,6 @@
 {
   imports = [
     ./common.nix
-    ../modules/gpg-agent.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
     ../modules/thinkpad_x1c6.nix
@@ -50,6 +49,7 @@
   modules.calendar.enable = true;
   modules.email.enable = true;
   modules.git.enable = true;
+  modules.gpg.enable = true;
   modules.graphical.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;
