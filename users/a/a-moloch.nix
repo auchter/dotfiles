@@ -4,7 +4,6 @@
   imports = [
     ./common.nix
     ../modules/gpg-agent.nix
-    ../modules/password-store.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
     ../modules/zsh.nix
@@ -64,4 +63,6 @@
     enable = true;
     indicator = true;
   };
+
+  programs.password-store.enable = true;
 }
