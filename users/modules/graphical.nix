@@ -22,7 +22,7 @@
       modifier = "Mod4";
       workspaceAutoBackAndForth = true;
       keybindings = let
-        adjustBrightness = amount: "exec brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
+        adjustBrightness = amount: "exec ${pkgs.brightnessctl}/bin/brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
         adjustVolume = amount: "exec amixer -M set Master playback ${amount} | sed -e 's/%//g' -e 's/\\[//g' -e 's/]//g' | awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob";
         adjustSnapcastVolume = direction: "exec hass-cli service call media_player.volume_${direction} --arguments entity_id=media_player.snapcast_client_phire_preamp | awk '/volume_level: / { print $2 * 100 }' > $SWAYSOCK.wob";
       in lib.mkOptionDefault {

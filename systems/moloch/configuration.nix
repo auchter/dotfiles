@@ -6,7 +6,6 @@
       ../common
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
-      ../../nixos/modules/laptop.nix
       ../../nixos/modules/wifi.nix
       ../../nixos/modules/restic.nix
     ];

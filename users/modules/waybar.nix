@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.waybar = {
     enable = true;
@@ -86,8 +88,8 @@
           backlight = {
               format = "{percent}% {icon}";
               format-icons = ["" ""];
-              on-scroll-up = "brightnessctl -m s 1%+";
-              on-scroll-down = "brightnessctl -m s 1%-";
+              on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl -m s 1%+";
+              on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl -m s 1%-";
           };
           battery = {
               states = {
