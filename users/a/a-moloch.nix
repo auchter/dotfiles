@@ -17,10 +17,6 @@
     kicad
     zotero
 
-    mpc_cli
-    ncmpc
-    ncmpcpp
-
     elinks
 
     home-assistant-cli
@@ -37,7 +33,6 @@
   home.sessionVariables = {
     HASS_SERVER = "https://home.phire.org";
     HASS_TOKEN = "$(${pkgs.pass}/bin/pass tokens/hass)";
-    MPD_HOST = "phire-preamp";
   };
 
   modules.calendar.enable = true;
