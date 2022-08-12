@@ -5,7 +5,6 @@
     ./common.nix
     ../modules/git.nix
     ../modules/gpg-agent.nix
-    ../modules/graphical.nix
     ../modules/ncmpcpp.nix
     ../modules/password-store.nix
     ../modules/roomeqwizard.nix
@@ -53,6 +52,7 @@
 
   modules.calendar.enable = true;
   modules.email.enable = true;
+  modules.graphical.enable = true;
 
   modules.beets = {
     enable = true;
