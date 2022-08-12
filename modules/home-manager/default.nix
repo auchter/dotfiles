@@ -1,6 +1,7 @@
 {
   beets = ./beets.nix;
   calendar = ./calendar.nix;
+  development = ./development.nix;
   email = ./email.nix;
   git = ./git.nix;
   gpg = ./gpg.nix;

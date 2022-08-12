@@ -25,11 +25,7 @@
 
     home-assistant-cli
     age
-    bc
-    bmap-tools
-    dterm
     htop
-    jq
     moreutils
     nmap
     wget
@@ -45,6 +41,7 @@
   };
 
   modules.calendar.enable = true;
+  modules.development.enable = true;
   modules.email.enable = true;
   modules.git.enable = true;
   modules.gpg.enable = true;
