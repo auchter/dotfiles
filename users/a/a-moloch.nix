@@ -5,7 +5,6 @@
     ./common.nix
     ../modules/gpg-agent.nix
     ../modules/password-store.nix
-    ../modules/roomeqwizard.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
     ../modules/zsh.nix
@@ -39,6 +38,8 @@
     nmap
     tmux
     wget
+
+    roomeqwizard
   ];
 
 
