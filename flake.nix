@@ -26,7 +26,13 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.sharedModules = builtins.attrValues (import ./modules/home-manager);
-          home-manager.users.a = import (./. + "/users/a/a-${a-flavor}.nix");
+          home-manager.users.a = nixpkgs.lib.mkMerge ([
+            (import (./. + "/users/a/a-${a-flavor}.nix"))
+          ] ++
+            (let
+              path = ./. + "/systems/${hostname}/home.nix";
+            in nixpkgs.lib.optional (builtins.pathExists path) (import path))
+          );
         }
         (./. + "/systems/${hostname}/configuration.nix")
         sops-nix.nixosModules.sops
