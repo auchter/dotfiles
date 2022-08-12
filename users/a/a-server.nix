@@ -5,9 +5,9 @@
     ./common.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
-    ../modules/zsh.nix
   ];
 
   modules.git.enable = true;
   modules.vim.enable = true;
+  modules.zsh.enable = true;
 }

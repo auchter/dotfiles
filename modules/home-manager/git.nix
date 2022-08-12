@@ -31,5 +31,10 @@ in {
         init.defaultBranch = "main";
       };
     };
+
+    programs.zsh.shellAliases = {
+      gdc = "git describe --contains";
+      grm = "git commit --reuse-message=HEAD@{1}";
+    };
   };
 }

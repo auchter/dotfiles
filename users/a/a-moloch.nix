@@ -6,7 +6,6 @@
     ../modules/gpg-agent.nix
     ../modules/tmux.nix
     ../modules/viddy.nix
-    ../modules/zsh.nix
     ../modules/thinkpad_x1c6.nix
   ];
 
@@ -53,6 +52,7 @@
   modules.git.enable = true;
   modules.graphical.enable = true;
   modules.vim.enable = true;
+  modules.zsh.enable = true;
 
   modules.beets = {
     enable = true;
