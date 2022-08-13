@@ -31,19 +31,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/export/music" = {
-    device = "/mnt/storage/music";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/export/films" = {
-    device = "/mnt/storage/films";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/export/tv" = {
-    device = "/mnt/storage/tv";
-    options = [ "bind" ];
+  modules.bindmounts.mounts = {
+    "/export/music" = "/mnt/storage/music";
+    "/export/films" = "/mnt/storage/films";
+    "/export/tv" = "/mnt/storage/tv"
   };
 
   services.nfs.server.enable = true;
