@@ -14,6 +14,8 @@
 
   powerManagement.powertop.enable = true;
 
+  modules.sshd.enable = true;
+
   modules.wireguard.client = {
     enable = true;
     server = "ipos";

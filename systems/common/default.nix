@@ -14,15 +14,6 @@
     search = [ config.networking.domain ];
   };
 
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-  };
-
-  services.sshguard.enable = true;
-
-  programs.mosh.enable = true;
-
   security = {
     acme = {
       acceptTerms = true;

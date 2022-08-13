@@ -11,6 +11,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   networking.interfaces.eth0.useDHCP = true;
+  modules.sshd.enable = true;
 
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-uuid/6f4bc97f-bdfb-40c2-bd9e-aec97b31ab6f";

@@ -17,6 +17,8 @@
     server = "ipos";
   };
 
+  modules.sshd.enable = true;
+
   services.fail2ban.ignoreIP = [ "192.168.0.0/24" ];
 
   networking.interfaces.enp0s10.useDHCP = true;

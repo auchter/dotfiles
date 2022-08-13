@@ -9,6 +9,8 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
+  modules.sshd.enable = true;
+
   modules.wireguard.server = {
     enable = true;
     externalInterface = "enp0s4";

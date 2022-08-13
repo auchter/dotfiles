@@ -11,6 +11,8 @@
 
   networking.interfaces.eno1.useDHCP = true;
 
+  modules.sshd.enable = true;
+
   modules.logo-site = {
     logo = ./stolas.png;
   };
