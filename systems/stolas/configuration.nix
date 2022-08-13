@@ -63,10 +63,6 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    beets
-  ];
-
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-uuid/6df923c0-ad42-4ef7-a5b8-eed82ef98aca";
     fsType = "ext4";
