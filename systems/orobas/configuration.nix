@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/mpd.nix
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/unifi.nix
@@ -77,13 +76,6 @@
         "guest ok" = "yes";
       };
     };
-  };
-
-  services.mpd = {
-    musicDirectory = "/mnt/storage/music";
-    extraConfig = ''
-      log_file "syslog"
-    '';
   };
 
   networking.firewall.allowedTCPPorts = [
