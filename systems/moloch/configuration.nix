@@ -7,7 +7,6 @@
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
       ../../nixos/modules/wifi.nix
-      ../../nixos/modules/restic.nix
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
@@ -26,8 +25,6 @@
   };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
-  sops.secrets.restic_password = {};
-  sops.secrets.restic_env = {};
 
   fileSystems = lib.listToAttrs (
     map (name:
@@ -44,8 +41,9 @@
     [ "music" "videos" "personal" ]
   );
 
-  services.restic.backups.backblaze = {
-    paths = [
+  modules.restic = {
+    enable = true;
+    cloudPaths = [
       "/home/a/photos"
       "/home/a/Maildir"
       "/home/a/obsidian"

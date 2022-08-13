@@ -7,7 +7,6 @@
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
       ../../nixos/modules/radicale.nix
-      ../../nixos/modules/restic.nix
     ];
 
   networking.interfaces.eno1.useDHCP = true;
@@ -46,8 +45,6 @@
   };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
-  sops.secrets.restic_password = {};
-  sops.secrets.restic_env = {};
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -57,11 +54,14 @@
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
-  services.restic.backups.backblaze.paths = [
-    "/mnt/storage/photos"
-    "/var/lib/radicale"
-    "/mnt/storage/music"
-  ];
+  modules.restic = {
+    enable = true;
+    cloudPaths = [
+      "/mnt/storage/photos"
+      "/var/lib/radicale"
+      "/mnt/storage/music"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     beets
