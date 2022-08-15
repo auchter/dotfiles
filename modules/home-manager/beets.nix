@@ -20,6 +20,14 @@ in {
 
     programs.beets = {
       enable = true;
+      package = pkgs.beets.override {
+        pluginOverrides = {
+          dynamicrange = {
+            enable = true;
+            propagatedBuildInputs = [ pkgs.beets-dynamicrange ];
+          };
+        };
+      };
       settings = {
         library = "${cfg.musicDir}/beets.db";
         directory = cfg.musicDir;
@@ -31,6 +39,7 @@ in {
         languages = [ "en" "de" ];
         plugins = [
           "badfiles"
+          "dynamicrange"
           "fetchart"
           "lastimport"
           "missing"
