@@ -13,8 +13,8 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "auchter";
     repo = pname;
-    rev = "a3f789bb726209a47ff845ddf95023ae631726b5";
-    sha256 = "sha256-En3F1bOJm3phOGM5nEGK4bx5LvX+xG9iuzgaqX1icQo=";
+    rev = "28150a1d043a6777ef071171b171644f111abd77";
+    sha256 = "sha256-pmEXYzKw55kLDL74Hamj6oar4TPPDe+uyZToy1+PuvU=";
   };
 
   nativeBuildInputs = [ beets ];
