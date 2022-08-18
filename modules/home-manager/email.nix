@@ -38,7 +38,7 @@ in {
         realName = "Michael Auchter";
         userName = "michael.auchter@gmail.com";
         passwordCommand = "${pkgs.pass}/bin/pass tokens/gmail";
-        folders.inbox = "INBOX";
+        folders.inbox = "mail";
         flavor = "gmail.com";
         lieer = {
           enable = true;
