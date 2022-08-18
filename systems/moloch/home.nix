@@ -44,6 +44,7 @@
     mupdf
     obsidian
     signal-desktop
+    sshfs
   ];
 
 
