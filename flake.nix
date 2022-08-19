@@ -46,6 +46,7 @@
       stolas = mkSystem "stolas" "x86_64-linux";
       orobas = mkSystem "orobas" "x86_64-linux";
       volac = mkSystem "volac" "aarch64-linux";
+      malphas = mkSystem "malphas" "aarch64-linux";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
       gpg-provision = mkSystem "gpg-provision" "x86_64-linux";
