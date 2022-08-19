@@ -58,15 +58,15 @@ in {
             command = "${pkgs.waybar}/bin/waybar";
           }
         ];
+        startup = [
+          { command = "mkfifo $SWAYSOCK.wob"; always = true; }
+          { command = "tail -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; always = true; }
+        ];
       };
       swaynag = {
         enable = true;
       };
       systemdIntegration = true;
-      extraConfig = ''
-        exec_always mkfifo $SWAYSOCK.wob
-        exec_always tail -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob
-      '';
     };
 
     services.swayidle = {
