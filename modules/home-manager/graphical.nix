@@ -61,7 +61,23 @@ in {
         startup = [
           { command = "mkfifo $SWAYSOCK.wob"; always = true; }
           { command = "tail -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; always = true; }
+          { command = "${pkgs.firefox}/bin/firefox"; }
+          { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
+          { command = "${pkgs.obsidian}/bin/obsidian"; }
         ];
+        # swaymsg -t get_tree
+        # see: window_properties
+        assigns = {
+          "1: web" = [
+            { class = "^firefox$"; }
+          ];
+          "2: msg" = [
+            { class = "^Signal$"; }
+          ];
+          "3: notes" = [
+            { class = "^obsidian$"; }
+          ];
+        };
       };
       swaynag = {
         enable = true;
