@@ -78,6 +78,7 @@ in {
             { class = "^obsidian$"; }
           ];
         };
+        defaultWorkspace = "workspace number 4";
       };
       swaynag = {
         enable = true;
