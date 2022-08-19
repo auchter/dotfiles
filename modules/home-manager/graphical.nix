@@ -64,6 +64,7 @@ in {
           { command = "${pkgs.firefox}/bin/firefox"; }
           { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
           { command = "${pkgs.obsidian}/bin/obsidian"; }
+          { command = "${pkgs.alacritty}/bin/alacritty --class neomutt -e ${pkgs.neomutt}/bin/neomutt"; }
         ];
         # swaymsg -t get_tree
         # see: window_properties
@@ -73,6 +74,7 @@ in {
           ];
           "2: msg" = [
             { class = "^Signal$"; }
+            { app_id = "^neomutt$"; }
           ];
           "3: notes" = [
             { class = "^obsidian$"; }
