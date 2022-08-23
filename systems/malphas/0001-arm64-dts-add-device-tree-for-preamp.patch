@@ -1,0 +1,111 @@
+From e2c206f003683403250799b2aebde899ea0c0eaf Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Sun, 5 Dec 2021 15:24:13 +0000
+Subject: [PATCH 1/2] arm64: dts: add device tree for preamp
+
+---
+ arch/arm64/boot/dts/allwinner/Makefile        |  1 +
+ .../dts/allwinner/sun50i-h6-phire-preamp.dts  | 81 +++++++++++++++++++
+ 2 files changed, 82 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-phire-preamp.dts
+
+diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+index a96d9d2d8dd8..a32172bd33fc 100644
+--- a/arch/arm64/boot/dts/allwinner/Makefile
++++ b/arch/arm64/boot/dts/allwinner/Makefile
+@@ -36,4 +36,5 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-orangepi-lite2.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-orangepi-one-plus.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-pine-h64.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-pine-h64-model-b.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-phire-preamp.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-tanix-tx6.dtb
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-phire-preamp.dts b/arch/arm64/boot/dts/allwinner/sun50i-h6-phire-preamp.dts
+new file mode 100644
+index 000000000000..82fd4a90ab12
+--- /dev/null
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-phire-preamp.dts
+@@ -0,0 +1,81 @@
++// SPDX-License-Identifier: (GPL-2.0+ or MIT)
++/*
++ * Copyright (C) 2021 Michael Auchter <a@phire.org>
++ */
++
++
++#include "sun50i-h6-pine-h64-model-b.dts"
++
++&i2c0 {
++	status = "okay";
++
++	/*
++	 * IO expander for attenuator control
++	 */
++	delta1_set: gpio@3f {
++		compatible = "nxp,pcf8574a";
++		reg = <0x3f>;
++		gpio-controller;
++		gpio-cells = <2>;
++		lines-initial-states = <0xF>;
++		gpio-line-names = "DELTA1_SET_0",
++				  "DELTA1_SET_1",
++				  "DELTA1_SET_2",
++				  "DELTA1_SET_3",
++				  "DELTA1_SET_4",
++				  "DELTA1_SET_5",
++				  "DELTA1_SET_6",
++				  "DELTA1_SET_7";
++	};
++
++	delta1_rst: gpio@3e {
++		compatible = "nxp,pcf8574a";
++		reg = <0x3e>;
++		gpio-controller;
++		gpio-cells = <2>;
++		lines-initial-states = <0xF>;
++		gpio-line-names = "DELTA1_RST_0",
++				  "DELTA1_RST_1",
++				  "DELTA1_RST_2",
++				  "DELTA1_RST_3",
++				  "DELTA1_RST_4",
++				  "DELTA1_RST_5",
++				  "DELTA1_RST_6",
++				  "DELTA1_RST_7";
++	};
++
++	/*
++	 * IO expander for input/output control
++	 */
++	delta2_set: gpio@3d {
++		compatible = "nxp,pcf8574a";
++		reg = <0x3d>;
++		gpio-controller;
++		gpio-cells = <2>;
++		lines-initial-states = <0xF>;
++		gpio-line-names = "DELTA2_SET_0",
++				  "DELTA2_SET_1",
++				  "DELTA2_SET_2",
++				  "DELTA2_SET_3",
++				  "DELTA2_SET_4",
++				  "DELTA2_SET_5",
++				  "DELTA2_SET_6",
++				  "DELTA2_SET_7";
++	};
++
++	delta2_rst: gpio@3c {
++		compatible = "nxp,pcf8574a";
++		reg = <0x3c>;
++		gpio-controller;
++		gpio-cells = <2>;
++		lines-initial-states = <0xF>;
++		gpio-line-names = "DELTA2_RST_0",
++				  "DELTA2_RST_1",
++				  "DELTA2_RST_2",
++				  "DELTA2_RST_3",
++				  "DELTA2_RST_4",
++				  "DELTA2_RST_5",
++				  "DELTA2_RST_6",
++				  "DELTA2_RST_7";
++	};
++};
+-- 
+2.31.1
+

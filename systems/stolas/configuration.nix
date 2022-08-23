@@ -62,6 +62,7 @@
       "/mnt/storage/photos"
       "/var/lib/radicale"
       "/mnt/storage/music"
+      "/mnt/storage/scanned"
     ];
   };
 
