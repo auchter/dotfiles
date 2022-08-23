@@ -56,11 +56,22 @@
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
+  sops.secrets.owntracks_htpasswd = {
+    owner = config.users.users.nginx.name;
+  };
+
+  services.ot-recorder = {
+    enable = true;
+    vhost = "owntracks4.phire.org";
+    basicAuthFile = config.sops.secrets.owntracks_htpasswd.path;
+  };
+
   modules.restic = {
     enable = true;
     cloudPaths = [
       "/mnt/storage/photos"
       "/var/lib/radicale"
+      "/var/lib/ot-recorder"
       "/mnt/storage/music"
       "/mnt/storage/scanned"
     ];
