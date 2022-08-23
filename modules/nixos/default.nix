@@ -6,6 +6,7 @@
   home-assistant = ./home-assistant.nix;
   logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;
+  ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
   readsb = ./readsb.nix;
   restic = ./restic.nix;
