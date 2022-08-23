@@ -8,6 +8,7 @@
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
+  ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
   photostructure = pkgs.callPackage ./photostructure { };
   pyhifid = pkgs.callPackage ./pyhifid { };
