@@ -40,12 +40,27 @@ stdenv.mkDerivation rec {
     cp config.mk.in config.mk
     cat <<END >>config.mk
     WITH_LUA=yes
-    DESTDIR=$out
-    DOCROOT=/share/htdocs
-    INSTALLDIR=
+    DOCROOT=$out/share/htdocs
+    CONFIGFILE=$out/etc/default/ot-recorder
     END
 
     runHook postConfigure
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out/bin $out/sbin
+    install -m 0755 ot-recorder $out/sbin
+    install -m 0755 ocat $out/bin
+
+    mkdir -p $out/share/htdocs
+    cp -R docroot/* $out/share/htdocs
+
+    mkdir -p $out/etc/default
+    install -m 640 etc/ot-recorder.default $out/etc/default/ot-recorder
+
+    runHook postInstall
   '';
 
   meta = with lib; {
