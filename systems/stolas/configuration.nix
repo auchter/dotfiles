@@ -46,6 +46,14 @@
     };
   };
 
+  modules.photoprism = {
+    enable = true;
+    storageDir = "/var/lib/photoprism";
+    originalsDir = "/mnt/storage/photoprism/originals";
+    importDir = "/mnt/storage/photoprism/import";
+    vhost = "family.photos.phire.org";
+  };
+
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
   boot.loader.systemd-boot.enable = true;
