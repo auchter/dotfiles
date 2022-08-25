@@ -48,10 +48,22 @@
 
   modules.photoprism = {
     enable = true;
-    storageDir = "/var/lib/photoprism";
-    originalsDir = "/mnt/storage/photoprism/originals";
-    importDir = "/mnt/storage/photoprism/import";
-    vhost = "family.photos.phire.org";
+    instances = {
+      family = {
+        port = 2342;
+        vhost = "family.photos.phire.org";
+        storageDir = "/var/lib/photoprism";
+        originalsDir = "/mnt/storage/photoprism/originals";
+        importDir = "/mnt/storage/photoprism/import";
+      };
+      personal = {
+        port = 2343;
+        vhost = "photos.phire.org";
+        storageDir = "/var/lib/photoprism-personal";
+        originalsDir = "/mnt/storage/personal/originals";
+        importDir = "/mnt/storage/personal/import";
+      };
+    };
   };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
