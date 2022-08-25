@@ -8,6 +8,7 @@
   mlat-client = ./mlat-client.nix;
   ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
+  photoprism = ./photoprism.nix;
   readsb = ./readsb.nix;
   restic = ./restic.nix;
   sshd = ./sshd.nix;
