@@ -95,7 +95,9 @@
       "/mnt/storage/music"
       "/mnt/storage/scanned"
       "/mnt/storage/photoprism/originals"
+      "/var/lib/photoprism"
       "/mnt/storage/personal/originals"
+      "/var/lib/photoprism-personal"
     ];
   };
 
