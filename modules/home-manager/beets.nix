@@ -35,6 +35,10 @@ in {
           copy = false;
           move = true;
         };
+        format_album = "$albumartist - $year - $album";
+        sort_album = "artist+ year+ album+ disc+ track+";
+        format_item = "$artist - $year - $album - $track - $title";
+        sort_item = "artist+ year+ album+ disc+ track+";
         original_date = true;
         languages = [ "en" "de" ];
         plugins = [
