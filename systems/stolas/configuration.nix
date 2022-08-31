@@ -94,6 +94,8 @@
       "/var/lib/ot-recorder"
       "/mnt/storage/music"
       "/mnt/storage/scanned"
+      "/mnt/storage/photoprism/originals"
+      "/mnt/storage/personal/originals"
     ];
   };
 
