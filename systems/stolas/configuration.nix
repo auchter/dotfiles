@@ -82,7 +82,7 @@
 
   services.ot-recorder = {
     enable = true;
-    vhost = "owntracks4.phire.org";
+    vhost = "owntracks.phire.org";
     basicAuthFile = config.sops.secrets.owntracks_htpasswd.path;
   };
 
