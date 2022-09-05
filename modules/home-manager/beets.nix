@@ -46,6 +46,7 @@ in {
           "dynamicrange"
           "fetchart"
           "lastimport"
+          "lyrics"
           "missing"
           "replaygain"
         ];
