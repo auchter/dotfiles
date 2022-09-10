@@ -45,6 +45,7 @@ in {
           "badfiles"
           "dynamicrange"
           "fetchart"
+          "fromfilename"
           "lastimport"
           "lyrics"
           "missing"
