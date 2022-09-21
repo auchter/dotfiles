@@ -10,7 +10,6 @@
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
-  photostructure = pkgs.callPackage ./photostructure { };
   pyhifid = pkgs.callPackage ./pyhifid { };
   python-brutefir = pkgs.callPackage ./python-brutefir { };
   python-powermate = pkgs.callPackage ./python-powermate { };
