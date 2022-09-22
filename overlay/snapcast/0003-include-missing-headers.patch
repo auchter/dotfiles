@@ -1,0 +1,37 @@
+From 7cdbe43064c3d71fcee51dae2e2602760712b636 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Sat, 26 Feb 2022 12:08:32 +0000
+Subject: [PATCH 3/3] include missing headers
+
+---
+ common/message/message.hpp | 1 +
+ common/resampler.hpp       | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/common/message/message.hpp b/common/message/message.hpp
+index 6fddbe7d..70a6ba65 100644
+--- a/common/message/message.hpp
++++ b/common/message/message.hpp
+@@ -30,6 +30,7 @@
+ #endif
+ #include <memory>
+ #include <vector>
++#include <memory>
+ 
+ /*
+ template<typename CharT, typename TraitsT = std::char_traits<CharT> >
+diff --git a/common/resampler.hpp b/common/resampler.hpp
+index 6cdc2140..ca585f32 100644
+--- a/common/resampler.hpp
++++ b/common/resampler.hpp
+@@ -23,6 +23,7 @@
+ #include "common/sample_format.hpp"
+ #include <deque>
+ #include <vector>
++#include <memory>
+ #ifdef HAS_SOXR
+ #include <soxr.h>
+ #endif
+-- 
+2.36.2
+
