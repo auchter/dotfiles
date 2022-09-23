@@ -5,14 +5,14 @@
 
 python3.pkgs.buildPythonPackage rec {
   pname = "brutefir";
-  version = "0.0.2";
+  version = "0.0.4";
 
   # since we're lacking a setup.py:
   format = "pyproject";
 
   src = python3.pkgs.fetchPypi {
     inherit pname version;
-    sha256 = "sha256-PxioYEH3t2HgGtc5BtKwRD7ar88s7J9Fm5pA+I+DCUo=";
+    sha256 = "sha256-qEfK2tk4CoAvGRkscrdt+5B2nZqqLM8xixmjAvsxMFI=";
   };
 
   propagatedBuildInputs = with python3.pkgs; [
