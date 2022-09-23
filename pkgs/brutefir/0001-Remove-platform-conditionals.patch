@@ -1,0 +1,64 @@
+From d755e78299bdb604f51f47c2dc535f42801baa46 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Wed, 13 Oct 2021 14:29:15 +0000
+Subject: [PATCH 1/3] Remove platform conditionals
+
+---
+ Makefile | 32 ++------------------------------
+ 1 file changed, 2 insertions(+), 30 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a10cb89..a3f1ddc 100644
+--- a/Makefile
++++ b/Makefile
+@@ -63,45 +63,17 @@ LIB_TARGETS	= cli.bflogic eq.bflogic file.bfio
+ ###################################
+ # System-specific settings
+ 
+-UNAME		= $(shell uname)
+-UNAME_P         = $(shell uname -p)
+-UNAME_M         = $(shell uname -m)
+-
+-# Linux
+-ifeq ($(UNAME),Linux)
+-ifeq ($(UNAME_M),i586)
+-BRUTEFIR_OBJS	+= $(BRUTEFIR_SSE_OBJS)
+-CC_FLAGS	+= -msse
+-endif
+-ifeq ($(UNAME_M),i686)
++ifeq ($(ARCH),x86)
+ BRUTEFIR_OBJS	+= $(BRUTEFIR_SSE_OBJS)
+ CC_FLAGS	+= -msse
+ endif
+-ifeq ($(UNAME_M),x86_64)
+-BRUTEFIR_OBJS	+= $(BRUTEFIR_SSE_OBJS)
+-CC_FLAGS	+= -msse
+-endif
+-ifneq (,$(findstring sparc,$(UNAME_M)))
+-CC_FLAGS += -Wa,-xarch=v8plus
+-endif
++
+ BRUTEFIR_LIBS	+= -ldl
+ LDMULTIPLEDEFS	= -Xlinker --allow-multiple-definition
+ # assume that we have oss and jack, alsa being linux-only
+-ifeq ($(UNAME),Linux)
+ LIB_TARGETS	+= alsa.bfio
+-endif
+ LIB_TARGETS	+= oss.bfio
+ LIB_TARGETS	+= jack.bfio
+-endif
+-
+-# FreeBSD
+-ifeq ($(UNAME),FreeBSD)
+-ifeq ($(UNAME_M),i386)
+-BRUTEFIR_OBJS	+= $(BRUTEFIR_IA32_OBJS)
+-endif
+-# assume that we have oss
+-LIB_TARGETS	+= oss.bfio
+-endif
+ 
+ TARGETS		= $(BIN_TARGETS) $(LIB_TARGETS)
+ 
+-- 
+2.31.1
+

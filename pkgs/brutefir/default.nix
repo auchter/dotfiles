@@ -18,7 +18,19 @@ stdenv.mkDerivation rec {
     libjack2
   ];
 
+  patches = [
+    ./0001-Remove-platform-conditionals.patch
+    ./0002-Remove-unnecessary-lib-include-path-changes.patch
+    ./0003-Specify-whether-to-build-alsa-oss-jack-via-Make-opti.patch
+  ];
+
   postPatch = "substituteInPlace bfconf.c --replace /usr/local $out";
+
+  makeFlags = [
+    "BRUTEFIR_ALSA=yes"
+    "BRUTEFIR_OSS=yes"
+    "BRUTEFIR_JACK=yes"
+  ] ++ lib.optional (!stdenv.targetPlatform.isAarch64) "ARCH=x86";
 
   installFlags = [ "INSTALL_PREFIX=$(out)" ];
 
@@ -27,6 +39,6 @@ stdenv.mkDerivation rec {
     description = "A software convolution engine";
     license = licenses.gpl2Only;
     maintainers = with maintainers; [ auchter ];
-    platforms = [ "x86_64-linux" "i686-linux" ];
+    platforms = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
   };
 }

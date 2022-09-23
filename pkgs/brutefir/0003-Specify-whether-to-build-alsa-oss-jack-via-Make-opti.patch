@@ -1,0 +1,33 @@
+From 22c49a7a0470d3ea790754222fc98e3ede52e768 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Wed, 13 Oct 2021 14:04:20 +0000
+Subject: [PATCH 3/3] Specify whether to build alsa/oss/jack via Make options
+
+---
+ Makefile | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 305cf13..d2618f1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -61,10 +61,15 @@ endif
+ 
+ BRUTEFIR_LIBS	+= -ldl
+ LDMULTIPLEDEFS	= -Xlinker --allow-multiple-definition
+-# assume that we have oss and jack, alsa being linux-only
++ifeq ($(BRUTEFIR_ALSA),yes)
+ LIB_TARGETS	+= alsa.bfio
++endif
++ifeq ($(BRUTEFIR_OSS),yes)
+ LIB_TARGETS	+= oss.bfio
++endif
++ifeq ($(BRUTEFIR_JACK),yes)
+ LIB_TARGETS	+= jack.bfio
++endif
+ 
+ TARGETS		= $(BIN_TARGETS) $(LIB_TARGETS)
+ 
+-- 
+2.31.1
+

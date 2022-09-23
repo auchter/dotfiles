@@ -1,0 +1,32 @@
+From 6366abc496c7249564c788952f48090190350176 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Wed, 13 Oct 2021 13:59:55 +0000
+Subject: [PATCH 2/3] Remove unnecessary lib/include path changes
+
+---
+ Makefile | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a3f1ddc..305cf13 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,15 +7,6 @@ LDFLAGS +=
+ # Where to install
+ INSTALL_PREFIX	= $(DESTDIR)/usr/local
+ 
+-###################################
+-# Where to find libraries, and their header files.
+-LIBPATHS	= -L/usr/local/lib
+-INCLUDE		= -I/usr/local/include
+-ifdef FFTW_PATH
+-LIBPATHS	+= -L$(FFTW_PATH)/lib
+-INCLUDE		+= -I$(FFTW_PATH)/include
+-endif
+-
+ ###################################
+ # FFTW3 libraries for single and double precision
+ FFTW_LIB	= -lfftw3 -lfftw3f
+-- 
+2.31.1
+
