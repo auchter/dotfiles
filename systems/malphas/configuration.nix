@@ -13,6 +13,8 @@
   networking.interfaces.eth0.useDHCP = true;
   modules.sshd.enable = true;
 
+  sound.enable = true;
+
   hardware.i2c.enable = true;
   hardware.deviceTree.overlays = [
     {
