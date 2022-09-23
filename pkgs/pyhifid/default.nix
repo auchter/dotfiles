@@ -21,6 +21,7 @@ python3Packages.buildPythonApplication rec {
     flask
     flask-restful
     gevent
+    python3Packages.libgpiod
     paho-mqtt
     python-brutefir
     python-powermate
