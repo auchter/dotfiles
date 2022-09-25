@@ -8,6 +8,10 @@ let
         ./snapcast/0002-Add-brutefir_config-option.patch
         ./snapcast/0003-include-missing-headers.patch
       ];
+      postPatch = ''
+        substituteInPlace client/brutefir.cpp --replace \
+          'bp::search_path("brutefir");' 'boost::filesystem::path("${final.brutefir}/bin/brutefir");'
+      '';
     });
   };
 in
