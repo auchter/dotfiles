@@ -11,6 +11,7 @@
   photoprism = ./photoprism.nix;
   readsb = ./readsb.nix;
   restic = ./restic.nix;
+  snapclient = ./snapclient.nix;
   sshd = ./sshd.nix;
   tar1090 = ./tar1090.nix;
   wireguard = ./wireguard.nix;
