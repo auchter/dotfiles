@@ -3,6 +3,7 @@
   airsonic = ./airsonic.nix;
   bindmounts = ./bindmounts.nix;
   gocodes = ./gocodes.nix;
+  gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;
   logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;
