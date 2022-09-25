@@ -2,6 +2,7 @@
   ads-b = ./ads-b.nix;
   airsonic = ./airsonic.nix;
   bindmounts = ./bindmounts.nix;
+  brutefir = ./brutefir.nix;
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;
