@@ -40,6 +40,7 @@
       filter = {
         input = "in";
         output = "out";
+        coeff = "bed_door_open";
       };
     };
     coeffs = {
