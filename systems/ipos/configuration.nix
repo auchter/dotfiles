@@ -120,7 +120,7 @@
     };
   };
 
-  modules.logo-site.logo = ./ipos.png;
+  modules.logo-site.logo = ../../logos/ipos.png;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

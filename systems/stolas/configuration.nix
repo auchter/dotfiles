@@ -14,7 +14,7 @@
   modules.sshd.enable = true;
 
   modules.logo-site = {
-    logo = ./stolas.png;
+    logo = ../../logos/stolas.png;
   };
 
   modules.wireguard.client = {

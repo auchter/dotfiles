@@ -90,7 +90,7 @@
     ];
   };
 
-  modules.logo-site.logo = ./volac.png;
+  modules.logo-site.logo = ../../logos/volac.png;
 
   system.stateVersion = "22.05"; # Did you read the comment?
 }
