@@ -25,6 +25,15 @@
     network = {
       listenAddress = "any";
     };
+    extraConfig = ''
+      audio_output {
+        type    "fifo"
+        name    "snapcast"
+        path    "/run/snapserver/mpd"
+        format  "44100:16:2"
+        mixer_type "none"
+      }
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [
@@ -35,13 +44,12 @@
     enable = true;
     openFirewall = true;
     streams = {
-      spotify = {
-        location = "${pkgs.librespot}/bin/librespot";
-        type = "librespot";
+      mpd = {
+        type = "pipe";
+        location = "/run/snapserver/mpd";
         query = {
-          devicename = "Snapserver";
-          bitrate = "320";
-          username = "mauchter";
+          mode = "create";
+          sampleformat = "44100:16:2";
         };
       };
     };
