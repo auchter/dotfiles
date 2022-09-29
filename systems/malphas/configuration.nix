@@ -13,6 +13,24 @@
   networking.interfaces.eth0.useDHCP = true;
   modules.sshd.enable = true;
 
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/127a245d-6d0d-4d8a-b749-83715bec90e6";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/mnt/storage/music";
+    network = {
+      listenAddress = "any";
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [
+    config.services.mpd.network.port
+  ];
+
   services.snapserver = {
     enable = true;
     openFirewall = true;
