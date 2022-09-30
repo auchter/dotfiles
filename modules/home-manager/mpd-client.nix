@@ -18,6 +18,7 @@ in {
     programs.ncmpcpp = {
       enable = true;
       settings = {
+        mpd_host = cfg.host;
         media_library_primary_tag = "album_artist";
         display_bitrate = "yes";
         mouse_support = "no";

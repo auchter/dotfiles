@@ -62,6 +62,10 @@
   modules.tmux.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;
+  modules.mpd-client = {
+    enable = true;
+    host = "malphas";
+  };
 
   modules.beets = {
     enable = true;
