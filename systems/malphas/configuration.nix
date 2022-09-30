@@ -26,6 +26,7 @@
       listenAddress = "any";
     };
     extraConfig = ''
+      replaygain "auto"
       audio_output {
         type    "fifo"
         name    "snapcast"
