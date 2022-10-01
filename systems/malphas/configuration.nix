@@ -43,6 +43,24 @@
     config.services.mpd.network.port
   ];
 
+
+  sops.secrets.lastfm_pass = {};
+  sops.secrets.librefm_pass = {};
+
+  services.mpdscribble = {
+    enable = true;
+    endpoints = {
+      "last.fm" = {
+        username = "auchter";
+        passwordFile = config.sops.secrets.lastfm_pass.path;
+      };
+      "libre.fm" = {
+        username = "auchter";
+        passwordFile = config.sops.secrets.librefm_pass.path;
+      };
+    };
+  };
+
   services.snapserver = {
     enable = true;
     openFirewall = true;
