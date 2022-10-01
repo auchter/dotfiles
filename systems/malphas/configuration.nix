@@ -19,6 +19,8 @@
     options = [ "nofail" ];
   };
 
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+
   services.mpd = {
     enable = true;
     musicDirectory = "/mnt/storage/music";
