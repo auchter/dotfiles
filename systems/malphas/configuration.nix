@@ -64,6 +64,7 @@
   services.snapserver = {
     enable = true;
     openFirewall = true;
+    http.docRoot = "${pkgs.snapcast}/share/snapserver/snapweb";
     streams = {
       mpd = {
         type = "pipe";
