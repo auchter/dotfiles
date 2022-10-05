@@ -9,25 +9,20 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
   let
-    mkSystem = hostname: system:
-    nixpkgs.lib.nixosSystem {
+    mkSystem = hostname: system: nixpkgs.lib.nixosSystem {
       system = system;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-          (import ./overlay { inherit nixpkgs; })
-        ];
+        overlays = [ (import ./overlay { inherit nixpkgs; }) ];
       };
       modules = [
-        {
-          networking.hostName = hostname;
-        }
+        { networking.hostName = hostname; }
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.sharedModules = builtins.attrValues (import ./modules/home-manager);
           home-manager.users.a = nixpkgs.lib.mkMerge ([
-            (import (./. + "/users/a.nix"))
+            (import (./users/a.nix))
           ] ++
             (let
               path = ./. + "/systems/${hostname}/home.nix";
