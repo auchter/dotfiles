@@ -15,6 +15,9 @@
     "console=tty0"
   ];
 
+  # meh, we don't allow root login over ssh anyway...
+  users.users.root.initialHashedPassword = "";
+
   # Copied from nixos/modules/installer/sd-card/sd-image-aarch64.nix
   # Modified to populate firmware will all dtbs rather than a subset.
   sdImage = {
