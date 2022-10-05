@@ -37,6 +37,9 @@
   in
   {
     nixosConfigurations = {
+      ## For aarch64-linux systems:
+      # nix build .#nixosConfigurations.balan.config.system.build.sdImage
+
       moloch = mkSystem "moloch" "x86_64-linux" "generic";
       ipos = mkSystem "ipos" "x86_64-linux" "generic";
       stolas = mkSystem "stolas" "x86_64-linux" "generic";
