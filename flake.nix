@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
   let
-    mkSystem = hostname: system: nixpkgs.lib.nixosSystem {
+    mkSystem = hostname: system: hardware: nixpkgs.lib.nixosSystem {
       system = system;
       pkgs = import nixpkgs {
         inherit system;
@@ -31,18 +31,19 @@
         }
         (./. + "/systems/${hostname}/configuration.nix")
         sops-nix.nixosModules.sops
+        (./. + "/hardware/${hardware}")
       ] ++ (builtins.attrValues (import ./modules/nixos));
     };
   in
   {
     nixosConfigurations = {
-      moloch = mkSystem "moloch" "x86_64-linux";
-      ipos = mkSystem "ipos" "x86_64-linux";
-      stolas = mkSystem "stolas" "x86_64-linux";
-      orobas = mkSystem "orobas" "x86_64-linux";
-      volac = mkSystem "volac" "aarch64-linux";
-      malphas = mkSystem "malphas" "aarch64-linux";
-      balan = mkSystem "balan" "aarch64-linux";
+      moloch = mkSystem "moloch" "x86_64-linux" "generic";
+      ipos = mkSystem "ipos" "x86_64-linux" "generic";
+      stolas = mkSystem "stolas" "x86_64-linux" "generic";
+      orobas = mkSystem "orobas" "x86_64-linux" "generic";
+      volac = mkSystem "volac" "aarch64-linux" "pine64-pineH64B";
+      malphas = mkSystem "malphas" "aarch64-linux" "pine64-pineH64B";
+      balan = mkSystem "balan" "aarch64-linux" "pine64-pineH64B";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
       gpg-provision = mkSystem "gpg-provision" "x86_64-linux";
