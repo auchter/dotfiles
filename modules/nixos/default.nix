@@ -3,6 +3,7 @@
   airsonic = ./airsonic.nix;
   bindmounts = ./bindmounts.nix;
   brutefir = ./brutefir.nix;
+  embedded = ./embedded.nix;
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;

@@ -12,6 +12,11 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
+  modules.embedded = {
+    enable = false;
+    interface = "enp59s0u2u3";
+  };
+
   powerManagement.powertop.enable = true;
 
   modules.sshd.enable = true;
