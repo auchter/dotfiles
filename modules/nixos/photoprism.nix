@@ -50,7 +50,7 @@ in {
 
     virtualisation.oci-containers = {
       containers = mapAttrs' (instance: config: nameValuePair "photoprism-${instance}" {
-        image = "photoprism/photoprism@sha256:042afacef24270f7d055611b0526ba5b7f4f7d6f2f974d247adabd28c56dabc8";
+        image = "photoprism/photoprism@sha256:2bd1b301e70373df0c7a53f0db5c29043c08cda1135bdd8a5d11a1b8c13cdbca";
         volumes = [
           "${config.storageDir}:/photoprism/storage"
           "${config.originalsDir}:/photoprism/originals"
