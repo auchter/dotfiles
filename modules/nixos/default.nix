@@ -18,6 +18,7 @@
   snapclient = ./snapclient.nix;
   sshd = ./sshd.nix;
   tar1090 = ./tar1090.nix;
+  wifi = ./wifi.nix;
   wireguard = ./wireguard.nix;
   ws2902-mqtt = ./ws2902-mqtt.nix;
 }

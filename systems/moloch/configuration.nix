@@ -6,7 +6,6 @@
       ../common
       ../../nixos/modules/soulseek.nix
       ../../nixos/modules/syncthing.nix
-      ../../nixos/modules/wifi.nix
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
@@ -26,7 +25,7 @@
     server = "ipos";
   };
 
-  networking.wireless = {
+  modules.wifi = {
     enable = true;
     interfaces = [ "wlp2s0" ];
   };
