@@ -9,8 +9,12 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
   let
-    mkSystem = hostname: system: hardware: nixpkgs.lib.nixosSystem {
-      system = system;
+    mkSystem = hostname: hardware: nixpkgs.lib.nixosSystem rec {
+      system = {
+        "generic-x86_64" = "x86_64-linux";
+        "pine64-pineH64B" = "aarch64-linux";
+        "raspberryPi-aarch64" = "aarch64-linux";
+      }."${hardware}";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -40,18 +44,18 @@
       ## For aarch64-linux systems:
       # nix build .#nixosConfigurations.balan.config.system.build.sdImage
 
-      moloch = mkSystem "moloch" "x86_64-linux" "generic";
-      ipos = mkSystem "ipos" "x86_64-linux" "generic";
-      stolas = mkSystem "stolas" "x86_64-linux" "generic";
-      orobas = mkSystem "orobas" "x86_64-linux" "generic";
-      volac = mkSystem "volac" "aarch64-linux" "pine64-pineH64B";
-      malphas = mkSystem "malphas" "aarch64-linux" "pine64-pineH64B";
-      balan = mkSystem "balan" "aarch64-linux" "pine64-pineH64B";
+      moloch = mkSystem "moloch" "generic-x86_64";
+      ipos = mkSystem "ipos" "generic-x86_64";
+      stolas = mkSystem "stolas" "generic-x86_64";
+      orobas = mkSystem "orobas" "generic-x86_64";
+      volac = mkSystem "volac" "pine64-pineH64B";
+      malphas = mkSystem "malphas" "pine64-pineH64B";
+      balan = mkSystem "balan" "pine64-pineH64B";
 
-      flaga = mkSystem "flaga" "aarch64-linux" "raspberryPi-aarch64";
+      flaga = mkSystem "flaga" "raspberryPi-aarch64";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
-      gpg-provision = mkSystem "gpg-provision" "x86_64-linux";
+      gpg-provision = mkSystem "gpg-provision" "generic-x86_64";
     };
   };
 }
