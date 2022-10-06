@@ -113,6 +113,7 @@
       dirac.path = "dirac pulse";
       speakers.path = ./brutefir/speakers.wav;
       no_sub.path = ./brutefir/no_sub.wav;
+      dt770.path = ./brutefir/dt770.wav;
       hd650 = {
         path = ./brutefir/hd650.pcm;
         rate = 48000;
