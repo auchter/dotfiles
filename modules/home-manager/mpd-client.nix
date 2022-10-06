@@ -41,6 +41,8 @@ in {
           bindChain "K" [ "select_item" "scroll_up" ] ++
           bindChain "ctrl-u" "page_up" ++
           bindChain "ctrl-d" "page_down" ++
+          bindChain "ctrl-k" "move_selected_items_up" ++
+          bindChain "ctrl-j" "move_selected_items_down" ++
           bindMultiple "l" [ "show_lyrics" "next_column" "slave_screen" ] ++
           bindMultiple "h" [ "previous_column" "master_screen" ];
     };
