@@ -34,17 +34,18 @@ in {
         let
           bindChain = key: cmds: [ { key = "${key}"; command = cmds;  } ];
           bindMultiple = key: cmds: map (cmd: { key = "${key}"; command = "${cmd}"; }) cmds;
-        in
-          bindChain "j" "scroll_down" ++
-          bindChain "J" [ "select_item" "scroll_down" ] ++
-          bindChain "k" "scroll_up" ++
-          bindChain "K" [ "select_item" "scroll_up" ] ++
-          bindChain "ctrl-u" "page_up" ++
-          bindChain "ctrl-d" "page_down" ++
-          bindChain "ctrl-k" "move_selected_items_up" ++
-          bindChain "ctrl-j" "move_selected_items_down" ++
-          bindMultiple "l" [ "show_lyrics" "next_column" "slave_screen" ] ++
-          bindMultiple "h" [ "previous_column" "master_screen" ];
+        in builtins.concatLists [
+          (bindChain "j" "scroll_down")
+          (bindChain "J" [ "select_item" "scroll_down" ])
+          (bindChain "k" "scroll_up")
+          (bindChain "K" [ "select_item" "scroll_up" ])
+          (bindChain "ctrl-u" "page_up")
+          (bindChain "ctrl-d" "page_down")
+          (bindChain "ctrl-k" "move_selected_items_up")
+          (bindChain "ctrl-j" "move_selected_items_down")
+          (bindMultiple "l" [ "show_lyrics" "next_column" "slave_screen" ])
+          (bindMultiple "h" [ "previous_column" "master_screen" ])
+        ];
     };
   };
 }
