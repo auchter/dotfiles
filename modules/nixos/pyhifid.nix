@@ -12,6 +12,12 @@ in {
       type = types.str;
       description = "Backend to use";
     };
+
+    logLevel = mkOption {
+      type = types.nullOr types.str;
+      description = "Logging verbosity";
+      default = null;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -20,7 +26,11 @@ in {
       after = [ "network.target" "snapclient.service" ];
       wantedBy = [ "default.target" ];
       serviceConfig = {
-        ExecStart = "${pkgs.pyhifid}/bin/pyhifid --backend ${cfg.backend}";
+        ExecStart = ''
+          ${pkgs.pyhifid}/bin/pyhifid \
+            --backend ${cfg.backend} \
+            ${optionalString (cfg.logLevel != null) "--log-level ${cfg.logLevel}"} \
+        '';
         Restart = "always";
         SupplementaryGroups = [ "gpio" ];
       };
