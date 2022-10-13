@@ -14,7 +14,7 @@
   modules.sshd.enable = true;
 
   fileSystems."/mnt/storage" = {
-    device = "/dev/disk/by-uuid/127a245d-6d0d-4d8a-b749-83715bec90e6";
+    device = "/dev/disk/by-uuid/6b2a302e-3678-454a-a7bd-3601a9d07f94";
     fsType = "ext4";
     options = [ "nofail" ];
   };
