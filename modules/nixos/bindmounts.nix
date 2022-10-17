@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -14,7 +14,7 @@ in {
   };
 
   config = mkIf (cfg.mounts != {}) {
-    fileSystems = mapAttrs (bind: canon: {
+    fileSystems = mapAttrs (_bind: canon: {
       device = canon;
       options = [ "bind" ];
     }) cfg.mounts;

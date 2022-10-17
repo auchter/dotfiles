@@ -1,4 +1,4 @@
-{ config, lib, sops-nix, ... }:
+{ config, lib, ... }:
 
 with lib;
 

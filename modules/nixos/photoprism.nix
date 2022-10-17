@@ -32,7 +32,7 @@ in {
   config = mkIf (cfg.enable) {
     services.nginx = {
       enable = true;
-      virtualHosts = mapAttrs' (instance: config: nameValuePair "${config.vhost}" {
+      virtualHosts = mapAttrs' (_instance: config: nameValuePair "${config.vhost}" {
         forceSSL = true;
         enableACME = true;
         locations."/" = {

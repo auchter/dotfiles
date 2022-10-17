@@ -7,7 +7,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
+  outputs = { nixpkgs, home-manager, sops-nix, ... }:
   let
     mkSystem = hostname: hardware: nixpkgs.lib.nixosSystem rec {
       system = {

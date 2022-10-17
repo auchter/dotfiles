@@ -1,4 +1,4 @@
-{ config, pkgs, options, lib, ... }:
+{ ... }:
 
 {
   services.fail2ban = {

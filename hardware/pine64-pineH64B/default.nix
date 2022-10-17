@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, ... }:
+{ config, modulesPath, ... }:
 {
   imports = [
     "${modulesPath}/installer/sd-card/sd-image.nix"

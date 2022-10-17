@@ -1,4 +1,4 @@
-{ config, lib, sops-nix, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -80,7 +80,7 @@ in {
         ips = [ "10.100.0.1/24" ];
         listenPort = port;
         privateKeyFile = config.sops.secrets.wireguard_private.path;
-        peers = mapAttrsToList (host: info: {
+        peers = mapAttrsToList (_host: info: {
           publicKey = info.publicKey;
           allowedIPs = [ "${info.ip}/32" ];
         }) hosts;
