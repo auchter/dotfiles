@@ -7,13 +7,13 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "pyhifid";
-  version = "unstable-2022-10-07";
+  version = "unstable-2022-10-24";
 
   src = fetchFromGitHub {
     owner = "auchter";
     repo = pname;
-    rev = "1fe6d5c142d5b8ac7bc7b80cc1f5cade7215243b";
-    sha256 = "sha256-gQKQDJrCVqoDeIhSenXg1ywcdd+j6dBHHdUEMM4qMqI=";
+    rev = "47ce8692e3ad7f8f98baf79562ac3ba01723b9bd";
+    sha256 = "sha256-CObfZjxHvHZ7yHdCPDsRvRBg4WQhp9//+0wHTFvP4wo=";
   };
 
   propagatedBuildInputs = with python3Packages; [
