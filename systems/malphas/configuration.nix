@@ -10,6 +10,16 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
+  boot.kernelPatches = [
+    {
+      name = "bluetooth";
+      patch = null;
+      extraConfig = ''
+        BT_HCIUART_3WIRE y
+      '';
+    }
+  ];
+
   networking.interfaces.eth0.useDHCP = true;
   modules.sshd.enable = true;
 
@@ -20,6 +30,10 @@
   };
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
+
+  hardware.bluetooth = {
+    enable = true;
+  };
 
   services.mpd = {
     enable = false;
