@@ -35,7 +35,7 @@
   modules.bindmounts.mounts = {
     "/export/music" = "/mnt/storage/music";
     "/export/films" = "/mnt/storage/films";
-    "/export/tv" = "/mnt/storage/tv"
+    "/export/tv" = "/mnt/storage/tv";
   };
 
   services.nfs.server.enable = true;
