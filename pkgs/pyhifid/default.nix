@@ -12,8 +12,8 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "auchter";
     repo = pname;
-    rev = "47ce8692e3ad7f8f98baf79562ac3ba01723b9bd";
-    sha256 = "sha256-CObfZjxHvHZ7yHdCPDsRvRBg4WQhp9//+0wHTFvP4wo=";
+    rev = "b1b7fbb4fe4171e3e132e0a2febe6aa94ed5af20";
+    sha256 = "sha256-YRPxVqqoWvPMmnuMZhMBOBv+7GdFXI8lJLjfUtCOdOM=";
   };
 
   propagatedBuildInputs = with python3Packages; [
