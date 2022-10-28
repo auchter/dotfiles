@@ -1,4 +1,5 @@
 { lib
+, fetchFromGitHub
 , python3
 , brutefir
 }:
@@ -10,9 +11,11 @@ python3.pkgs.buildPythonPackage rec {
   # since we're lacking a setup.py:
   format = "pyproject";
 
-  src = python3.pkgs.fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-/Bfd3RQw0ZwZYiGTB1xn5Phi5PwtggF8nytphY8ydPw=";
+  src = fetchFromGitHub {
+    owner = "auchter";
+    repo = "python-brutefir";
+    rev = "b124cb3f3a1e6f4fa613751085eafeae29b6f5e2";
+    sha256 = "sha256-NeeVOc2GgndsfML3VrP3lN6cxNfljpxdeKMSfOlFXXs=";
   };
 
   propagatedBuildInputs = with python3.pkgs; [
