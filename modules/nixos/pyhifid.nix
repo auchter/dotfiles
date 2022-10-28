@@ -29,7 +29,7 @@ in {
         ExecStart = ''
           ${pkgs.pyhifid}/bin/pyhifid \
             --backend ${cfg.backend} \
-            ${optionalString (cfg.logLevel != null) "--log-level ${cfg.logLevel}"} \
+            ${optionalString (cfg.logLevel != null) "--log ${cfg.logLevel}"} \
         '';
         Restart = "always";
         SupplementaryGroups = [ "gpio" ];
