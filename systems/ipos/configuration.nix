@@ -92,53 +92,7 @@
       "michau.ch" = {
         forceSSL = true;
         enableACME = true;
-        locations."/".root = pkgs.writeTextDir "index.html" ''
-          <!doctype html>
-          <html lang="en">
-            <head>
-              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-              <title>mich auch</title>
-              <style>
-                body {
-                  font-family: monospace;
-                  text-align: center;
-                }
-                .t {
-                  font-variant: small-caps;
-                }
-                span svg {
-                  float: center;
-                  width: 30%;
-                }
-              </style>
-            </head>
-            <body>
-              <span>
-                <svg viewBox="0 0 190 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <!-- main outline -->
-                  <rect fill="#000" x="0" y="0" width="190" height="10" />
-                  <rect fill="#000" x="0" y="10" width="10" height="40" />
-                  <rect fill="#000" x="180" y="10" width="10" height="40" />
-                  <rect fill="#000" x="0" y="50" width="190" height="10" />
-
-                  <!-- m | -->
-                  <rect fill="#000" x="20" y="20" width="10" height="30" />
-                  <rect fill="#000" x="40" y="20" width="10" height="30" />
-                  <rect fill="#000" x="60" y="10" width="10" height="40" />
-
-                  <!-- m | -->
-                  <rect fill="#000" x="80" y="20" width="10" height="30" />
-                  <rect fill="#000" x="100" y="20" width="10" height="30" />
-                  <rect fill="#000" x="120" y="10" width="10" height="40" />
-
-                  <!-- a -->
-                  <rect fill="#000" x="140" y="20" width="30" height="10" />
-                  <rect fill="#000" x="140" y="40" width="30" height="10" />
-                </svg>
-              </span>
-            </body>
-          </html>
-        '';
+        locations."/".root = pkgs.michauch;
       };
     };
   };

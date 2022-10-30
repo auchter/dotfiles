@@ -7,6 +7,7 @@
   dterm = pkgs.callPackage ./dterm { };
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
+  michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
