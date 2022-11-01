@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -10,7 +10,7 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  boot.kernelPatches = [
+  boot.kernelPatches = lib.mkIf false [
     {
       name = "bluetooth";
       patch = null;
