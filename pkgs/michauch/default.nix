@@ -12,8 +12,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "auchter";
     repo = pname;
-    rev = "8436b7e49104bc3c936e2f3f5a94a2855ed4dcd9";
-    sha256 = "sha256-lA05ZtNMFRETaswD91lQmFbdHMq1meEfq9s8xKCuNzY=";
+    rev = "7166b10d5df02365e7aa9269b5ba02393e8a13aa";
+    sha256 = "sha256-slgimRft5cmgI81IAwuY1X4lFKC5ILa1MDyUGc2Vooo=";
   };
 
   buildInputs = [
