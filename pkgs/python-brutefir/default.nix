@@ -18,6 +18,10 @@ python3Packages.buildPythonPackage rec {
     sha256 = "sha256-NeeVOc2GgndsfML3VrP3lN6cxNfljpxdeKMSfOlFXXs=";
   };
 
+  buildInputs = with python3Packages; [
+    setuptools
+  ];
+
   propagatedBuildInputs = with python3Packages; [
     brutefir
     numpy
