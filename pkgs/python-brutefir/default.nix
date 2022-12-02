@@ -14,8 +14,8 @@ python3Packages.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "auchter";
     repo = "python-brutefir";
-    rev = "b124cb3f3a1e6f4fa613751085eafeae29b6f5e2";
-    sha256 = "sha256-NeeVOc2GgndsfML3VrP3lN6cxNfljpxdeKMSfOlFXXs=";
+    rev = "1ad8d7fb153452c179c18f523d92c2360c7766de";
+    sha256 = "sha256-23Qhfxk6trJ3LUXD7Y7sfZjthJrXp3jNrSp8ZnIGlQc=";
   };
 
   buildInputs = with python3Packages; [
