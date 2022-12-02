@@ -1,10 +1,10 @@
 { lib
 , fetchFromGitHub
-, python3
+, python3Packages
 , brutefir
 }:
 
-python3.pkgs.buildPythonPackage rec {
+python3Packages.buildPythonPackage rec {
   pname = "brutefir";
   version = "0.0.5";
 
@@ -18,7 +18,7 @@ python3.pkgs.buildPythonPackage rec {
     sha256 = "sha256-NeeVOc2GgndsfML3VrP3lN6cxNfljpxdeKMSfOlFXXs=";
   };
 
-  propagatedBuildInputs = with python3.pkgs; [
+  propagatedBuildInputs = with python3Packages; [
     brutefir
     numpy
     pexpect
