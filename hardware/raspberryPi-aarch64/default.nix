@@ -78,6 +78,9 @@
 
         # Copy all dtbs
         cp ${pkgs.raspberrypifw}/share/raspberrypi/boot/*.dtb firmware/
+
+        # Hack to deal with compatible string differences between kernel and dtbs
+        sed -i 's/brcm,bcm2708-usb/brcm,bcm2835-usb/g' firmware/bcm2710-rpi-zero-2-w.dtb
       '';
     populateRootCommands = ''
       mkdir -p ./files/boot
