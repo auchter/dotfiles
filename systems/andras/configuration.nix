@@ -24,7 +24,7 @@
     enable = true;
     host = "malphas";
     sampleFormat = "44100:16:*";
-    soundcard = "front:CARD=Audio,DEV=0";
+    soundcard = "front:CARD=Device,DEV=0";
   };
 
   modules.brutefir = {
