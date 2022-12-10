@@ -45,6 +45,8 @@
     obsidian
     signal-desktop
     sshfs
+
+    kindle-send
   ];
 
 
