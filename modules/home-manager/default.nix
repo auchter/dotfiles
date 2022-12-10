@@ -10,5 +10,6 @@
   tmux = ./tmux.nix;
   vdirsyncer = ./vdirsyncer.nix;
   vim = ./vim.nix;
+  whipper = ./whipper.nix;
   zsh = ./zsh.nix;
 }
