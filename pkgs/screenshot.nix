@@ -9,7 +9,7 @@ writeShellApplication {
   runtimeInputs = [ grim slurp ];
 
   text = ''
-    ${slurp}/bin/slurp | ${grim}/bin/grim -g -
+    slurp | grim -g -
   '';
 }
 
