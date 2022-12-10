@@ -74,6 +74,8 @@
     musicDir = "/home/a/Music";
   };
 
+  modules.whipper.enable = true;
+
   services.kdeconnect = {
     enable = true;
     indicator = true;
