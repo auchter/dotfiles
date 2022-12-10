@@ -15,6 +15,7 @@
   python-brutefir = pkgs.callPackage ./python-brutefir { };
   python-powermate = pkgs.callPackage ./python-powermate { };
   readsb = pkgs.callPackage ./readsb { };
+  screenshot = pkgs.callPackage ./screenshot.nix { };
   tar1090 = pkgs.callPackage ./tar1090 { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
 }
