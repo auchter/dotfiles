@@ -53,29 +53,6 @@
     '';
   };
 
-  sops.secrets.mopidy-subidy_config = {
-    owner = "mopidy";
-  };
-
-  services.mopidy = {
-    enable = false;
-    extensionPackages = with pkgs; [
-      mopidy-mpd
-      mopidy-subidy
-    ];
-    configuration = ''
-      [mpd]
-      enabled = true
-      hostname = 0.0.0.0
-      port = 6600
-      [audio]
-      output = audioresample ! audioconvert ! audio/x-raw,rate=44100,channels=2,format=S16LE ! filesink location=${config.services.snapserver.streams.mopidy.location}
-    '';
-    extraConfigFiles = [
-      config.sops.secrets.mopidy-subidy_config.path
-    ];
-  };
-
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
   ];
