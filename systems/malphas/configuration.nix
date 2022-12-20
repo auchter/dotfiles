@@ -36,7 +36,7 @@
   };
 
   services.mpd = {
-    enable = false;
+    enable = true;
     musicDirectory = "/mnt/storage/music";
     network = {
       listenAddress = "any";
@@ -58,7 +58,7 @@
   };
 
   services.mopidy = {
-    enable = true;
+    enable = false;
     extensionPackages = with pkgs; [
       mopidy-mpd
       mopidy-subidy
