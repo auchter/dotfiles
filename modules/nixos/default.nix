@@ -9,6 +9,7 @@
   home-assistant = ./home-assistant.nix;
   logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;
+  mympd = ./mympd.nix;
   ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
   photoprism = ./photoprism.nix;
