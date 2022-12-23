@@ -54,6 +54,14 @@
     '';
   };
 
+  services.mympd = {
+    enable = false;
+    openFirewall = true;
+    logLevel = 3; # TODO: currently ignored, since mympd is being built in release mode
+    mpdHost = "localhost";
+    ssl = false;
+  };
+
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
   ];
