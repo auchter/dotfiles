@@ -23,7 +23,7 @@
   };
 
   modules.airsonic = {
-    enable = true;
+    enable = false;
     host = "airsonic.phire.org";
   };
 
