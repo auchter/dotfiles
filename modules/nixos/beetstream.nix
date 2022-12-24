@@ -19,6 +19,12 @@ in {
       default = { };
     };
 
+    configFile = mkOption {
+      type = types.path;
+      default = yamlFormat.generate "beetstream.yaml" cfg.settings;
+      description = "Config to use instead of generating based on settings";
+    };
+
     package = mkOption {
       default = pkgs.beets.override {
         pluginOverrides = {
@@ -46,7 +52,7 @@ in {
           "BEETSDIR=/run/beetstream"
         ];
         ExecStart = ''
-          ${cfg.package}/bin/beet -c ${yamlFormat.generate "beetstream.yaml" cfg.settings} beetstream 127.0.0.1 ${toString bsPort}
+          ${cfg.package}/bin/beet -c ${cfg.configFile} beetstream 127.0.0.1 ${toString bsPort}
         '';
         Type = "simple";
         RuntimeDirectory = "beetstream";
