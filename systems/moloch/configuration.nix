@@ -73,6 +73,9 @@
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      load-module module-bluetooth-policy auto_switch=2
+    '';
   };
 
   hardware.opengl = {
@@ -80,7 +83,12 @@
     driSupport = true;
   };
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+  };
+
+  services.blueman.enable = true;
+  sound.enable = true;
 
   virtualisation.docker.enable = true;
 
