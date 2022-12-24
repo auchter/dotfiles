@@ -1,6 +1,7 @@
 {
   ads-b = ./ads-b.nix;
   airsonic = ./airsonic.nix;
+  beetstream = ./beetstream.nix;
   bindmounts = ./bindmounts.nix;
   brutefir = ./brutefir.nix;
   embedded = ./embedded.nix;
