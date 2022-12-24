@@ -43,6 +43,7 @@
       listenAddress = "any";
     };
     extraConfig = ''
+      auto_update "yes"
       replaygain "auto"
       audio_output {
         type    "fifo"
