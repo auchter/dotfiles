@@ -26,10 +26,6 @@ in {
             enable = true;
             propagatedBuildInputs = [ pkgs.beets-dynamicrange ];
           };
-          beetstream = {
-            enable = true;
-            propagatedBuildInputs = [ pkgs.beetstream ];
-          };
         };
       };
       settings = {
@@ -47,8 +43,8 @@ in {
         languages = [ "en" "de" ];
         plugins = [
           "badfiles"
-          "beetstream"
           "dynamicrange"
+          "edit"
           "fetchart"
           "fromfilename"
           "lastimport"
