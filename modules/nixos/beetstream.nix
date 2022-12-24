@@ -51,8 +51,9 @@ in {
         Environment = [
           "BEETSDIR=/run/beetstream"
         ];
+        LoadCredential="beetconfig:${cfg.configFile}";
         ExecStart = ''
-          ${cfg.package}/bin/beet -c ${cfg.configFile} beetstream 127.0.0.1 ${toString bsPort}
+          ${cfg.package}/bin/beet -c ''${CREDENTIALS_DIRECTORY}/beetconfig beetstream 127.0.0.1 ${toString bsPort}
         '';
         Type = "simple";
         RuntimeDirectory = "beetstream";
