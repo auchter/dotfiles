@@ -146,6 +146,13 @@
     ];
   };
 
+  sops.secrets.beetstream_config = { };
+  modules.beetstream = {
+    enable = true;
+    vhost = "beetstream.phire.org";
+    configFile = config.sops.secrets.beetstream_config.path;
+  };
+
   networking.firewall.allowedTCPPorts = [
     80 443 # nginx
     2049 # nfs
