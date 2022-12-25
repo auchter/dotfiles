@@ -47,10 +47,12 @@ in {
           "edit"
           "fetchart"
           "fromfilename"
+          "lastgenre"
           "lastimport"
           "lyrics"
           "missing"
           "replaygain"
+          "zero"
         ];
         badfiles = {
           check_on_import = true;
@@ -65,8 +67,15 @@ in {
           count = false;
           total = false;
         };
+        musicbrainz = {
+          genres = true;
+        };
         replaygain = {
           backend = "ffmpeg";
+        };
+        zero = {
+          fields = "genre comments";
+          update_database = true;
         };
       };
     };
