@@ -26,6 +26,10 @@ in {
             enable = true;
             propagatedBuildInputs = [ pkgs.beets-dynamicrange ];
           };
+          rym = {
+            enable = true;
+            propagatedBuildInputs = [ pkgs.beets-rym ];
+          };
         };
       };
       settings = {
@@ -52,6 +56,7 @@ in {
           "lyrics"
           "missing"
           "replaygain"
+          "rym"
           "zero"
         ];
         badfiles = {
