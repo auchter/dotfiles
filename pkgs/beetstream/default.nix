@@ -8,10 +8,10 @@ python3Packages.buildPythonApplication rec {
   version = "v1.0.2";
 
   src = fetchFromGitHub {
-    owner = "BinaryBrain";
+    owner = "auchter";
     repo = "Beetstream";
-    rev = version;
-    sha256 = "sha256-xhWXM8pR6EGqi46ciFtzZiQMcEN2eXD3rJJGV+poTIg=";
+    rev = "efc1cd3905e740205fbe23132dd89dfd7934c490";
+    sha256 = "sha256-KOEqjAEtXYrdkMV8zopTLioAtWOM34oF8D0sr0fGVac=";
   };
 
   format = "pyproject";
@@ -24,6 +24,7 @@ python3Packages.buildPythonApplication rec {
     flask
     flask-cors
     pillow
+    pylast
   ];
 
   meta = with lib; {
