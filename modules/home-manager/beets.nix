@@ -56,6 +56,7 @@ in {
           "lyrics"
           "missing"
           "replaygain"
+          "smartplaylist"
           "rym"
           "zero"
         ];
@@ -77,6 +78,33 @@ in {
         };
         replaygain = {
           backend = "ffmpeg";
+        };
+        smartplaylist = {
+          relative_to = "${cfg.musicDir}";
+          playlist_dir = "${cfg.musicDir}/playlists";
+          forward_slash = false;
+          playlists  = [
+            {
+              name = "Aphex Twin Analord.m3u";
+              query = "album:Analord album+";
+            }
+            {
+              name = "Secret Chiefs 3 Singles.m3u";
+              album_query = "albumartist:'Secret Chiefs 3' albumtype:single";
+            }
+            {
+              name = "John Zorn's Book of Angels.m3u";
+              album_query = "album:'Book of Angels' year+ month+ day+";
+            }
+            {
+              name = "John Zorn's The Book Beri'ah.m3u";
+              album_query = "album:'The Book Beri' year+ month+ day+";
+            }
+            {
+              name = "%left{$added, 7} - New Albums.m3u";
+              album_query = "added:2022-11..";
+            }
+          ];
         };
         zero = {
           fields = "genre comments";
