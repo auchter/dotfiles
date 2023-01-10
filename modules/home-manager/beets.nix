@@ -89,6 +89,34 @@ in {
               query = "album:Analord album+";
             }
             {
+              name = "Autechre - Elseq";
+              album_query = "albumartist:Autechre album:elseq";
+            }
+            {
+              name = "Autechre - NTS Sessions";
+              album_query = "albumartist:Autechre album:'NTS Session'";
+            }
+            {
+              name = "Frank Zappa - Joe's Garage";
+              album_query = "albumartist:'Frank Zappa' album:Garage";
+            }
+            {
+              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 1";
+              query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐9‐73 show 1'";
+            }
+            {
+              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 2";
+              query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐9‐73 show 2'";
+            }
+            {
+              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 1";
+              query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐10‐73 show 1'";
+            }
+            {
+              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 2";
+              query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐10‐73 show 2'";
+            }
+            {
               name = "Secret Chiefs 3 Singles.m3u";
               album_query = "albumartist:'Secret Chiefs 3' albumtype:single";
             }
@@ -99,6 +127,18 @@ in {
             {
               name = "John Zorn's The Book Beri'ah.m3u";
               album_query = "album:'The Book Beri' year+ month+ day+";
+            }
+            {
+              name = "John Zorn's Moonchild.m3u";
+              album_query = "album:astronome, album:moonchild, album:'six litanies', album:'the crucible'";
+            }
+            {
+              name = "John Zorn's Gnostic Trio.m3u";
+              album_query = "album:netzach, album:mockingbird";
+            }
+            {
+              name = "John Zorn's Simulacrum.m3u";
+              album_query = "album:Simulacrum, album:'true discoveries of witches', album:'baphomet', album:'garden of earthly delights'";
             }
             {
               name = "%left{$added, 7} - New Albums.m3u";

@@ -39,6 +39,7 @@
     enable = true;
     dataDir = "/mnt/storage/mpd";
     musicDirectory = "/mnt/storage/music";
+    playlistDirectory = "/mnt/storage/music/playlists";
     network = {
       listenAddress = "any";
     };
