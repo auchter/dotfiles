@@ -89,31 +89,31 @@ in {
               query = "album:Analord album+";
             }
             {
-              name = "Autechre - Elseq";
+              name = "Autechre - Elseq.m3u";
               album_query = "albumartist:Autechre album:elseq";
             }
             {
-              name = "Autechre - NTS Sessions";
+              name = "Autechre - NTS Sessions.m3u";
               album_query = "albumartist:Autechre album:'NTS Session'";
             }
             {
-              name = "Frank Zappa - Joe's Garage";
+              name = "Frank Zappa - Joe's Garage.m3u";
               album_query = "albumartist:'Frank Zappa' album:Garage";
             }
             {
-              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 1";
+              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 1.m3u";
               query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐9‐73 show 1'";
             }
             {
-              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 2";
+              name = "Frank Zappa - Roxy Performances 1973-12-09 Show 2.m3u";
               query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐9‐73 show 2'";
             }
             {
-              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 1";
+              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 1.m3u";
               query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐10‐73 show 1'";
             }
             {
-              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 2";
+              name = "Frank Zappa - Roxy Performances 1973-12-10 Show 2.m3u";
               query = "albumartist:'Frank Zappa' album:'Roxy Performances' title:'12‐10‐73 show 2'";
             }
             {
