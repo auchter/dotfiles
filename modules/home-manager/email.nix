@@ -54,6 +54,8 @@ in {
       image/jpeg; ${pkgs.feh}/bin/feh %s;
       image/png; ${pkgs.feh}/bin/feh %s;
       application/pdf; ${pkgs.mupdf}/bin/mupdf %s;
+      text/calendar; ${pkgs.khal}/bin/khal import %s;
+      application/ics; ${pkgs.khal}/bin/khal import %s;
     '';
   };
 }
