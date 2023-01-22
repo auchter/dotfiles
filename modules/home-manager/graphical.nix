@@ -48,6 +48,8 @@ in {
           "XF86AudioMute" = "exec ${pkgs.alsa-utils}/bin/amixer set Master toggle";
           "XF86MonBrightnessUp" = adjustBrightness "1%+";
           "XF86MonBrightnessDown" = adjustBrightness "1%-";
+          "Shift+XF86MonBrightnessUp" = adjustBrightness "20%+";
+          "Shift+XF86MonBrightnessDown" = adjustBrightness "20%-";
           "XF86AudioRaiseVolume" = adjustVolume "5%+";
           "XF86AudioLowerVolume" = adjustVolume "5%-";
           "Shift+XF86AudioRaiseVolume" = adjustSnapcastVolume "up";
