@@ -6,7 +6,7 @@
       albumQuery = x: { album_query = x; };
       itemQuery = x : { query = x; };
     in {
-      "%left{$added, 7} - New Albums" = albumQuery "added:2022-11..";
+      "%left{$added, 7} - New Albums" = albumQuery "added:2022-11.. added-";
       "Aphex Twin - Analord" = itemQuery "album:Analord album+";
       "Autechre - Elseq" = albumQuery "albumartist:Autechre album:elseq";
       "Autechre - NTS Sessions" = albumQuery "albumartist:Autechre album:'NTS Session'";
