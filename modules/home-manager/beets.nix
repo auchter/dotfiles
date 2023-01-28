@@ -59,6 +59,7 @@ in {
           "lastimport"
           "lyrics"
           "mbsubmit"
+          "mbsync"
           "missing"
           "replaygain"
           "smartplaylist"
