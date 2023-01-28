@@ -54,6 +54,7 @@ in {
           "edit"
           "fetchart"
           "fromfilename"
+          "ftintitle"
           "lastgenre"
           "lastimport"
           "lyrics"
@@ -69,6 +70,9 @@ in {
             "flac" = "${pkgs.flac}/bin/flac -wst";
             "mp3" = "${pkgs.mp3val}/bin/mp3val";
           };
+        };
+        ftintitle = {
+          auto = true;
         };
         lastfm.user = "auchter";
         missing = {
