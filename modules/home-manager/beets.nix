@@ -58,6 +58,7 @@ in {
           "lastgenre"
           "lastimport"
           "lyrics"
+          "mbsubmit"
           "missing"
           "replaygain"
           "smartplaylist"
