@@ -25,6 +25,10 @@ in {
       enable = true;
       package = pkgs.beets.override {
         pluginOverrides = {
+          alternatives = {
+            enable = true;
+            propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
+          };
           dynamicrange = {
             enable = true;
             propagatedBuildInputs = [ pkgs.beets-dynamicrange ];
@@ -49,7 +53,9 @@ in {
         original_date = true;
         languages = [ "en" "de" ];
         plugins = [
+          "alternatives"
           "badfiles"
+          "convert"
           "dynamicrange"
           "edit"
           "fetchart"
@@ -66,11 +72,26 @@ in {
           "rym"
           "zero"
         ];
+        alternatives = {
+          opus96 = {
+            directory = "/mnt/storage/music.opus96";
+            formats = "opus96 mp3 ogg aac";
+            removable = false;
+            query = "";
+          };
+        };
         badfiles = {
           check_on_import = true;
           commands = {
             "flac" = "${pkgs.flac}/bin/flac -wst";
             "mp3" = "${pkgs.mp3val}/bin/mp3val";
+          };
+        };
+        convert = {
+          never_convert_lossy_files = true;
+          copy_album_art = true;
+          formats = {
+            opus96 = "ffmpeg -i $source -y -vn -acodec libopus -ab 96k $dest";
           };
         };
         ftintitle = {
