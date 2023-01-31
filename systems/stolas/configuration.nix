@@ -32,6 +32,10 @@
     openFirewall = true;
   };
 
+  modules.syncthing = {
+    enable = true;
+  };
+
   modules.home-assistant = {
     enable = true;
     vhost = "independent.phire.org";

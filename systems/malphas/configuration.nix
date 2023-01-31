@@ -29,6 +29,10 @@
     options = [ "nofail" ];
   };
 
+  modules.syncthing = {
+    enable = true;
+  };
+
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
   hardware.bluetooth = {

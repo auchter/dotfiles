@@ -18,6 +18,7 @@
   readsb = ./readsb.nix;
   restic = ./restic.nix;
   snapclient = ./snapclient.nix;
+  syncthing = ./syncthing.nix;
   sshd = ./sshd.nix;
   tar1090 = ./tar1090.nix;
   wifi = ./wifi.nix;
