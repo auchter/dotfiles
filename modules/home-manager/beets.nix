@@ -73,9 +73,9 @@ in {
           "zero"
         ];
         alternatives = {
-          opus96 = {
-            directory = "/mnt/storage/music.opus96";
-            formats = "opus96 mp3 ogg aac";
+          opus = {
+            directory = "/mnt/storage/music.opus";
+            formats = "opus mp3 ogg aac";
             removable = false;
             query = "";
           };
@@ -90,9 +90,6 @@ in {
         convert = {
           never_convert_lossy_files = true;
           copy_album_art = true;
-          formats = {
-            opus96 = "ffmpeg -i $source -y -vn -acodec libopus -ab 96k $dest";
-          };
         };
         ftintitle = {
           auto = true;
