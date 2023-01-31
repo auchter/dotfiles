@@ -1,0 +1,54 @@
+From 14d3ae37ecb031c446b8beebd49eff704fd0f3d6 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Tue, 31 Jan 2023 21:52:57 +0000
+Subject: [PATCH] brutefir: restructure
+
+---
+ client/brutefir.cpp | 24 +++++++++++-------------
+ 1 file changed, 11 insertions(+), 13 deletions(-)
+
+diff --git a/client/brutefir.cpp b/client/brutefir.cpp
+index 30c74b59..77dc83aa 100644
+--- a/client/brutefir.cpp
++++ b/client/brutefir.cpp
+@@ -80,26 +80,24 @@ void BruteFIR::filter(std::shared_ptr<msg::PcmChunk> chunk)
+         throw SnapException("BruteFIR process not running, bailing...");
+     }
+ 
+-    boost::asio::async_write(pipe_stdin_, boost::asio::buffer(chunk->payload, chunk->payloadSize), [this](const std::error_code& ec, std::size_t) {
++    boost::asio::async_write(pipe_stdin_, boost::asio::buffer(chunk->payload, chunk->payloadSize), [this, chunk](const std::error_code& ec, std::size_t xfer) {
+         if (ec)
+         {
+             LOG(WARNING, LOG_TAG) << "async write failed: " << ec.message() << "\n";
+             return;
+         }
+-    });
+ 
+-    chunks_.push(chunk);
++        this->chunks_.push(chunk);
+ 
+-    boost::asio::async_read(pipe_stdout_, boost::asio::buffer(chunk->payload, chunk->payloadSize), [this](const std::error_code& ec, std::size_t) {
+-        if (ec)
+-        {
+-            LOG(WARNING, LOG_TAG) << "async read failed: " << ec.message() << "\n";
+-            return;
+-        }
++        boost::asio::async_read(pipe_stdout_, boost::asio::buffer(chunk->payload, chunk->payloadSize), [this](const std::error_code& ec, std::size_t xfer) {
++            if (ec)
++            {
++                LOG(WARNING, LOG_TAG) << "async read failed: " << ec.message() << "\n";
++                return;
++            }
+ 
+-        auto chunk = chunks_.pop();
+-        add_chunk_(chunk);
++            auto chunk = chunks_.pop();
++            add_chunk_(chunk);
++        });
+     });
+-
+ }
+-
+-- 
+2.38.1
+

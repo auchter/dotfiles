@@ -5,6 +5,7 @@
       ./0001-Hack-in-BruteFIR-support.patch
       ./0002-Add-brutefir_config-option.patch
       ./0003-include-missing-headers.patch
+      ./0001-brutefir-restructure.patch
     ];
     postPatch = ''
       substituteInPlace client/brutefir.cpp --replace \
