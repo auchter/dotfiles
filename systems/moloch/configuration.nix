@@ -5,7 +5,6 @@
     [ ./hardware-configuration.nix
       ../common
       ../../nixos/modules/soulseek.nix
-      ../../nixos/modules/syncthing.nix
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
