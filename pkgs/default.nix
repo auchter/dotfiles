@@ -15,6 +15,7 @@
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
   pyhifid = pkgs.callPackage ./pyhifid { };
+  pylistenbrainz = pkgs.callPackage ./pylistenbrainz { };
   python-brutefir = pkgs.callPackage ./python-brutefir { };
   python-powermate = pkgs.callPackage ./python-powermate { };
   readsb = pkgs.callPackage ./readsb { };
