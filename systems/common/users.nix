@@ -21,6 +21,7 @@ in
         "video"
         "docker"
         "dialout"
+        "syncthing"
         config.users.groups.keys.name
       ];
       home = "/home/a";
