@@ -70,21 +70,17 @@
 
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
+    4953
   ];
 
-  sops.secrets.lastfm_pass = {};
-  sops.secrets.librefm_pass = {};
+  sops.secrets.listenbrainz_pass = {};
 
   services.mpdscribble = {
     enable = true;
     endpoints = {
-      "last.fm" = {
-        username = "auchter";
-        passwordFile = config.sops.secrets.lastfm_pass.path;
-      };
-      "libre.fm" = {
-        username = "auchter";
-        passwordFile = config.sops.secrets.librefm_pass.path;
+      "listenbrainz" = {
+        username = "e8beb414513f8";
+        passwordFile = config.sops.secrets.listenbrainz_pass.path;
       };
     };
   };
