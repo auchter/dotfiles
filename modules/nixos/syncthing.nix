@@ -34,6 +34,13 @@ let
         type = "receiveonly";
       };
     };
+    "obsidian" = {
+      pixel5a = {};
+      moloch = {
+        path = "~/obsidian";
+        type = "sendreceive";
+      };
+    };
   };
 in {
   options.modules.syncthing = {
@@ -41,6 +48,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.syncthing.homeMode = "770";
+
     services.syncthing = {
       enable = true;
       devices = {
