@@ -51,7 +51,7 @@
     cloudPaths = [
       "/home/a/photos"
       "/home/a/Maildir"
-      "/home/a/obsidian"
+      "/var/lib/syncthing/obsidian"
       "/home/a/proj"
     ];
   };
