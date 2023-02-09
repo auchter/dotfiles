@@ -2,6 +2,8 @@
 , fetchFromGitea
 , rustPlatform
 , openssl
+, pkg-config
+, rust-bin
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -17,6 +19,11 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoSha256 = "sha256-MiAalxe0drRHrST3maVvi8GM2y3d0z4Zl7R7Zx8VjEM=";
+
+  nativeBuildInputs = [
+    pkg-config
+    rust-bin.stable.latest.default
+  ];
 
   buildInputs = [
     openssl
