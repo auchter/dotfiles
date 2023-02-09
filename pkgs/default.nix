@@ -10,6 +10,7 @@
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
   kindle-send = pkgs.callPackage ./kindle-send.nix { };
+  listenbrainz-mpd = pkgs.callPackage ./listenbrainz-mpd { };
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
