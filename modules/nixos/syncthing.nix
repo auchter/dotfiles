@@ -52,20 +52,7 @@ in {
 
     services.syncthing = {
       enable = true;
-      devices = {
-        pixel5a = {
-          id = "75SH6AM-BPLJYIT-6AAK5SZ-GG3HC4D-5ZADRYP-GSCA3UM-PBJLV52-IP6JLQ3";
-        };
-        moloch = {
-          id = "RUZLV3F-BEAFDBU-JJQC5R3-GO6GDCR-2SDL4TP-UTTDZYF-5MC5SLY-YVI5OA7";
-        };
-        stolas = {
-          id = "UCSZGQG-YS6QPBH-ZQ7MKTO-IEHYTNC-YUVBBQC-2R4SN27-6KQHSCO-266UDQS";
-        };
-        malphas = {
-          id = "2CKYL2R-NGNKKKU-2IPPQII-C7XPP2I-SJDSE5O-IEXRCS5-WUCG7HF-OPSTVAT";
-        };
-      };
+      devices = import ./syncthing-devices.nix {};
       folders = mapAttrs (id: share: {
         id = id;
         devices = remove config.networking.hostName (builtins.attrNames share);
