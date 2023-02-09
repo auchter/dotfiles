@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitea
 , rustPlatform
+, openssl
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,6 +17,10 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoSha256 = "sha256-MiAalxe0drRHrST3maVvi8GM2y3d0z4Zl7R7Zx8VjEM=";
+
+  buildInputs = [
+    openssl
+  ];
 
   meta = with lib; {
     description = "ListenBrainz submission client for MPD written in Rust";
