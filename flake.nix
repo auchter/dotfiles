@@ -5,9 +5,10 @@
     home-manager.url = "github:rycee/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... }:
+  outputs = { nixpkgs, home-manager, sops-nix, rust-overlay, ... }:
   let
     mkSystem = hostname: hardware: nixpkgs.lib.nixosSystem rec {
       system = {
@@ -18,7 +19,10 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./overlay { inherit nixpkgs; }) ];
+        overlays = [
+          (import ./overlay { inherit nixpkgs; })
+          rust-overlay.overlays.default
+        ];
       };
       modules = [
         { networking.hostName = hostname; }
