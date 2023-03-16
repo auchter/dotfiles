@@ -8,6 +8,7 @@
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;
+  listenbrainz-mpd = ./listenbrainz-mpd.nix;
   logo-site = ./logo-site.nix;
   mlat-client = ./mlat-client.nix;
   mympd = ./mympd.nix;
