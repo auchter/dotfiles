@@ -22,6 +22,7 @@ in
         "docker"
         "dialout"
         "syncthing"
+        "plugdev"
         config.users.groups.keys.name
       ];
       home = "/home/a";
