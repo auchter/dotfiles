@@ -39,6 +39,9 @@ in {
         Description = "vdirsyncer";
       };
       Service = {
+        Environment = [
+          "PASSWORD_STORE_DIR=/home/a/.local/share/password-store"
+        ];
         ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
         Type = "oneshot";
       };
