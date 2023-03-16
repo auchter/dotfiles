@@ -68,6 +68,10 @@
     ssl = false;
   };
 
+  environment.systemPackages = [
+    pkgs.listenbrainz-mpd
+  ];
+
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
     4953
@@ -76,13 +80,18 @@
   sops.secrets.listenbrainz_pass = {};
 
   services.mpdscribble = {
-    enable = true;
+    enable = false;
     endpoints = {
       "listenbrainz" = {
         username = "e8beb414513f8";
         passwordFile = config.sops.secrets.listenbrainz_pass.path;
       };
     };
+  };
+
+  services.listenbrainz-mpd = {
+    enable = true;
+    tokenFile = config.sops.secrets.listenbrainz_pass.path;
   };
 
   services.snapserver = {
