@@ -10,6 +10,7 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
+  services.irqbalance.enable = true;
   modules.sshd.enable = true;
 
   networking.interfaces.wlan0.useDHCP = true;
@@ -45,7 +46,7 @@
       filter = {
         input = "in";
         output = "out";
-        coeff = "bathroom";
+        coeff = "dirac";
       };
     };
     coeffs = {
