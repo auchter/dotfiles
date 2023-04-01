@@ -29,7 +29,7 @@
   };
 
   modules.brutefir = {
-    enable = true;
+    enable = false;
     inputs = {
       "in" = {
         channels = 2;
