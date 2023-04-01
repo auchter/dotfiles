@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitHub
 , python3Packages
+, pylistenbrainz
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -10,8 +11,8 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "auchter";
     repo = "Beetstream";
-    rev = "efc1cd3905e740205fbe23132dd89dfd7934c490";
-    sha256 = "sha256-KOEqjAEtXYrdkMV8zopTLioAtWOM34oF8D0sr0fGVac=";
+    rev = "093ca0d6877af7bd1ba4bec4ec0c25e0dc979df1";
+    sha256 = "sha256-InddISNgTzZk6sYLGlhNoQPW5f9VNc3+3go9Y7PBJLo=";
   };
 
   format = "pyproject";
@@ -25,6 +26,7 @@ python3Packages.buildPythonApplication rec {
     flask-cors
     pillow
     pylast
+    pylistenbrainz
   ];
 
   meta = with lib; {
