@@ -112,6 +112,11 @@
   # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
   programs.sway.enable = true;
 
+  environment.systemPackages = [
+    pkgs.git-crypt
+    pkgs.listenbrainz-mpd
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
