@@ -58,6 +58,13 @@
         format  "44100:16:2"
         mixer_type "none"
       }
+      audio_output {
+        type    "fifo"
+        name    "brutefir"
+        path    "/tmp/mpd"
+        format  "44100:32:2"
+        mixer_type "software"
+      }
     '';
   };
 
@@ -123,30 +130,31 @@
     };
   };
 
-  services.pyhifid = {
-    enable = true;
-    backend = "PhirePreamp";
-  };
-
-  modules.snapclient = {
-    enable = true;
-    host = "localhost";
-    sampleFormat = "44100:16:*";
-    soundcard = "front:CARD=DAC,DEV=0";
-  };
-
+#  services.pyhifid = {
+#    enable = true;
+#    backend = "PhirePreamp";
+#  };
+#
+#  modules.snapclient = {
+#    enable = true;
+#    host = "localhost";
+#    sampleFormat = "44100:16:*";
+#    soundcard = "front:CARD=DAC,DEV=0";
+#  };
+#
   modules.brutefir = {
     enable = true;
+    floatBits = 64;
     inputs = {
       "in" = {
         channels = 2;
-        format = "S16_LE";
+        format = "S32_LE";
       };
     };
     outputs = {
       out = {
-        channels = 2;
-        format = "S16_LE";
+        channels = 4;
+        format = "S32_LE";
       };
     };
     filters = {
