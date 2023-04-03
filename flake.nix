@@ -44,6 +44,9 @@
     };
   in
   {
+    nixosModules = {
+      home-manager = builtins.attrValues (import ./modules/home-manager);
+    };
     nixosConfigurations = {
       ## For aarch64-linux systems:
       # nix build .#nixosConfigurations.balan.config.system.build.sdImage
