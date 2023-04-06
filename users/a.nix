@@ -3,7 +3,7 @@
 {
   home.username = "a";
   home.homeDirectory = "/home/a";
-  home.stateVersion = "21.11";
+  home.stateVersion = "22.11";
 
   programs.git = {
     userName = "Michael Auchter";
