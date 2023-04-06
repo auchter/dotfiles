@@ -5,6 +5,7 @@
   beets-rym = pkgs.callPackage ./beets-rym { };
   beetstream = pkgs.callPackage ./beetstream { };
   brutefir = pkgs.callPackage ./brutefir { };
+  camilladsp = pkgs.callPackage ./camilladsp { };
   drduh-yubikey-guide = pkgs.callPackage ./drduh-yubikey-guide { };
   dterm = pkgs.callPackage ./dterm { };
   ffts = pkgs.callPackage ./ffts { };
