@@ -49,6 +49,11 @@
       listenAddress = "any";
     };
     extraConfig = ''
+      resampler {
+        plugin "libsamplerate"
+        type "2"
+      }
+
       auto_update "yes"
       replaygain "auto"
       audio_output {
@@ -62,7 +67,7 @@
         type    "fifo"
         name    "brutefir"
         path    "/tmp/mpd"
-        format  "44100:32:2"
+        format  "96000:32:2"
         mixer_type "software"
       }
     '';
@@ -76,8 +81,9 @@
     ssl = false;
   };
 
-  environment.systemPackages = [
-    pkgs.listenbrainz-mpd
+  environment.systemPackages = with pkgs; [
+    camilladsp
+    listenbrainz-mpd
   ];
 
   networking.firewall.allowedTCPPorts = [
