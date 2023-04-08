@@ -11,9 +11,11 @@
   ffts = pkgs.callPackage ./ffts { };
   glscopeclient = pkgs.callPackage ./glscopeclient { };
   kindle-send = pkgs.callPackage ./kindle-send.nix { };
+  libupnpp = pkgs.callPackage ./libupnpp { };
   listenbrainz-mpd = pkgs.callPackage ./listenbrainz-mpd { };
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
+  npupnp = pkgs.callPackage ./npupnp { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
   pyhifid = pkgs.callPackage ./pyhifid { };
@@ -23,5 +25,6 @@
   readsb = pkgs.callPackage ./readsb { };
   screenshot = pkgs.callPackage ./screenshot.nix { };
   tar1090 = pkgs.callPackage ./tar1090 { };
+  upmpdcli = pkgs.callPackage ./upmpdcli { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
 }
