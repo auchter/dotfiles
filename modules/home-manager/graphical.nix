@@ -19,7 +19,6 @@ in {
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
-      screenshot
     ];
 
     programs.alacritty = {

@@ -47,6 +47,7 @@
     sshfs
 
     kindle-send
+    screenshot
     zoom-us
     chromium
     pavucontrol
