@@ -122,18 +122,6 @@
     openFirewall = true;
     http.docRoot = "${pkgs.snapcast}/share/snapserver/snapweb";
     streams = {
-      meta = {
-        type = "meta";
-        location = "/mopidy/mpd";
-      };
-      mopidy = {
-        type = "pipe";
-        location = "/run/snapserver/mopidy";
-        query = {
-          mode = "create";
-          sampleformat = "44100:16:2";
-        };
-      };
       mpd = {
         type = "pipe";
         location = "/run/snapserver/mpd";
