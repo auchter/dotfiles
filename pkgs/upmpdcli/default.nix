@@ -11,6 +11,7 @@
 , libmpdclient
 , libmicrohttpd
 , jsoncpp
+, openssl
 }:
 
 stdenv.mkDerivation rec {
@@ -38,6 +39,10 @@ stdenv.mkDerivation rec {
     libmpdclient
     libupnpp
     npupnp
+  ];
+
+  propagatedBuildInputs = [
+    openssl
   ];
 
   preConfigure = ''
