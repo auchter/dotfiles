@@ -40,6 +40,11 @@
     enable = true;
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
+
   services.mpd = {
     enable = true;
     dataDir = "/mnt/storage/mpd";
@@ -71,6 +76,10 @@
         mixer_type "software"
       }
     '';
+  };
+
+  modules.upmpdcli = {
+    enable = true;
   };
 
   services.mympd = {
