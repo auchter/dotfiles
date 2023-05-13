@@ -4,6 +4,7 @@
   beetstream = ./beetstream.nix;
   bindmounts = ./bindmounts.nix;
   brutefir = ./brutefir.nix;
+  camilladsp = ./camilladsp.nix;
   embedded = ./embedded.nix;
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
