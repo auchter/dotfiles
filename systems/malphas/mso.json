@@ -1,0 +1,320 @@
+{
+    "filters": {
+        "FL22": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 70.82,
+                "gain": -16.82,
+                "q": 0.532303
+            }
+        },
+        "FL26": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 21.98,
+                "gain": -13.37,
+                "q": 2.005457
+            }
+        },
+        "FL24": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 47.14,
+                "gain": -11.63,
+                "q": 4.762935
+            }
+        },
+        "FL27": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 26.83,
+                "gain": -9.77,
+                "q": 2.546391
+            }
+        },
+        "FL21": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 110.95,
+                "gain": -6.31,
+                "q": 17.377693
+            }
+        },
+        "FL25": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 110.95,
+                "gain": -6.31,
+                "q": 17.38131
+            }
+        },
+        "FL28": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 76.5,
+                "gain": -6.13,
+                "q": 3.802668
+            }
+        },
+        "FL7": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 149.99,
+                "gain": -5.99,
+                "q": 3.813779
+            }
+        },
+        "FL13": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 20.0,
+                "gain": -5.97,
+                "q": 2.252876
+            }
+        },
+        "FL1": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 58.07,
+                "gain": -5.91,
+                "q": 11.039917
+            }
+        },
+        "FL23": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 42.14,
+                "gain": -5.82,
+                "q": 8.921629
+            }
+        },
+        "FL5": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 69.5,
+                "gain": -5.73,
+                "q": 17.975312
+            }
+        },
+        "FL14": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 65.12,
+                "gain": -5.71,
+                "q": 6.941057
+            }
+        },
+        "FL16": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 134.24,
+                "gain": -5.45,
+                "q": 9.495881
+            }
+        },
+        "FL11": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 109.61,
+                "gain": -5.13,
+                "q": 7.063054
+            }
+        },
+        "FL2": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 39.58,
+                "gain": -4.76,
+                "q": 15.205474
+            }
+        },
+        "FL15": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 95.42,
+                "gain": -4.67,
+                "q": 10.216839
+            }
+        },
+        "FL17": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 29.32,
+                "gain": -4.59,
+                "q": 6.333199
+            }
+        },
+        "FL12": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 46.17,
+                "gain": -4.56,
+                "q": 11.479961
+            }
+        },
+        "FL19": {
+            "type": "Gain",
+            "parameters": {
+                "gain": -4.32
+            }
+        },
+        "FL4": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 37.95,
+                "gain": -4.09,
+                "q": 19.75252
+            }
+        },
+        "FL18": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 49.36,
+                "gain": -3.97,
+                "q": 14.594484
+            }
+        },
+        "FL8": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 98.81,
+                "gain": -3.34,
+                "q": 20.62166
+            }
+        },
+        "FL3": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 32.58,
+                "gain": -3.04,
+                "q": 18.269513
+            }
+        },
+        "FL6": {
+            "type": "Biquad",
+            "parameters": {
+                "type": "Peaking",
+                "freq": 111.55,
+                "gain": -2.56,
+                "q": 21.566822
+            }
+        },
+        "FL9": {
+            "type": "Gain",
+            "parameters": {
+                "gain": 19.28
+            }
+        },
+        "FL10-1": {
+            "type": "Delay",
+            "parameters": {
+                "delay": 10.26,
+                "unit": "ms",
+                "subsample": false
+            }
+        },
+        "FL10-2": {
+            "type": "Delay",
+            "parameters": {
+                "delay": 10.26,
+                "unit": "ms",
+                "subsample": false
+            }
+        },
+        "FL20": {
+            "type": "Delay",
+            "parameters": {
+                "delay": 28.24,
+                "unit": "ms",
+                "subsample": false
+            }
+        }
+    },
+    "pipeline": [
+        {
+            "type": "Filter",
+            "channel": 0,
+            "names": [
+                "FL10-1"
+            ]
+        },
+        {
+            "type": "Filter",
+            "channel": 1,
+            "names": [
+                "FL10-2"
+            ]
+        },
+        {
+            "type": "Filter",
+            "channel": 2,
+            "names": [
+                "FL22",
+                "FL26",
+                "FL24",
+                "FL27",
+                "FL21",
+                "FL25",
+                "FL28",
+                "FL7",
+                "FL1",
+                "FL23",
+                "FL5",
+                "FL2",
+                "FL4",
+                "FL8",
+                "FL3",
+                "FL6",
+                "FL9"
+            ]
+        },
+        {
+            "type": "Filter",
+            "channel": 3,
+            "names": [
+                "FL22",
+                "FL26",
+                "FL24",
+                "FL27",
+                "FL21",
+                "FL25",
+                "FL28",
+                "FL13",
+                "FL23",
+                "FL14",
+                "FL16",
+                "FL11",
+                "FL15",
+                "FL17",
+                "FL12",
+                "FL19",
+                "FL18",
+                "FL9",
+                "FL20"
+            ]
+        }
+    ]
+}

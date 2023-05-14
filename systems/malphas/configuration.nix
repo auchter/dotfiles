@@ -221,6 +221,88 @@
     '';
   };
 
+  services.camilladsp = {
+    enable = true;
+    extraFilters = [
+      ./mso.json
+    ];
+    config = let
+      mixCopy = dest: channel: {
+        inherit dest;
+        sources = [ { inherit channel; } ];
+      };
+      mixMono = dest: src1: src2: {
+        inherit dest;
+        sources = map (channel: { inherit channel; gain = -6; }) [src1 src2];
+      };
+      mkBiquad = type: params: {
+        type = "Biquad";
+        parameters = { inherit type; } // params;
+      };
+      mkPipelineFilter = channels: filters: map (channel: {
+        type = "Filter";
+        inherit channel;
+        names = filters;
+      }) channels;
+      mkPipelineMixer = name: [{
+        type = "Mixer";
+        inherit name;
+      }];
+    in {
+      devices = {
+        samplerate = 96000;
+        chunksize = 4096;
+        capture = {
+          type = "Alsa";
+          channels = 2;
+          device = "hw:Loopback,1";
+          format = "S32LE";
+        };
+        playback = {
+          type = "Alsa";
+          channels = 4;
+          device = "surround40:CARD=U192k,DEV=0";
+          format = "S32LE";
+        };
+      };
+      mixers = {
+        main = {
+          channels = {
+            "in" = 2;
+            "out" = 4;
+          };
+          mapping = [
+            (mixCopy 0 0)
+            (mixCopy 1 1)
+            (mixMono 2 0 1)
+            (mixMono 3 0 1)
+          ];
+        };
+      };
+      filters = {
+        speaker_hp = mkBiquad "Highpass" { freq = 80; q = 0.5; };
+        speaker_bump = mkBiquad "Peaking" { freq = 48; gain = -8; q = 2; };
+        subs_lp = mkBiquad "Lowpass" { freq = 80; q = 0.5; };
+        spk1 = mkBiquad "Peaking" { freq = 182.5; q = 4.096; gain = -5.4; };
+        spk2 = mkBiquad "Peaking" { freq = 283; q = 4.924; gain = -7.7; };
+        spk3 = mkBiquad "Peaking" { freq = 2244; q = 1.058; gain = -3.4; };
+      };
+      pipeline = builtins.concatLists [
+        (mkPipelineMixer "main")
+        (mkPipelineFilter [0 1] [
+          "speaker_bump"
+          "speaker_hp"
+          "spk1"
+          "spk2"
+          "spk3"
+        ])
+        (mkPipelineFilter [2 3] [
+          "subs_lp"
+        ])
+      ];
+    };
+  };
+
   hardware.gpio.enable = true;
   hardware.i2c.enable = true;
   hardware.deviceTree.overlays = [
