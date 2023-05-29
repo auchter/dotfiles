@@ -140,6 +140,8 @@
     };
   };
 
+  services.ampctrl.enable = true;
+
 #  services.pyhifid = {
 #    enable = true;
 #    backend = "PhirePreamp";
