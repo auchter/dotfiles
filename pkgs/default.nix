@@ -1,5 +1,6 @@
 { pkgs ? null }:
 {
+  ampctrl = pkgs.callPackage ./ampctrl { };
   beets-dynamicrange = pkgs.callPackage ./beets-dynamicrange { };
   beets-importreplace = pkgs.callPackage ./beets-importreplace { };
   beets-rym = pkgs.callPackage ./beets-rym { };
