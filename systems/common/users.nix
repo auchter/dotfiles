@@ -10,6 +10,7 @@ let
   ];
 in
 {
+  programs.zsh.enable = true;
   users.users = {
     a = {
       description = "Michael Auchter";

@@ -16,5 +16,6 @@
   modules.tmux.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;
+  programs.zsh.enable = true;
 }
 
