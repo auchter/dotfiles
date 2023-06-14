@@ -60,6 +60,7 @@
       balan = mkSystem "balan" "pine64-pineH64B";
       andras = mkSystem "andras" "raspberryPi-aarch64";
       flaga = mkSystem "flaga" "raspberryPi-aarch64";
+      agares = mkSystem "agares" "generic-x86_64";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
       gpg-provision = mkSystem "gpg-provision" "generic-x86_64";
