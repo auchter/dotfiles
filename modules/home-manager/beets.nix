@@ -106,6 +106,9 @@ in {
         replaygain = {
           backend = "ffmpeg";
         };
+        rym = {
+          set_genre = true;
+        } // import ./beets-rym.secret.nix;
         smartplaylist = {
           relative_to = "${cfg.musicDir}";
           playlist_dir = "${cfg.musicDir}/playlists";
