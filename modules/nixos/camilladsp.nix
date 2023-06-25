@@ -46,6 +46,7 @@ in {
           ${cfg.package}/bin/camilladsp ${configFile}
         '';
         Type = "simple";
+        Restart = "always";
         DynamicUser = true;
         SupplementaryGroups = [ "audio" ];
       };
