@@ -9,6 +9,10 @@ in {
     enable = mkEnableOption "enable gpg";
   };
 
+  # NOTE: When setting up a new machine, make sure to run:
+  # gpg-connect-agent "scd serialno" "learn --force" /bye
+  # for each yubikey to force GPG to recognize it
+
   config = mkIf cfg.enable {
     services.gpg-agent = {
       enable = true;
