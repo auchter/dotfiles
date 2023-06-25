@@ -114,7 +114,6 @@
 
   environment.systemPackages = [
     pkgs.git-crypt
-    pkgs.listenbrainz-mpd
   ];
 
   # This value determines the NixOS release from which the default
