@@ -135,6 +135,7 @@
         query = {
           mode = "create";
           sampleformat = "44100:16:2";
+          codec = "ogg";
         };
       };
     };
