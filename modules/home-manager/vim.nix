@@ -7,6 +7,7 @@ let
 in {
   options.modules.vim = {
     enable = mkEnableOption "enable vim";
+    disableGuiSupport = mkEnableOption "disable guiSupport";
   };
 
   config = mkIf cfg.enable {
@@ -14,9 +15,9 @@ in {
 
     programs.vim = {
       enable = true;
-      packageConfigurable = pkgs.vim_configurable.override {
+      packageConfigurable = mkIf cfg.disableGuiSupport (pkgs.vim_configurable.override {
         guiSupport = false;
-      };
+      });
       plugins = with pkgs.vimPlugins; [
         auto-git-diff
         fugitive
