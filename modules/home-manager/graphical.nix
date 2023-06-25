@@ -110,7 +110,7 @@ in {
       ];
     };
 
-    programs.mako = {
+    services.mako = {
       enable = true;
       extraConfig = ''
         [mode=do-not-disturb]
