@@ -2,6 +2,7 @@
 # ssh-keyscan host.phire.org | ssh-to-age
 keys:
   - &admin_a age19fc4ty8uyhgtp5ywsn0mm33vl5g2kwk6c668hk3rewlct8zd7ujsuau5pu
+  - &admin_yubi 476D3E0340F8443FC10984ABE361F31ADD2CEFF
   - &system_moloch age1cqzcnkrlap79dfywzg22qlsmyvswed04ljn6thjzh0ljpvwrjudqsq78ru
   - &system_ipos age1depmjeuv8lmjf82h5sl04h4em7dknvzxkrfwxek86q69kevyt45sjq8507
   - &system_stolas age14vfktvmkluy3ap083zrma403qgq0tfj0tj6fegkt6kd36h2fdagskyykyz
