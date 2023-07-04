@@ -7,10 +7,12 @@
       ../common
     ];
 
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.device = "nodev";
 
-  networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.enp0s31f6.useDHCP = true;
   modules.sshd.enable = true;
 
   fileSystems."/mnt/storage" = {
@@ -42,7 +44,7 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   modules.wireguard.client = {
-    enable = true;
+    enable = false;
     server = "ipos";
   };
 
@@ -92,6 +94,6 @@
 
   modules.logo-site.logo = ../../logos/volac.png;
 
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
 

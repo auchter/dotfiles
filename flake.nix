@@ -55,7 +55,7 @@
       ipos = mkSystem "ipos" "generic-x86_64";
       stolas = mkSystem "stolas" "generic-x86_64";
       orobas = mkSystem "orobas" "generic-x86_64";
-      volac = mkSystem "volac" "pine64-pineH64B";
+      volac = mkSystem "volac" "generic-x86_64";
       malphas = mkSystem "malphas" "pine64-pineH64B";
       balan = mkSystem "balan" "pine64-pineH64B";
       andras = mkSystem "andras" "raspberryPi-aarch64";
