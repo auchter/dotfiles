@@ -34,9 +34,13 @@ in {
       default = 8543;
       type = types.port;
     };
+
+    openFirewall = mkEnableOption "open httpPort";
   };
 
   config = mkIf (cfg.enable) {
+    networking.firewall.allowedTCPPorts = lib.optionals cfg.openFirewall [ cfg.httpPort ];
+
     systemd.services.ws2902-mqtt = {
       description = "MQTT bridge for WS-2902";
       after = [ "network.target" "mosquitto.service" ];

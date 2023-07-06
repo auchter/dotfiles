@@ -48,10 +48,6 @@
     server = "ipos";
   };
 
-  networking.firewall.allowedTCPPorts = [
-    8543 # port for weather station access
-  ];
-
   services.mosquitto = {
     enable = true;
     listeners = [ {
@@ -63,6 +59,7 @@
 
   services.ws2902-mqtt = {
     enable = true;
+    openFirewall = true;
   };
 
   modules.home-assistant = {
