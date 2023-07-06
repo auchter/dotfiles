@@ -74,7 +74,7 @@
   hardware.rtl-sdr.enable = true;
 
   modules.ads-b = {
-    enable = false;
+    enable = true;
     latitude = 43.981064;
     longitude = -83.181330;
     altitude = 183.0;
