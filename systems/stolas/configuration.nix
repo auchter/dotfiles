@@ -145,10 +145,12 @@
   services.minidlna = {
     enable = true;
     openFirewall = true;
-    mediaDirs = [
-      "/mnt/storage/music"
-      "/mnt/storage/videos"
-    ];
+    settings = {
+      media_dir = [
+        "A,/mnt/storage/music"
+        "V,/mnt/storage/videos"
+      ];
+    };
   };
 
   sops.secrets.beetstream_config = { };
