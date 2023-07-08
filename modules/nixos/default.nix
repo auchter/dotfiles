@@ -19,6 +19,7 @@
   panopticon = ./panopticon.nix;
   photoprism = ./photoprism.nix;
   pyhifid = ./pyhifid.nix;
+  radicale = ./radicale.nix;
   readsb = ./readsb.nix;
   restic = ./restic.nix;
   soulseek = ./soulseek.nix;

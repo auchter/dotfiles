@@ -6,12 +6,15 @@
       ../common
       ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
-      ../../nixos/modules/radicale.nix
     ];
 
   networking.interfaces.eno1.useDHCP = true;
 
   modules.sshd.enable = true;
+  modules.radicale = {
+    enable = true;
+    vhost = "radicale.phire.org";
+  };
 
   modules.logo-site = {
     logo = ../../logos/stolas.png;
