@@ -75,13 +75,6 @@
         format "96000:32:2"
         mixer_type "software"
       }
-      audio_output {
-        type    "fifo"
-        name    "brutefir"
-        path    "/tmp/mpd"
-        format  "96000:32:2"
-        mixer_type "software"
-      }
     '';
   };
 
