@@ -12,6 +12,7 @@
   home-assistant = ./home-assistant.nix;
   listenbrainz-mpd = ./listenbrainz-mpd.nix;
   logo-site = ./logo-site.nix;
+  miniflux = ./miniflux.nix;
   mlat-client = ./mlat-client.nix;
   mympd = ./mympd.nix;
   ot-recorder = ./ot-recorder.nix;

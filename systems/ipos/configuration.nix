@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/miniflux.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
@@ -14,6 +13,11 @@
   modules.wireguard.server = {
     enable = true;
     externalInterface = "enp0s4";
+  };
+
+  modules.miniflux = {
+    enable = true;
+    vhost = "miniflux.phire.org";
   };
 
   modules.gocodes = {
