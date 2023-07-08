@@ -55,6 +55,11 @@ in {
           "Shift+XF86AudioLowerVolume" = adjustSnapcastVolume "down";
           "XF86AudioMicMute" = "exec amixer set Capture toggle";
         };
+        input = {
+          "type:keyboard" = {
+            xkb_options = "ctrl:nocaps";
+          };
+        };
         bars = [
           {
             command = "${pkgs.waybar}/bin/waybar";
