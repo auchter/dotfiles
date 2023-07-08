@@ -143,52 +143,6 @@
 
   services.ampctrl.enable = true;
 
-#  services.pyhifid = {
-#    enable = true;
-#    backend = "PhirePreamp";
-#  };
-#
-#  modules.snapclient = {
-#    enable = true;
-#    host = "localhost";
-#    sampleFormat = "44100:16:*";
-#    soundcard = "front:CARD=DAC,DEV=0";
-#  };
-#
-  modules.brutefir = {
-    enable = true;
-    floatBits = 64;
-    inputs = {
-      "in" = {
-        channels = 2;
-        format = "S32_LE";
-      };
-    };
-    outputs = {
-      out = {
-        channels = 4;
-        format = "S32_LE";
-      };
-    };
-    filters = {
-      filter = {
-        input = "in";
-        output = "out";
-      };
-    };
-    coeffs = {
-      dirac.path = "dirac pulse";
-      speakers.path = ./brutefir/speakers.wav;
-      no_sub.path = ./brutefir/no_sub.wav;
-      dt770.path = ./brutefir/dt770.wav;
-      hd650 = {
-        path = ./brutefir/hd650.pcm;
-        rate = 48000;
-        format = "S16_LE";
-      };
-    };
-  };
-
   boot.kernelModules = [ "snd-aloop" ];
   sound = {
     enable = true;
