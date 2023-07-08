@@ -28,35 +28,6 @@
     soundcard = "front:CARD=Device,DEV=0";
   };
 
-  modules.brutefir = {
-    enable = false;
-    inputs = {
-      "in" = {
-        channels = 2;
-        format = "S16_LE";
-      };
-    };
-    outputs = {
-      out = {
-        channels = 2;
-        format = "S16_LE";
-      };
-    };
-    filters = {
-      filter = {
-        input = "in";
-        output = "out";
-        coeff = "dirac";
-      };
-    };
-    coeffs = {
-      dirac.path = "dirac pulse";
-      bathroom = {
-        path = ./brutefir/bathroom.wav;
-      };
-    };
-  };
-
   system.stateVersion = "22.05"; # Did you read the comment?
 }
 
