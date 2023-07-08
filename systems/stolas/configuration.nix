@@ -77,7 +77,7 @@
 
   services.fail2ban.ignoreIP = [ "192.168.1.0/24" ];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.settings.max-jobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   sops.secrets.owntracks_htpasswd = {

@@ -22,5 +22,5 @@
     [ { device = "/dev/sdb"; }
     ];
 
-  nix.maxJobs = lib.mkDefault 1;
+  nix.settings.max-jobs = lib.mkDefault 1;
 }
