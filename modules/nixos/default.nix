@@ -20,6 +20,7 @@
   pyhifid = ./pyhifid.nix;
   readsb = ./readsb.nix;
   restic = ./restic.nix;
+  soulseek = ./soulseek.nix;
   snapclient = ./snapclient.nix;
   syncthing = ./syncthing.nix;
   sshd = ./sshd.nix;

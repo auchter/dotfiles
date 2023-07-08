@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/soulseek.nix
 #      ../../nixos/modules/unifi.nix
     ];
 
@@ -19,6 +18,7 @@
   powerManagement.powertop.enable = true;
 
   modules.sshd.enable = true;
+  modules.soulseek.enable = true;
 
   modules.wireguard.client = {
     enable = true;

@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/soulseek.nix
 #      ../../nixos/modules/unifi.nix
     ];
 
@@ -32,6 +31,8 @@
   hardware.bluetooth = {
     enable = true;
   };
+
+  modules.soulseek.enable = true;
 
   services.blueman.enable = true;
   sound.enable = true;
