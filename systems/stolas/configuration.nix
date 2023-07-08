@@ -144,6 +144,7 @@
 
   services.minidlna = {
     enable = true;
+    openFirewall = true;
     mediaDirs = [
       "/mnt/storage/music"
       "/mnt/storage/videos"
@@ -161,12 +162,10 @@
     80 443 # nginx
     2049 # nfs
     139 445 # samba
-    8200 # minidlna
   ];
 
   networking.firewall.allowedUDPPorts = [
     137 138 # samba
-    1900 # minidlna
   ];
 
   # This value determines the NixOS release from which the default
