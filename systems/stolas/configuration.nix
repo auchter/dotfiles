@@ -124,6 +124,7 @@
   services.samba = {
     enable = true;
     securityType = "user";
+    openFirewall = true;
     extraConfig = ''
       workgroup = PHIRE
       server string = stolas
@@ -163,12 +164,8 @@
   networking.firewall.allowedTCPPorts = [
     80 443 # nginx
     2049 # nfs
-    139 445 # samba
   ];
 
-  networking.firewall.allowedUDPPorts = [
-    137 138 # samba
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
