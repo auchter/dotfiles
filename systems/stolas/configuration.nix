@@ -115,12 +115,6 @@
     "/export/photos" = "/mnt/storage/photos";
   };
 
-  services.nfs.server.enable = true;
-  services.nfs.server.exports = ''
-    /export/music 192.168.1.0/24(ro,no_subtree_check)
-    /export/photos 192.168.1.0/24(ro,no_subtree_check)
-  '';
-
   services.samba = {
     enable = true;
     securityType = "user";
@@ -163,7 +157,6 @@
 
   networking.firewall.allowedTCPPorts = [
     80 443 # nginx
-    2049 # nfs
   ];
 
 
