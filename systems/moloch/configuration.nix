@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-#      ../../nixos/modules/unifi.nix
     ];
 
   networking.interfaces.enp0s31f6.useDHCP = true;
@@ -14,9 +13,6 @@
     enable = false;
     interface = "enp59s0u2u3";
   };
-
-  powerManagement.powertop.enable = true;
-
   modules.sshd.enable = true;
   modules.soulseek.enable = true;
 
@@ -29,6 +25,38 @@
     enable = true;
     interfaces = [ "wlp2s0" ];
   };
+
+  modules.restic = {
+    enable = true;
+    cloudPaths = [
+      "/home/a/photos"
+      "/home/a/Maildir"
+      "/var/lib/syncthing/obsidian"
+      "/home/a/proj"
+    ];
+  };
+
+  modules.syncthing = {
+    enable = true;
+  };
+
+  services.blueman.enable = true;
+
+  services.offlineimap = {
+    enable = true;
+    install = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplip ];
+  };
+
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
+
+  powerManagement.powertop.enable = true;
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
@@ -47,19 +75,6 @@
     [ "music" "videos" "personal" ]
   );
 
-  modules.restic = {
-    enable = true;
-    cloudPaths = [
-      "/home/a/photos"
-      "/home/a/Maildir"
-      "/var/lib/syncthing/obsidian"
-      "/home/a/proj"
-    ];
-  };
-
-  modules.syncthing = {
-    enable = true;
-  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -91,23 +106,8 @@
     enable = true;
   };
 
-  services.blueman.enable = true;
-  sound.enable = true;
-
   virtualisation.docker.enable = true;
-
-  services.offlineimap = {
-    enable = true;
-    install = true;
-  };
-
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.hplip ];
-  };
-
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  sound.enable = true;
 
   # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
   programs.sway.enable = true;

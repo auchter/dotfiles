@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-#      ../../nixos/modules/unifi.nix
     ];
 
   networking.interfaces.wlp2s0.useDHCP = true;
@@ -12,16 +11,20 @@
   powerManagement.powertop.enable = true;
 
   modules.sshd.enable = true;
+  modules.soulseek.enable = true;
+  modules.wifi = {
+    enable = true;
+    interfaces = [ "wlp0s20f3" ];
+  };
 
 #  modules.wireguard.client = {
 #    enable = true;
 #    server = "ipos";
 #  };
 
-  modules.wifi = {
-    enable = true;
-    interfaces = [ "wlp0s20f3" ];
-  };
+  services.blueman.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 
   hardware.opengl = {
     enable = true;
@@ -32,15 +35,9 @@
     enable = true;
   };
 
-  modules.soulseek.enable = true;
-
-  services.blueman.enable = true;
   sound.enable = true;
 
   virtualisation.docker.enable = true;
-
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
 
   # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
   programs.sway.enable = true;
