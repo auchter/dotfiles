@@ -14,6 +14,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    networking.interfaces = builtins.listToAttrs (builtins.map (i: { name = i; value = { useDHCP = true; }; }) cfg.interfaces);
+
     networking.wireless = {
       enable = true;
       interfaces = cfg.interfaces;

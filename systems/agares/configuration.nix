@@ -6,8 +6,6 @@
       ../common
     ];
 
-  networking.interfaces.wlp2s0.useDHCP = true;
-
   powerManagement.powertop.enable = true;
 
   modules.sshd.enable = true;
