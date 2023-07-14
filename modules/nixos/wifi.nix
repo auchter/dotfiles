@@ -17,13 +17,17 @@ in {
     networking.wireless = {
       enable = true;
       interfaces = cfg.interfaces;
+      environmentFile = config.sops.secrets.wpa_supplicant.path;
+      networks = import ./wifi.secret.nix;
+      userControlled = {
+        enable = true;
+        group = "wheel";
+      };
     };
 
     sops.secrets.wpa_supplicant = {
       sopsFile = ../../secrets/wifi.yaml;
       restartUnits = map (iface: "wpa_supplicant-" + iface) cfg.interfaces;
     };
-
-    environment.etc."wpa_supplicant.conf".source = config.sops.secrets.wpa_supplicant.path;
   };
 }
