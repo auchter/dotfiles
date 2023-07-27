@@ -1,4 +1,4 @@
-{ ...}:
+{ pkgs, ...}:
 
 {
   home.username = "a";
@@ -17,5 +17,9 @@
   modules.vim.enable = true;
   modules.zsh.enable = true;
   programs.zsh.enable = true;
+
+  home.packages = with pkgs; [
+    htop
+  ];
 }
 
