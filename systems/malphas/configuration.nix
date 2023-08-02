@@ -174,7 +174,6 @@
   services.camilladsp = {
     enable = true;
     extraFilters = [
-      ./mso.json
     ];
     config = let
       mixCopy = dest: channel: {
@@ -230,25 +229,47 @@
         };
       };
       filters = {
-        speaker_hp = mkBiquad "Highpass" { freq = 80; q = 0.5; };
-        speaker_bump = mkBiquad "Peaking" { freq = 48; gain = -8; q = 2; };
-        subs_lp = mkBiquad "Lowpass" { freq = 80; q = 0.5; };
-        spk1 = mkBiquad "Peaking" { freq = 182.5; q = 4.096; gain = -5.4; };
-        spk2 = mkBiquad "Peaking" { freq = 283; q = 4.924; gain = -7.7; };
-        spk3 = mkBiquad "Peaking" { freq = 2244; q = 1.058; gain = -3.4; };
+        right_plugged_0 = mkBiquad "Peaking" { freq = 103.0; gain = -5.6; q = 3.818; };
+        right_plugged_1 = mkBiquad "Peaking" { freq = 219.0; gain = -6.4; q = 4.693; };
+        right_plugged_2 = mkBiquad "Peaking" { freq = 480.0; gain = -4.8; q = 1.203; };
+
+        left_plugged_0 = mkBiquad "Peaking" { freq = 102.0; gain = -3.5; q = 4.998; };
+        left_plugged_1 = mkBiquad "Peaking" { freq = 497; gain = -6.2; q = 2.590; };
+
+        right_unplugged_0 = mkBiquad "Peaking" { freq = 49.35; gain = -3.5; q = 4.618; };
+        right_unplugged_1 = mkBiquad "Peaking" { freq = 102.5; gain = -7; q = 3.442; };
+        right_unplugged_2 = mkBiquad "Peaking" { freq = 219.0; gain = -6.3; q = 4.872; };
+        right_unplugged_3 = mkBiquad "Peaking" { freq = 475.0; gain = -4.9; q = 1.259; };
+
+        left_unplugged_0 = mkBiquad "Peaking" { freq = 65.7; gain = -4.5; q = 2.081; };
+        left_unplugged_1 = mkBiquad "Peaking" { freq = 104.0; gain = -5.9; q = 4.067; };
+        left_unplugged_2 = mkBiquad "Peaking" { freq = 497.0; gain = -7.4; q = 1.895; };
       };
       pipeline = builtins.concatLists [
         (mkPipelineMixer "main")
-        (mkPipelineFilter [0 1] [
-          "speaker_bump"
-          "speaker_hp"
-          "spk1"
-          "spk2"
-          "spk3"
+        (mkPipelineFilter [0] [
+          "left_unplugged_0"
+          "left_unplugged_1"
+          "left_unplugged_2"
         ])
-        (mkPipelineFilter [2 3] [
-          "subs_lp"
+        (mkPipelineFilter [1] [
+          "right_unplugged_0"
+          "right_unplugged_1"
+          "right_unplugged_2"
+          "right_unplugged_3"
         ])
+        #(mkPipelineFilter [0] [
+        #  "left_plugged_0"
+        #  "left_plugged_1"
+        #])
+        #(mkPipelineFilter [1] [
+        #  "right_plugged_0"
+        #  "right_plugged_1"
+        #  "right_plugged_2"
+        #])
+#        (mkPipelineFilter [2 3] [
+#          "subs_lp"
+#        ])
       ];
     };
   };
