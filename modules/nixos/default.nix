@@ -7,6 +7,7 @@
   brutefir = ./brutefir.nix;
   camilladsp = ./camilladsp.nix;
   embedded = ./embedded.nix;
+  frigate = ./frigate.nix;
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;
