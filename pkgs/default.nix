@@ -14,6 +14,7 @@
   kindle-send = pkgs.callPackage ./kindle-send.nix { };
   libupnpp = pkgs.callPackage ./libupnpp { };
   listenbrainz-mpd = pkgs.callPackage ./listenbrainz-mpd { };
+  mcg = pkgs.callPackage ./mcg { };
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   npupnp = pkgs.callPackage ./npupnp { };
