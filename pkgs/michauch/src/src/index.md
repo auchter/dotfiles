@@ -1,7 +1,7 @@
 
 ![logo]
 
-[logo]: mma_horz.svg
+[logo]: ma_horz.svg
 
 - [About](about.md)
 - [Services](services.md)
