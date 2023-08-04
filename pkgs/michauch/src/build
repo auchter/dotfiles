@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+src=./src
+dest=${1:-$(mktemp -d)}
+
+rsync -a "$src/" "$dest"
+markdown=$(find "$dest" -name "*.md")
+
+for m in $markdown; do
+	echo $m;
+	pandoc -L ./pandoc/links.lua -s -f gfm -t html5 "$m" -o "${m%%.md}.html"
+done
+
+
+echo site stored at: "$dest"
