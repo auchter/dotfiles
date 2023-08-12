@@ -14,6 +14,7 @@
   };
   modules.sshd.enable = true;
   modules.soulseek.enable = true;
+  modules.interactive.enable = true;
 
   modules.wireguard.client = {
     enable = true;

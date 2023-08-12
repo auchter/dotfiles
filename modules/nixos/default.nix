@@ -11,6 +11,7 @@
   gocodes = ./gocodes.nix;
   gpio = ./gpio.nix;
   home-assistant = ./home-assistant.nix;
+  interactive = ./interactive.nix;
   listenbrainz-mpd = ./listenbrainz-mpd.nix;
   logo-site = ./logo-site.nix;
   miniflux = ./miniflux.nix;

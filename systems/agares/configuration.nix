@@ -15,6 +15,7 @@
     interfaces = [ "wlp0s20f3" ];
   };
 
+  modules.interactive.enable = true;
 #  modules.wireguard.client = {
 #    enable = true;
 #    server = "ipos";
