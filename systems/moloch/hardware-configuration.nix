@@ -13,6 +13,17 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.luks.devices = {
+    root = {
+      device = "/dev/nvme0n1p2";
+      preLVM = true;
+      allowDiscards = true;
+    };
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/87175706-59e6-4205-8ab4-876fad8eff32";
       fsType = "ext4";

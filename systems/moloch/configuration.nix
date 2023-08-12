@@ -12,6 +12,7 @@
     enable = false;
     interface = "enp59s0u2u3";
   };
+
   modules.sshd.enable = true;
   modules.soulseek.enable = true;
   modules.interactive.enable = true;
@@ -40,17 +41,6 @@
     enable = true;
   };
 
-  services.blueman.enable = true;
-
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.hplip ];
-  };
-
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-
-
   powerManagement.powertop.enable = true;
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
@@ -70,52 +60,13 @@
     [ "music" "videos" "personal" ]
   );
 
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/nvme0n1p2";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
-
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-    extraConfig = ''
-      load-module module-bluetooth-policy auto_switch=2
-    '';
-  };
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-  };
-
   virtualisation.docker.enable = true;
-  sound.enable = true;
-
-  # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
-  programs.sway.enable = true;
 
   environment.systemPackages = [
     pkgs.git-crypt
   ];
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "21.11";
 }
