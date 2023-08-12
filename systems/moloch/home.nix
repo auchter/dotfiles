@@ -28,18 +28,9 @@
     kicad
     zotero
 
-    elinks
-
     home-assistant-cli
-    age
-    htop
-    moreutils
-    nmap
-    wget
 
     roomeqwizard
-
-    sshfs
 
     kindle-send
   ];

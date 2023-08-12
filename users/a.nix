@@ -18,8 +18,16 @@
   modules.zsh.enable = true;
   programs.zsh.enable = true;
 
+  # Note, keep this list small-ish as these will be installed on all systems!
   home.packages = with pkgs; [
+    age
+    elinks
     htop
+    moreutils
+    nmap
+    sshfs
+    unzip
+    wget
   ];
 }
 

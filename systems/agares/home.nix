@@ -27,18 +27,9 @@
     esphome
     exiftool
 
-    elinks
-
     home-assistant-cli
-    age
-    htop
-    moreutils
-    nmap
-    wget
 
     roomeqwizard
-
-    sshfs
 
     kindle-send
   ];
