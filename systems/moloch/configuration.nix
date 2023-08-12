@@ -45,21 +45,6 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
 
-  fileSystems = lib.listToAttrs (
-    map (name:
-      lib.nameValuePair "/n/orobas/${name}" {
-        device = "orobas.local.phire.org:/export/${name}";
-        fsType = "nfs";
-        options = [
-          "nfsvers=4.2"
-          "x-systemd.automount"
-          "x-systemd.idle-timeout=600"
-          "noauto"
-        ];
-      })
-    [ "music" "videos" "personal" ]
-  );
-
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   virtualisation.docker.enable = true;
