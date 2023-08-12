@@ -258,18 +258,6 @@
           "right_unplugged_2"
           "right_unplugged_3"
         ])
-        #(mkPipelineFilter [0] [
-        #  "left_plugged_0"
-        #  "left_plugged_1"
-        #])
-        #(mkPipelineFilter [1] [
-        #  "right_plugged_0"
-        #  "right_plugged_1"
-        #  "right_plugged_2"
-        #])
-#        (mkPipelineFilter [2 3] [
-#          "subs_lp"
-#        ])
       ];
     };
   };
