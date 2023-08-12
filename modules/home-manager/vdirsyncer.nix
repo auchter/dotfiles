@@ -15,6 +15,12 @@ in {
       default = "*:0/5";
     };
 
+    blockIfNoYubikey = mkOption {
+      type = types.bool;
+      description = "when true, waits service won't run if no yubikey is inserted";
+      default = true;
+    };
+
     statusPath = mkOption {
       type = types.str;
       description = "status path";
@@ -42,6 +48,7 @@ in {
         Environment = [
           "PASSWORD_STORE_DIR=/home/a/.local/share/password-store"
         ];
+        ExecCondition = mkIf cfg.blockIfNoYubikey "${pkgs.usbutils}/bin/lsusb -d 1050:";
         ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
         Type = "oneshot";
       };
