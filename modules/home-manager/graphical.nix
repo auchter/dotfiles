@@ -70,6 +70,10 @@ in {
           "type:keyboard" = {
             xkb_options = "ctrl:nocaps";
           };
+          "1133:49189:B16_b_02_USB-PS/2_Optical_Mouse" = {
+            dwt = "disabled";
+            pointer_accel = "1";
+          };
         };
         bars = [
           {
