@@ -23,6 +23,11 @@
     };
   };
 
+  modules.graphical = {
+    enable = true;
+    laptopOutput = "eDP-1";
+  };
+
   home.packages = with pkgs; [
     esphome
     exiftool
@@ -44,7 +49,6 @@
   modules.email.enable = true;
   modules.git.enable = true;
   modules.gpg.enable = true;
-  modules.graphical.enable = true;
   modules.tmux.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;

@@ -7,6 +7,11 @@ let
 in {
   options.modules.graphical = {
     enable = mkEnableOption "enable graphical stuff";
+    laptopOutput = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "name of laptop display output";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -41,7 +46,6 @@ in {
     programs.firefox = {
       enable = true;
     };
-
 
     wayland.windowManager.sway = {
       enable = true;
@@ -104,6 +108,10 @@ in {
         };
         defaultWorkspace = "workspace number 4";
       };
+      extraConfig = mkIf (cfg.laptopOutput != null) ''
+        bindswitch --reload --locked lid:on output ${cfg.laptopOutput} disable
+        bindswitch --reload --locked lid:off output ${cfg.laptopOutput} enable
+      '';
       swaynag = {
         enable = true;
       };
