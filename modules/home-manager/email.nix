@@ -7,6 +7,17 @@ let
 in {
   options.modules.email = {
     enable = mkEnableOption "enable email";
+
+    frequency = mkOption {
+      type = types.str;
+      default = "*:0/5";
+    };
+
+    blockIfNoYubikey = mkOption {
+      type = types.bool;
+      description = "when true, waits service won't run if no yubikey is inserted";
+      default = true;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -47,6 +58,29 @@ in {
         neomutt.enable = true;
         msmtp.enable = true;
       };
+    };
+
+    systemd.user.services.offlineimap = {
+      Unit = {
+        Description = "offlineimap";
+      };
+      Service = {
+        Environment = [
+          "PASSWORD_STORE_DIR=/home/a/.local/share/password-store"
+        ];
+        ExecCondition = mkIf cfg.blockIfNoYubikey "${pkgs.usbutils}/bin/lsusb -d 1050:";
+        ExecStart = "${pkgs.offlineimap}/bin/offlineimap";
+        Type = "oneshot";
+      };
+    };
+
+    systemd.user.timers.offlineimap = {
+      Unit = { Description = "offlineimap sync"; };
+      Timer = {
+        Unit = "offlineimap.service";
+        OnCalendar = cfg.frequency;
+      };
+      Install = { WantedBy = [ "timers.target" ]; };
     };
 
     home.file.".mailcap".text = ''

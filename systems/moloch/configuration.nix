@@ -42,11 +42,6 @@
 
   services.blueman.enable = true;
 
-  services.offlineimap = {
-    enable = true;
-    install = true;
-  };
-
   services.printing = {
     enable = true;
     drivers = [ pkgs.hplip ];
