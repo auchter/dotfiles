@@ -35,7 +35,7 @@ in {
     virtualisation.oci-containers = {
       containers = {
         hass = {
-          image = "homeassistant/home-assistant:2022.6.0";
+          image = "homeassistant/home-assistant:2023.8";
           volumes = [
             "${cfg.configDir}:/config"
             "/etc/localtime:/etc/localtime:ro"
@@ -45,7 +45,7 @@ in {
           ];
         };
         zwavejs2mqtt = mkIf cfg.zwavejs.enable {
-          image = "zwavejs/zwavejs2mqtt:6.10.0";
+          image = "zwavejs/zwave-js-ui:8.22.3";
           volumes = [
             "${cfg.zwavejs.configDir}:/usr/src/app/store"
           ];
@@ -58,7 +58,7 @@ in {
           ];
         };
         appdaemon = mkIf cfg.appdaemon.enable {
-          image = "acockburn/appdaemon:4.2.1";
+          image = "acockburn/appdaemon:4.4.2";
           volumes = [ "${cfg.configDir}/appdaemon:/conf" ];
           ports = [ "5050:5050" ];
         };
