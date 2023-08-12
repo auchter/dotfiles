@@ -25,12 +25,8 @@
   home.packages = with pkgs; [
     esphome
     exiftool
-    kicad
-    zotero
 
     home-assistant-cli
-
-    roomeqwizard
 
     kindle-send
   ];

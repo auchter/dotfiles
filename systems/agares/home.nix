@@ -29,8 +29,6 @@
 
     home-assistant-cli
 
-    roomeqwizard
-
     kindle-send
   ];
 
