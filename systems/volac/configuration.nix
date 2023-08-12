@@ -66,6 +66,11 @@
     enable = true;
     vhost = "cottage.phire.org";
     configDir = "/var/lib/home-assistant";
+    zwavejs = {
+      enable = true;
+      adapter = "/dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_48ed0f646f57ed11ac8a25f21c62bc44-if00-port0";
+      configDir = "/var/lib/home-assistant/zwavejscfg";
+    };
   };
 
   hardware.rtl-sdr.enable = true;
