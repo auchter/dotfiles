@@ -38,18 +38,9 @@
 
     roomeqwizard
 
-    feh
-    mpv
-    mupdf
-    obsidian
-    signal-desktop
     sshfs
 
     kindle-send
-    screenshot
-    zoom-us
-    chromium
-    pavucontrol
   ];
 
 

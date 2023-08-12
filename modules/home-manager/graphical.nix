@@ -12,6 +12,7 @@ in {
   config = mkIf cfg.enable {
     fonts.fontconfig.enable = lib.mkForce true;
     home.packages = with pkgs; [
+      # Fonts
       font-awesome
       roboto-mono
       noto-fonts
@@ -19,6 +20,15 @@ in {
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
+
+      # packages
+      feh
+      mpv
+      mupdf
+      obsidian
+      signal-desktop
+      screenshot
+      pavucontrol
     ];
 
     programs.alacritty = {
@@ -31,6 +41,7 @@ in {
     programs.firefox = {
       enable = true;
     };
+
 
     wayland.windowManager.sway = {
       enable = true;
