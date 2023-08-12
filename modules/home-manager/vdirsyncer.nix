@@ -17,7 +17,7 @@ in {
 
     blockIfNoYubikey = mkOption {
       type = types.bool;
-      description = "when true, waits service won't run if no yubikey is inserted";
+      description = "when true, service won't run if no yubikey is inserted";
       default = true;
     };
 
