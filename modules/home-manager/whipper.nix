@@ -27,6 +27,7 @@ in {
       model = DVDRAM GP65NB60
       release = RF01
       defeats_cache = False
+      read_offset = 6
     '';
   };
 }
