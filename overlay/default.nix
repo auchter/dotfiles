@@ -4,9 +4,11 @@ let
   mopidy-subidy = final: prev: import ./mopidy-subidy.nix { inherit final; inherit prev; };
   nodePackages.readability-cli = final: prev: import ./readability-cli.nix { inherit final; inherit prev; };
   raspberrypiWirelessFirmware = final: prev: import ./raspberrypi-wireless { inherit final; inherit prev; };
+  cdrdao = final: prev: import ./cdrdao.nix { inherit final; inherit prev; };
 in
   nixpkgs.lib.composeManyExtensions [
     additions
+    cdrdao
     mopidy-subidy
     nodePackages.readability-cli
     raspberrypiWirelessFirmware
