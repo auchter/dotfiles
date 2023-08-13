@@ -1,0 +1,4 @@
+{
+  modules.whipper.enable = true;
+}
+

@@ -21,6 +21,12 @@ in {
       release = RF01
       defeats_cache = False
       read_offset = 6
+
+      [drive:HL-DT-ST%3ADVDRAM%20GP65NB60%20%3ARF01]
+      vendor = HL-DT-ST
+      model = DVDRAM GP65NB60
+      release = RF01
+      defeats_cache = False
     '';
   };
 }
