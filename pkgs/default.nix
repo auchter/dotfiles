@@ -18,6 +18,7 @@
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   npupnp = pkgs.callPackage ./npupnp { };
+  ohsnapmixer = pkgs.callPackage ./ohsnapmixer { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
   pyhifid = pkgs.callPackage ./pyhifid { };
