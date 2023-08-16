@@ -25,11 +25,6 @@
     server = "ipos";
   };
 
-  modules.airsonic = {
-    enable = false;
-    host = "airsonic.phire.org";
-  };
-
   services.plex = {
     enable = true;
     openFirewall = true;
