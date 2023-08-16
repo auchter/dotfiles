@@ -1,6 +1,5 @@
 {
   ads-b = ./ads-b.nix;
-  airsonic = ./airsonic.nix;
   ampctrl = ./ampctrl.nix;
   beetstream = ./beetstream.nix;
   bindmounts = ./bindmounts.nix;
