@@ -4,8 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/mta.nix
-      ../../nixos/modules/smartd.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
