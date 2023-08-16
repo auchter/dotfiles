@@ -4,7 +4,6 @@
   imports =
     [ ./hardware-configuration.nix
       ../common
-      ../../nixos/modules/mta.nix
       ../../nixos/modules/smartd.nix
     ];
 
@@ -15,6 +14,8 @@
     enable = true;
     vhost = "radicale.phire.org";
   };
+
+  modules.mta.enable = true;
 
   modules.logo-site = {
     logo = ../../logos/stolas.png;

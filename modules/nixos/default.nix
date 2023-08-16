@@ -15,6 +15,7 @@
   logo-site = ./logo-site.nix;
   miniflux = ./miniflux.nix;
   mlat-client = ./mlat-client.nix;
+  mta = ./mta.nix;
   mympd = ./mympd.nix;
   ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
