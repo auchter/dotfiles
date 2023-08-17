@@ -16,7 +16,6 @@
   modules.tmux.enable = true;
   modules.vim.enable = true;
   modules.zsh.enable = true;
-  programs.zsh.enable = true;
 
   # Note, keep this list small-ish as these will be installed on all systems!
   home.packages = with pkgs; [
