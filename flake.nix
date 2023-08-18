@@ -59,7 +59,6 @@
       malphas = mkSystem "malphas" "pine64-pineH64B";
       balan = mkSystem "balan" "pine64-pineH64B";
       andras = mkSystem "andras" "raspberryPi-aarch64";
-      flaga = mkSystem "flaga" "raspberryPi-aarch64";
       agares = mkSystem "agares" "generic-x86_64";
       azazel = mkSystem "azazel" "generic-x86_64";
 
