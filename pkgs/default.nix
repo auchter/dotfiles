@@ -17,6 +17,7 @@
   mcg = pkgs.callPackage ./mcg { };
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
+  mpdpower = pkgs.callPackage ./mpdpower { };
   npupnp = pkgs.callPackage ./npupnp { };
   ohsnapmixer = pkgs.callPackage ./ohsnapmixer { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
