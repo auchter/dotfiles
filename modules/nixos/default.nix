@@ -17,6 +17,7 @@
   mlat-client = ./mlat-client.nix;
   mta = ./mta.nix;
   mympd = ./mympd.nix;
+  mpdpower = ./mpdpower.nix;
   ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
   photoprism = ./photoprism.nix;
