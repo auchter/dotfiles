@@ -32,7 +32,12 @@
   fileSystems."/mnt/storage" = {
     device = "UUID=0789211e-1c89-442a-8372-d66172a9fe0c";
     fsType = "ext4";
-    options = [ "noauto" "noatime" ];
+    options = [
+      "noauto"
+      "noatime"
+#      "x-mount.mkdir"
+      "x-systemd.requires=systemd-cryptsetup@storage_enc.service"
+    ];
   };
 
   environment.etc.crypttab = {
