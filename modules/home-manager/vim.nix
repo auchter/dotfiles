@@ -8,39 +8,66 @@ in {
   options.modules.vim = {
     enable = mkEnableOption "enable vim";
     disableGuiSupport = mkEnableOption "disable guiSupport";
+    colorscheme = mkOption {
+      default = "gruvbox";
+      type = types.str;
+    };
   };
 
   config = mkIf cfg.enable {
     home.sessionVariables.EDITOR = "vim";
 
-    programs.vim = {
+    programs.vim = let
+      colorscheme = {
+        gruvbox = {
+          pkg = pkgs.vimPlugins.gruvbox;
+          cfg = ''
+            colorscheme gruvbox
+            set background=dark
+            let g:gruvbox_contrast_light='hard'
+            let g:gruvbox_contrast_dark='hard'
+          '';
+        };
+        gruvbox_oled = {
+          pkg = pkgs.vimPlugins.gruvbox;
+          cfg = ''
+            colorscheme gruvbox
+            set background=dark
+            let g:gruvbox_contrast_light='hard'
+            let g:gruvbox_contrast_dark='hard'
+            highlight Normal ctermbg=NONE
+          '';
+        };
+        molokai = {
+          pkg = pkgs.vimPlugins.molokai;
+          cfg = "colorscheme molokai";
+        };
+      }."${cfg.colorscheme}"; in
+    {
       enable = true;
       packageConfigurable = mkIf cfg.disableGuiSupport (pkgs.vim_configurable.override {
         guiSupport = false;
       });
       plugins = with pkgs.vimPlugins; [
+        colorscheme.pkg
         auto-git-diff
         fugitive
         gitgutter
-        gruvbox
-        molokai
         nerdtree
         vim-git
         vim-nix
       ];
+
       extraConfig = ''
         set nocompatible
         filetype plugin indent on
-
-        colorscheme gruvbox
-        set background=dark
-        let g:gruvbox_contrast_light='hard'
-        let g:gruvbox_contrast_dark='hard'
 
         syntax on
         set vb t_vb=
         set showcmd
         set showmatch
+
+        ${colorscheme.cfg}
 
         set cino =:0    " don't indent case statements
         set cino+=g0    " don't indent class visibility specifiers

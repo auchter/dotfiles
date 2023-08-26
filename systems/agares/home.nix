@@ -28,5 +28,7 @@
     laptopOutput = "eDP-1";
   };
 
+  modules.vim.colorscheme = "gruvbox_oled";
+
   xdg.enable = true;
 }
