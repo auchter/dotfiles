@@ -1,5 +1,6 @@
 { pkgs ? null }:
 {
+  nodejs_asar = pkgs.nodePackages.asar;
   ampctrl = pkgs.callPackage ./ampctrl { };
   beets-dynamicrange = pkgs.callPackage ./beets-dynamicrange { };
   beets-importreplace = pkgs.callPackage ./beets-importreplace { };
