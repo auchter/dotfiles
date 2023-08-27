@@ -27,5 +27,7 @@
     pkgs.git-crypt
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   system.stateVersion = "23.05"; # Did you read the comment?
 }
