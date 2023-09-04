@@ -188,6 +188,14 @@
         type = "Biquad";
         parameters = { inherit type; } // params;
       };
+      mkBiquadCombo = type: freq: order: {
+        type = "BiquadCombo";
+        parameters = {
+          inherit type;
+          inherit freq;
+          inherit order;
+        };
+      };
       mkPipelineFilter = channels: filters: map (channel: {
         type = "Filter";
         inherit channel;
@@ -223,8 +231,10 @@
           mapping = [
             (mixCopy 0 0)
             (mixCopy 1 1)
-            (mixMono 2 0 1)
-            (mixMono 3 0 1)
+            (mixCopy 0 2)
+            (mixCopy 1 3)
+            #(mixMono 2 0 1)
+            #(mixMono 3 0 1)
           ];
         };
       };
@@ -244,19 +254,38 @@
         left_unplugged_0 = mkBiquad "Peaking" { freq = 65.7; gain = -4.5; q = 2.081; };
         left_unplugged_1 = mkBiquad "Peaking" { freq = 104.0; gain = -5.9; q = 4.067; };
         left_unplugged_2 = mkBiquad "Peaking" { freq = 497.0; gain = -7.4; q = 1.895; };
+
+        highpass = mkBiquadCombo "LinkwitzRileyHighpass" 100 8;
+        lowpass = mkBiquadCombo "LinkwitzRileyLowpass" 100 8;
+        sub_l_0 = mkBiquad "Peaking" { freq = 43.6; gain = -4.6; q = 2.781; };
+        sub_l_1 = mkBiquad "Peaking" { freq = 81.9; gain = -5.5; q = 1.498; };
+        sub_r_0 = mkBiquad "Peaking" { freq = 49.75; gain = -4.0; q = 3.22; };
+        sub_r_1 = mkBiquad "Peaking" { freq = 90.1; gain = -8.4; q = 1.0; };
       };
       pipeline = builtins.concatLists [
         (mkPipelineMixer "main")
         (mkPipelineFilter [0] [
-          "left_unplugged_0"
-          "left_unplugged_1"
-          "left_unplugged_2"
+          "highpass"
+          #"left_unplugged_0"
+          #"left_unplugged_1"
+          #"left_unplugged_2"
         ])
         (mkPipelineFilter [1] [
-          "right_unplugged_0"
-          "right_unplugged_1"
-          "right_unplugged_2"
-          "right_unplugged_3"
+          "highpass"
+          #"right_unplugged_0"
+          #"right_unplugged_1"
+          #"right_unplugged_2"
+          #"right_unplugged_3"
+        ])
+        (mkPipelineFilter [2] [
+          "lowpass"
+          "sub_l_0"
+          "sub_l_1"
+        ])
+        (mkPipelineFilter [3] [
+          "lowpass"
+          "sub_r_0"
+          "sub_r_1"
         ])
       ];
     };
