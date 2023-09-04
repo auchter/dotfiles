@@ -231,8 +231,8 @@
           mapping = [
             (mixCopy 0 0)
             (mixCopy 1 1)
-            (mixCopy 0 2)
-            (mixCopy 1 3)
+            (mixCopy 2 0)
+            (mixCopy 3 1)
             #(mixMono 2 0 1)
             #(mixMono 3 0 1)
           ];
