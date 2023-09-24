@@ -9,7 +9,7 @@ let
 in
   nixpkgs.lib.composeManyExtensions [
     additions
-    cdrdao
+    # cdrdao # Removing
     mopidy-subidy
     nodePackages.readability-cli
     raspberrypiWirelessFirmware
