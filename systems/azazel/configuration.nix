@@ -22,6 +22,13 @@
         enabled = false;
       };
 
+      detectors = {
+        coral_pci = {
+          type = "edgetpu";
+          device = "pci";
+        };
+      };
+
       go2rtc = {
         streams = {
           patio_detect = [ "ffmpeg:http://reolink1.local.phire.org/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=frigate&password=frigate" ];
