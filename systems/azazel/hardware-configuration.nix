@@ -11,7 +11,9 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [
+    (pkgs.gasket.override { kernel = config.boot.kernelPackages.kernel; })
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c396a021-4bf8-4590-b1ee-b2a01603219c";
