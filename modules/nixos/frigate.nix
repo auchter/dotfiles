@@ -12,6 +12,11 @@ in {
       description = "storage directory";
     };
 
+    tpuDevice = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "TPU device to pass through";
+    };
     settings = mkOption { };
   };
 
@@ -38,7 +43,7 @@ in {
           };
           extraOptions = [
             "--shm-size=64m"
-          ];
+          ] ++ lib.optional (cfg.tpuDevice != null) "--device=${cfg.tpuDevice}:${cfg.tpuDevice}";
         };
       };
     };

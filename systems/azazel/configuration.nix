@@ -16,6 +16,7 @@
   modules.frigate = {
     enable = true;
     storageDir = "/srv/frigate";
+    tpuDevice = "/dev/apex_0";
     settings = {
       mqtt = {
         enabled = false;
