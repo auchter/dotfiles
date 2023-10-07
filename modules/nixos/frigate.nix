@@ -21,6 +21,8 @@ in {
   };
 
   config = mkIf (cfg.enable) {
+    networking.firewall.allowedTCPPorts = [ 5000 ];
+
     virtualisation.oci-containers = let
       configFile = pkgs.writeText "frigate.yml" (generators.toYAML {} cfg.settings);
     in {
