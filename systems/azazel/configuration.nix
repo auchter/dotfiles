@@ -13,6 +13,30 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   modules.sshd.enable = true;
 
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "home.phire.org" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://homeassistant:8123";
+          proxyWebsockets = true;
+          extraConfig =
+            "proxy_redirect off;" +
+            "proxy_set_header Host $host;" +
+            "proxy_set_header X-Real-IP $remote_addr;" +
+            "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;" +
+            "proxy_set_header X-Forwarded-Proto $scheme;";
+        };
+      };
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [
+    80 443 # nginx
+  ];
+
   modules.frigate = {
     enable = true;
     storageDir = "/srv/frigate";
