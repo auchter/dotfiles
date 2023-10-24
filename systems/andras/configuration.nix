@@ -31,7 +31,7 @@
     enable = true;
     host = "malphas";
     sampleFormat = "44100:16:*";
-    soundcard = "front:CARD=Device,DEV=0";
+    soundcard = "front:CARD=Audio,DEV=0";
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
