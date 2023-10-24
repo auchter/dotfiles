@@ -21,6 +21,12 @@
 
   sound.enable = true;
 
+  modules.wifi = {
+    enable = true;
+    interfaces = [ "wlan0" ];
+    networks = [ "pH IoT" ];
+  };
+
   modules.snapclient = {
     enable = true;
     host = "malphas";
