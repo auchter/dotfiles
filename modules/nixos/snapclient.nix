@@ -37,6 +37,12 @@ in {
       type = types.nullOr types.str;
       description = "soundcard index or name";
     };
+
+    mixer = mkOption {
+      default = null;
+      type = types.nullOr types.str;
+      description = "mixer to use";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -56,7 +62,8 @@ in {
             ${optionalString (cfg.host != null) "-h ${cfg.host}"} \
             ${optionalString (cfg.brutefirConfig != null) "--brutefir_config ${cfg.brutefirConfig}"} \
             ${optionalString (cfg.sampleFormat != null) "--sampleformat '${cfg.sampleFormat}'"} \
-            ${optionalString (cfg.soundcard != null) "-s ${toString cfg.soundcard}"}
+            ${optionalString (cfg.soundcard != null) "-s ${toString cfg.soundcard}"} \
+            ${optionalString (cfg.mixer != null) "--mixer ${cfg.mixer}"}
         '';
         Restart = "on-failure";
       };
