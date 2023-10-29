@@ -24,6 +24,12 @@ in {
       type = types.package;
     };
 
+    port = mkOption {
+      description = "port for websocket";
+      default = 5253;
+      type = types.port;
+    };
+
     config = mkOption {
       description = "extra configuration to add";
       default = {};
@@ -43,7 +49,7 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = ''
-          ${cfg.package}/bin/camilladsp ${configFile}
+          ${cfg.package}/bin/camilladsp --port ${toString cfg.port} ${configFile}
         '';
         Type = "simple";
         Restart = "always";
