@@ -18,6 +18,7 @@
   mta = ./mta.nix;
   mympd = ./mympd.nix;
   mpdpower = ./mpdpower.nix;
+  ohsnapctrl = ./ohsnapctrl.nix;
   ot-recorder = ./ot-recorder.nix;
   panopticon = ./panopticon.nix;
   photoprism = ./photoprism.nix;
