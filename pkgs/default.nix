@@ -23,6 +23,7 @@
   ohsnapctrl = pkgs.callPackage ./ohsnapctrl { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
+  pycamilladsp = pkgs.callPackage ./pycamilladsp { };
   pylistenbrainz = pkgs.callPackage ./pylistenbrainz { };
   python-brutefir = pkgs.callPackage ./python-brutefir { };
   python-powermate = pkgs.callPackage ./python-powermate { };
