@@ -20,7 +20,7 @@
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
   mpdpower = pkgs.callPackage ./mpdpower { };
   npupnp = pkgs.callPackage ./npupnp { };
-  ohsnapmixer = pkgs.callPackage ./ohsnapmixer { };
+  ohsnapctrl = pkgs.callPackage ./ohsnapctrl { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
   pylistenbrainz = pkgs.callPackage ./pylistenbrainz { };

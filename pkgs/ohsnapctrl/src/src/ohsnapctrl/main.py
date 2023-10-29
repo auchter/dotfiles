@@ -26,7 +26,7 @@ def main():
     # snapclient will invoke us like:
     # child c(exe = settings_.mixer.parameter, args = {"--volume", cpt::to_string(volume), "--mute", mute ? "true" : "false"});
 
-    parser = argparse.ArgumentParser(description="ohsnapmixer")
+    parser = argparse.ArgumentParser(description="ohsnapctrl")
     parser.add_argument("--volume", action="store", help="volume")
     parser.add_argument("--mute", action="store" default="false", help="mute")
 

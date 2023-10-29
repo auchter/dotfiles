@@ -3,7 +3,7 @@
 }:
 
 python3Packages.buildPythonApplication rec {
-  pname = "ohsnapmixer";
+  pname = "ohsnapctrl";
   version = "unstable-2023-08-13";
 
   src = ./src;
@@ -16,7 +16,7 @@ python3Packages.buildPythonApplication rec {
 
   meta = with lib; {
     homepage = "https://github.com/auchter/dotfiles";
-    description = "ohsnapmixer";
+    description = "ohsnapctrl";
     license = licenses.gpl3Only;
     maintainers = with maintainers; [ auchter ];
     platforms = platforms.linux;
