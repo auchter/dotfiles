@@ -171,6 +171,11 @@
     '';
   };
 
+  services.camillagui = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.camilladsp = {
     enable = true;
     extraFilters = [
