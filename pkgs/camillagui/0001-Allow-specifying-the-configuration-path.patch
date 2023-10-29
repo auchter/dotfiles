@@ -1,0 +1,70 @@
+From 61d0d63ee766965deb9482f98cab68de259509fc Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Sun, 29 Oct 2023 21:02:19 +0000
+Subject: [PATCH] Allow specifying the configuration path
+
+Allow the path to the configuration file to be passed on the command
+line.
+---
+ backend/settings.py |  3 ---
+ main.py             | 22 +++++++++++++++-------
+ 2 files changed, 15 insertions(+), 10 deletions(-)
+
+diff --git a/backend/settings.py b/backend/settings.py
+index 81e9f87..e437174 100644
+--- a/backend/settings.py
++++ b/backend/settings.py
+@@ -133,6 +133,3 @@ def get_gui_config_or_defaults():
+     else:
+         print("Unable to read gui config file, using defaults")
+         return GUI_CONFIG_DEFAULTS
+-
+-
+-config = get_config(CONFIG_PATH)
+diff --git a/main.py b/main.py
+index 6bdd1a2..c80a832 100644
+--- a/main.py
++++ b/main.py
+@@ -1,4 +1,5 @@
+ from aiohttp import web
++import argparse
+ import logging
+ import sys
+ from camilladsp import CamillaConnection
+@@ -6,19 +7,26 @@ from camilladsp_plot.validate_config import CamillaValidator
+ 
+ from backend.version import VERSION
+ from backend.routes import setup_routes, setup_static_routes
+-from backend.settings import config
++from backend.settings import get_config, CONFIG_PATH
+ from backend.views import version_string
+ 
++parser = argparse.ArgumentParser(description="CamillaGUI")
++parser.add_argument("--config", action="store", default=CONFIG_PATH,
++                    help="path to CamillaGUI config yaml")
++parser.add_argument("--level", action="store", default='WARNING',
++                    help="logging level")
++args = parser.parse_args()
++
+ level = logging.WARNING
+-if len(sys.argv) > 1:
+-    level_str = sys.argv[1].upper()
+-    if level_str in ("CRITICAL", "ERROR","WARNING","INFO","DEBUG","NOTSET"):
+-        level = level_str
+-    else:
+-        print(f"Unknown logging level {level_str}, ignoring")
++level_str = args.level.upper()
++if level_str in ("CRITICAL", "ERROR","WARNING","INFO","DEBUG","NOTSET"):
++    level = level_str
++else:
++    print(f"Unknown logging level {level_str}, ignoring")
+ logging.basicConfig(level=level)
+ 
+ app = web.Application(client_max_size=1024 ** 3)  # set max upload file size to 1GB
++config = get_config(args.config)
+ app["config_dir"] = config["config_dir"]
+ app["coeff_dir"] = config["coeff_dir"]
+ app["default_config"] = config["default_config"]
+-- 
+2.40.1
+
