@@ -5,6 +5,7 @@
   bindmounts = ./bindmounts.nix;
   brutefir = ./brutefir.nix;
   camilladsp = ./camilladsp.nix;
+  camillagui = ./camillagui.nix;
   embedded = ./embedded.nix;
   frigate = ./frigate.nix;
   gocodes = ./gocodes.nix;
