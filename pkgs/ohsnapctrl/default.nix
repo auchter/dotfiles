@@ -10,6 +10,7 @@ python3Packages.buildPythonApplication rec {
 
   propagatedBuildInputs = with python3Packages; [
     python3Packages.libgpiod
+    python3Packages.snapcast
   ];
 
   doCheck = false;
