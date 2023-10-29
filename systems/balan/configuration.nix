@@ -22,6 +22,11 @@
     soundcard = "front:CARD=adapter,DEV=0";
   };
 
+  services.ohsnapctrl = {
+    enable = true;
+    gpio = "TRIG_OUT_0";
+  };
+
   hardware.gpio.enable = true;
   hardware.i2c.enable = true;
   hardware.deviceTree.overlays = [
