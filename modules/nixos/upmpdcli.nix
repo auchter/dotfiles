@@ -48,7 +48,7 @@ in {
 
     systemd.services.upmpdcli = {
       description = "upmpdcli";
-      after = [ "network.target" "mpd.service" ];
+      after = [ "network-online.target" "mpd.service" ];
       wantedBy = [ "default.target" ];
       serviceConfig = {
         Environment = [
