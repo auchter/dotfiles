@@ -37,7 +37,24 @@
     80 443 # nginx
   ];
 
-  modules.frigate = {
+  modules.frigate = let
+    reolink_go2rtc_restream = name: url: {
+      "${name}_detect" = [ "ffmpeg:http://${url}/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=frigate&password=frigate" ];
+      "${name}_record" = [ "ffmpeg:http://${url}/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=frigate&password=frigate" ];
+    };
+    ffmpeg_restream_inputs = name: [
+      {
+        path = "rtsp://127.0.0.1:8554/${name}_record?video=copy&audio=aac";
+        input_args = "preset-rtsp-restream";
+        roles = [ "record" ];
+      }
+      {
+        path = "rtsp://127.0.0.1:8554/${name}_detect?video=copy";
+        input_args = "preset-rtsp-restream";
+        roles = [ "detect" ];
+      }
+    ];
+  in {
     enable = true;
     storageDir = "/srv/frigate";
     tpuDevice = "/dev/apex_0";
@@ -72,12 +89,9 @@
       };
 
       go2rtc = {
-        streams = {
-          patio_detect = [ "ffmpeg:http://reolink1.local.phire.org/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=frigate&password=frigate" ];
-          patio_record = [ "ffmpeg:http://reolink1.local.phire.org/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=frigate&password=frigate" ];
-          driveway_detect = [ "ffmpeg:http://reolink2.local.phire.org/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=frigate&password=frigate" ];
-          driveway_record = [ "ffmpeg:http://reolink2.local.phire.org/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=frigate&password=frigate" ];
-        };
+        streams =
+          (reolink_go2rtc_restream "patio" "reolink1.local.phire.org") //
+          (reolink_go2rtc_restream "driveway" "reolink2.local.phire.org");
       };
 
       cameras = {
@@ -108,20 +122,7 @@
             "carport_zone"
             "patio_zone"
           ];
-          ffmpeg = {
-            inputs = [
-              {
-                path = "rtsp://127.0.0.1:8554/patio_record?video=copy&audio=aac";
-                input_args = "preset-rtsp-restream";
-                roles = [ "record" ];
-              }
-              {
-                path = "rtsp://127.0.0.1:8554/patio_detect?video=copy";
-                input_args = "preset-rtsp-restream";
-                roles = [ "detect" ];
-              }
-            ];
-          };
+          ffmpeg.inputs = ffmpeg_restream_inputs "patio";
         };
         driveway = {
           zones = {
@@ -154,18 +155,7 @@
             "driveway_zone"
             "property_zone"
           ];
-          ffmpeg.inputs = [
-            {
-              path = "rtsp://127.0.0.1:8554/driveway_record?video=copy&audio=aac";
-              input_args = "preset-rtsp-restream";
-              roles = [ "record" ];
-            }
-            {
-              path = "rtsp://127.0.0.1:8554/driveway_detect?video=copy";
-              input_args = "preset-rtsp-restream";
-              roles = [ "detect" ];
-            }
-          ];
+          ffmpeg.inputs = ffmpeg_restream_inputs "driveway";
         };
       };
     };
