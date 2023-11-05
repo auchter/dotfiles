@@ -54,6 +54,13 @@
         roles = [ "detect" ];
       }
     ];
+    ffmpeg_wyzecam_inputs = host: [
+      {
+        path = "rtsp://${host}:8554/video3_unicast";
+        input_args = "preset-rtsp-generic";
+        roles = [ "record" ]; # "detect" ];
+      }
+    ];
   in {
     enable = true;
     storageDir = "/srv/frigate";
@@ -156,6 +163,12 @@
             "property_zone"
           ];
           ffmpeg.inputs = ffmpeg_restream_inputs "driveway";
+        };
+        porch = {
+          ffmpeg.inputs = ffmpeg_wyzecam_inputs "wyzecam1.local.phire.org";
+        };
+        office = {
+          ffmpeg.inputs = ffmpeg_wyzecam_inputs "wyzecam.local.phire.org";
         };
       };
     };
