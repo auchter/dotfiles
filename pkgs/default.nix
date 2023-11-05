@@ -7,6 +7,7 @@
   beets-rym = pkgs.callPackage ./beets-rym { };
   beetstream = pkgs.callPackage ./beetstream { };
   brutefir = pkgs.callPackage ./brutefir { };
+  cal-add = pkgs.callPackage ./cal-add.nix { };
   camilladsp = pkgs.callPackage ./camilladsp { };
   camillagui = pkgs.callPackage ./camillagui { };
   drduh-yubikey-guide = pkgs.callPackage ./drduh-yubikey-guide { };
