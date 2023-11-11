@@ -36,6 +36,7 @@
 
   networking.useDHCP = false;
 
+  services.irqbalance.enable = true;
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   programs.gnupg.agent = {
