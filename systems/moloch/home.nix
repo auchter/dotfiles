@@ -35,4 +35,8 @@
     enable = true;
     musicDir = "/home/a/Music";
   };
+
+  home.packages = with pkgs; [
+    roomeqwizard
+  ];
 }
