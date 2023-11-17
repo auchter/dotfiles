@@ -13,6 +13,14 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   modules.sshd.enable = true;
 
+  hardware.bluetooth.enable = true;
+
+  services.mpdpower = {
+    enable = true;
+    mpdHost = "malphas";
+    btAddr = "00:12:92:08:07:B9";
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts = {
