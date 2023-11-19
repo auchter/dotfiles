@@ -20,6 +20,7 @@
   mcg = pkgs.callPackage ./mcg { };
   michauch = pkgs.callPackage ./michauch { };
   mlat-client = pkgs.python3Packages.callPackage ./mlat-client { };
+  mpdcamillamixer = pkgs.callPackage ./mpdcamillamixer { };
   mpdpower = pkgs.callPackage ./mpdpower { };
   npupnp = pkgs.callPackage ./npupnp { };
   ohsnapctrl = pkgs.callPackage ./ohsnapctrl { };
