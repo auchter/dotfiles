@@ -41,8 +41,8 @@
   };
 
   services.avahi = {
-    enable = true;
-    nssmdns = true;
+    enable = false;
+    nssmdns = false;
   };
 
   services.mpd = {
