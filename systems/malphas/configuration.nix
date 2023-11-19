@@ -45,6 +45,10 @@
     nssmdns = false;
   };
 
+  system.activationScripts.irq-affinity = ''
+    echo e > /proc/irq/39/smp_affinity
+  '';
+
   services.mpd = {
     enable = true;
     dataDir = "/mnt/storage/mpd";
