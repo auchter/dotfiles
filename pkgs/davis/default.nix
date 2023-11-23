@@ -2,6 +2,9 @@
 , fetchFromGitHub
 , rustPlatform
 , rust-bin
+, gawk
+, gnugrep
+, fzf
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -22,6 +25,15 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [
     rust-bin.stable.latest.default
   ];
+
+  postInstall = ''
+    cp subcommands/fzf/davis-fzf $out/bin
+    chmod +x $out/bin/davis-fzf
+    substituteInPlace $out/bin/davis-fzf \
+      --replace 'fzf' '${fzf}/bin/fzf' \
+      --replace 'grep' '${gnugrep}/bin/grep' \
+      --replace 'awk' '${gawk}/bin/awk'
+  '';
 
   meta = with lib; {
     description = "A CLI client for MPD";
