@@ -13,6 +13,13 @@ let
         type = "receiveonly";
       };
     };
+    "pixel_7_f7v9-photos" = {
+      pixel7 = {};
+      moloch = {
+        path = "~/Pixel7Camera";
+        type = "receiveonly";
+      };
+    };
     "music" = {
       stolas = {
         path = "/mnt/storage/music";
@@ -35,6 +42,7 @@ let
       };
     };
     "obsidian" = {
+      pixel7 = {};
       pixel5a = {};
       moloch = {
         path = "~/obsidian";
