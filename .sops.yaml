@@ -10,6 +10,7 @@ keys:
   - &system_volac age1lqr6mfl4vhszqcpyd484dn3n6zm8x0y7x86hc05q3wp8ggy09ftsq40jvn
   - &system_malphas age1yduzg46r4ku8emq7frrlkl8d7saz4m542ctl8uf2snkfmj24q9gs07ps7v
   - &system_agares age1nrw095eqnu8rahneevg7kl4r6508qwmyhy40h03mmpqvz7h6k96s0kr5e2
+  - &system_azazel age15g87upjl3hev580xmdtusmzgrngq5suqvdnn0h062epfrmlvgecsa5ksg2
 # nix-shell -p sops --run "sops secrets/example.yaml"
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
@@ -23,6 +24,7 @@ creation_rules:
         - *system_volac
         - *system_malphas
         - *system_agares
+        - *system_azazel
   - path_regex: systems/ipos/secrets/[^/]+\.yaml$
     key_groups:
       - age:
@@ -58,3 +60,8 @@ creation_rules:
       - age:
         - *admin_a
         - *system_agares
+  - path_regex: systems/azazel/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *admin_a
+        - *system_azazel
