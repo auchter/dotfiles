@@ -10,6 +10,8 @@
 
   modules.sshd.enable = true;
   modules.soulseek.enable = true;
+  services.syncthing.enable = true;
+
   modules.wifi = {
     enable = true;
     interfaces = [ "wlp0s20f3" ];

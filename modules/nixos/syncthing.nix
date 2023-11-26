@@ -19,6 +19,10 @@ let
         path = "~/Pixel7Camera";
         type = "receiveonly";
       };
+      agares = {
+        path = "~/Pixel7Camera";
+        type = "receiveonly";
+      };
     };
     "music" = {
       stolas = {
@@ -45,6 +49,10 @@ let
       pixel7 = {};
       pixel5a = {};
       moloch = {
+        path = "~/obsidian";
+        type = "sendreceive";
+      };
+      agares = {
         path = "~/obsidian";
         type = "sendreceive";
       };
