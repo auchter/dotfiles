@@ -29,6 +29,10 @@ let
       publicKey = "1R5PC7XTcDtNy5J3EFb5dkRlO2hdbIIx5nfbsWysgAk=";
       ip = "10.100.0.6";
     };
+    azazel = {
+      publicKey = "lXoUx1CNNf4f/pMQPk3/RkbvV7Y7pAquPA2WeeqT0w0=";
+      ip = "10.100.0.7";
+    };
   };
   port = 51820;
   interface = "wg0";

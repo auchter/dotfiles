@@ -15,6 +15,11 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   modules.sshd.enable = true;
 
+  modules.wireguard.client ={
+    enable = true;
+    server = "ipos";
+  };
+
   hardware.bluetooth.enable = true;
 
   services.mpdpower = {
