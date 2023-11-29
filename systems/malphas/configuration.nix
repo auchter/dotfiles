@@ -11,12 +11,12 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_6_5;
-  boot.kernelPatches = lib.mkIf false [
+  boot.kernelPatches = [
     {
-      name = "bluetooth";
-      patch = null;
+      name = "ina260";
+      patch = ./PATCH-hwmon-Add-support-for-the-INA260-chip-to-the-INA219-and-compatibles-driver.patch;
       extraConfig = ''
-        BT_HCIUART_3WIRE y
+        SENSORS_INA2XX y
       '';
     }
   ];
