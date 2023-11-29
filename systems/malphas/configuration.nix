@@ -327,6 +327,26 @@
         };
       '';
     }
+    {
+      name = "ina260";
+      dtsText = ''
+        /dts-v1/;
+        /plugin/;
+        / {
+          compatible = "pine64,pine-h64-model-b";
+          fragment@1 {
+            target = <&i2c0>;
+            __overlay__ {
+              status = "okay";
+              ina260@40 {
+                compatible = "ti,ina260";
+                reg = <0x40>;
+              };
+            };
+          };
+        };
+      '';
+    }
   ];
 
   system.stateVersion = "22.05"; # Did you read the comment?
