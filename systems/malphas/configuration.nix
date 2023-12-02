@@ -140,6 +140,15 @@
 
   services.ampctrl.enable = true;
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    systemWide = true;
+  };
+
+  users.users.mpd.extraGroups = [ "audio" "pipewire" ];
+
   boot.kernelModules = [ "snd-aloop" ];
   sound = {
     enable = true;
