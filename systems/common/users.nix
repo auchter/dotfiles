@@ -25,6 +25,7 @@ in
         "dialout"
         "syncthing"
         "plugdev"
+        "pipewire"
         config.users.groups.keys.name
       ];
       home = "/home/a";
