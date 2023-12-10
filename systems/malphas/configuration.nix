@@ -139,6 +139,7 @@
   };
 
   services.ampctrl.enable = true;
+  services.ttctrl.enable = true;
 
   services.pipewire = {
     enable = true;
