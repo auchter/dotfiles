@@ -31,6 +31,7 @@
   syncthing = ./syncthing.nix;
   sshd = ./sshd.nix;
   tar1090 = ./tar1090.nix;
+  ttctrl = ./ttctrl.nix;
   upmpdcli = ./upmpdcli.nix;
   wifi = ./wifi.nix;
   wireguard = ./wireguard.nix;
