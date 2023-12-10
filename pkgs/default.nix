@@ -27,6 +27,7 @@
   ohsnapctrl = pkgs.callPackage ./ohsnapctrl { };
   ot-recorder = pkgs.callPackage ./ot-recorder { };
   panopticon = pkgs.callPackage ./panopticon { };
+  pipewire_python = pkgs.callPackage ./pipewire_python { };
   pycamilladsp = pkgs.callPackage ./pycamilladsp { };
   pycamilladsp-plot = pkgs.callPackage ./pycamilladsp-plot { };
   pylistenbrainz = pkgs.callPackage ./pylistenbrainz { };
