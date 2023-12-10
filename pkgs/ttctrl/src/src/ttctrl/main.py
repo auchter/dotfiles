@@ -178,6 +178,7 @@ def loop(cb=lambda x: None):
         if state == TurntableState.Off:
             if power > 1.0:
                 next_state = TurntableState.On
+                time.sleep(0.8)  # wait for initial spike to settle
         elif state == TurntableState.On:
             if power > 1.7:
                 next_state = TurntableState.Spinning
