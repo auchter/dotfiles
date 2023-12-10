@@ -36,6 +36,7 @@
   readsb = pkgs.callPackage ./readsb { };
   screenshot = pkgs.callPackage ./screenshot.nix { };
   tar1090 = pkgs.callPackage ./tar1090 { };
+  ttctrl = pkgs.callPackage ./ttctrl { };
   upmpdcli = pkgs.callPackage ./upmpdcli { };
   ws2902-mqtt = pkgs.callPackage ./ws2902-mqtt { };
 }
