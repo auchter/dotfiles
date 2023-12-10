@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitHub
 , python3Packages
+, pipewire
 }:
 
 python3Packages.buildPythonPackage rec {
@@ -17,6 +18,7 @@ python3Packages.buildPythonPackage rec {
   format = "pyproject";
 
   nativeBuildInputs = [ python3Packages.flit-core ];
+  propagatedBuildInputs = [ pipewire ];
 
   meta = with lib; {
     description = "Python controller, player and recorder via pipewire's commands";
