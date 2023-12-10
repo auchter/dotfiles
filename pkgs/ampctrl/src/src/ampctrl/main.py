@@ -55,34 +55,40 @@ async def controller(host, port, output, off_delay, amp):
     while True:
         try:
             await client.connect(host, port)
+            await client.subscribe("turntable")
 
             state = States.OFF
             next_state = None
+            turntable = None
 
             task = None
-            async for subsystem in client.idle(["output", "player"]):
+            async for subsystem in client.idle(["output", "player", "message"]):
                 status = await client.status()
                 outputs = await client.outputs()
+                messages = await client.readmessages()
 
                 playing = status['state'] == 'play'
                 oe = output_enabled(outputs, output)
+                for message in messages:
+                    if message['channel'] == 'turntable':
+                        turntable = message['message']
 
-                _LOGGER.info(f"state: {state}, playing: {playing}, oe: {oe}")
+                _LOGGER.info(f"state: {state}, playing: {playing}, oe: {oe}, turntable: {turntable}")
 
                 next_state = state
                 if state == States.OFF:
-                    if playing and oe:
+                    if (playing and oe) or turntable == 'spinning':
                         amp.control(True)
                         next_state = States.ON
                 elif state == States.ON:
-                    if not oe:
+                    if not oe and turntable == 'off':
                         amp.control(False)
                         next_state = States.OFF
-                    elif not playing:
+                    elif not playing and turntable != 'spinning':
                         task = asyncio.create_task(delay_off(amp, off_delay))
                         next_state = States.DELAY_OFF
                 elif state == States.DELAY_OFF:
-                    if playing and oe:
+                    if (playing and oe) or turntable == 'spinning':
                         amp.control(True)
                         next_state = States.ON
                     elif not oe:
