@@ -1,3 +1,4 @@
+import asyncio
 import argparse
 import logging
 from mpd.asyncio import MPDClient
