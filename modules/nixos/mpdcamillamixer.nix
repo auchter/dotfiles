@@ -38,9 +38,9 @@ in {
         ExecStart = ''
           ${pkgs.mpdcamillamixer}/bin/mpdcamillamixer \
             --mpd-host ${cfg.mpdHost} \
-            --mpd-port ${cfg.mpdPort} \
+            --mpd-port ${toString cfg.mpdPort} \
             --camilla-host ${cfg.camillaHost} \
-            --camilla-port ${cfg.camillaPort}
+            --camilla-port ${toString cfg.camillaPort}
         '';
         Restart = "always";
       };
