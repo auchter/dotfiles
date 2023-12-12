@@ -145,6 +145,7 @@
 
   services.ampctrl.enable = true;
   services.ttctrl.enable = true;
+  services.mpdcamillamixer.enable = true;
 
   services.pipewire = {
     enable = true;
