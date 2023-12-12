@@ -70,14 +70,19 @@
         name    "snapcast"
         path    "/run/snapserver/mpd"
         format  "44100:16:2"
-        mixer_type "none"
+        mixer_type "null"
       }
       audio_output {
-        type   "alsa"
+        type   "null"
         name   "CamillaDSP"
-        device "hw:Loopback,0"
-        format "96000:32:2"
-        mixer_type "software"
+        #device "hw:Loopback,0"
+        #format "96000:32:2"
+        mixer_type "null"
+      }
+      audio_output {
+        type "pipewire"
+        name "Pipewire"
+        mixer_type "null"
       }
     '';
   };
