@@ -243,7 +243,7 @@
         playback = {
           type = "Alsa";
           channels = 4;
-          device = "surround40:CARD=U192k,DEV=0";
+          device = "surround40:CARD=M4,DEV=0";
           format = "S32LE";
         };
       };
