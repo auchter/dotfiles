@@ -159,36 +159,6 @@
   boot.kernelModules = [ "snd-aloop" ];
   sound = {
     enable = true;
-    extraConfig = ''
-      pcm.!default {
-        type plug
-        slave.pcm "camilladsp"
-      }
-
-      pcm.camilladsp {
-        type plug
-
-        slave {
-          pcm {
-            type     hw
-            card     "Loopback"
-            device   0
-            channels 2
-            format   "S32_LE"
-            rate     96000
-          }
-        }
-      }
-
-      ctl.!default {
-        type hw
-        card "Loopback"
-      }
-      ctl.camilladsp {
-        type hw
-        card "Loopback"
-      }
-    '';
   };
 
   services.camillagui = {
