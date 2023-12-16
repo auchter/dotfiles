@@ -7,6 +7,11 @@ let
 in {
   options.services.ampctrl = {
     enable = mkEnableOption "ampctrl";
+    mpdHost = mkOption {
+      type = types.str;
+      default = "localhost";
+      description = "MPD host to control";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -16,7 +21,7 @@ in {
       wantedBy = [ "default.target" ];
       serviceConfig = {
         ExecStart = ''
-          ${pkgs.ampctrl}/bin/ampctrl
+          ${pkgs.ampctrl}/bin/ampctrl --mpd-host ${cfg.mpdHost}
         '';
         Restart = "always";
         SupplementaryGroups = [ "gpio" ];
