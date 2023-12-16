@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.05";
+    nixpkgs.url = "nixpkgs/nixos-23.11";
     #nixpkgs.url = "path:/home/a/git/nixpkgs";
-    home-manager.url = "github:rycee/home-manager/release-23.05";
+    home-manager.url = "github:rycee/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     rust-overlay.url = "github:oxalica/rust-overlay";
