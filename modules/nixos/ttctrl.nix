@@ -32,7 +32,6 @@ in {
         '';
         Restart = "always";
         DynamicUser = true;
-        SupplementaryGroups = [ "pipewire" ];
       };
     };
   };

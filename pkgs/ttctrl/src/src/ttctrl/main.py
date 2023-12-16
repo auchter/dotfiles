@@ -118,6 +118,13 @@ class Controller:
         }
         self.source = None
 
+    def do_pipewire(self):
+        if self.sink_name is None:
+            return False
+        if self.source_name is None:
+            return False
+        return True
+
     def control(self, state):
         self.dispatch[state]()
         self.notify_mpd(state)
@@ -148,17 +155,19 @@ class Controller:
         except Exception as e:
             logging.error(f"failed to pause mpd: {e}")
 
-        self.sink = find_endpoints(StereoInput, self.sink_name, 'playback')[0]
-        self.source = find_endpoints(StereoOutput, self.source_name, 'capture')[0]
-        self.source.connect(self.sink)
-        print("linked!")
+        if self.do_pipewire():
+            self.sink = find_endpoints(StereoInput, self.sink_name, 'playback')[0]
+            self.source = find_endpoints(StereoOutput, self.source_name, 'capture')[0]
+            self.source.connect(self.sink)
+            print("linked!")
 
     def unlink(self):
-        if self.source is not None:
-            self.source.disconnect(self.sink)
-            self.source = None
-            self.sink = None
-            print("unlinked!")
+        if self.do_pipewire():
+            if self.source is not None:
+                self.source.disconnect(self.sink)
+                self.source = None
+                self.sink = None
+                print("unlinked!")
 
 
 def loop(cb=lambda x: None):
@@ -202,10 +211,8 @@ def main():
     parser = argparse.ArgumentParser(description="ttctrl")
     parser.add_argument('--mpd-host', default='localhost', help="Host of MPD server")
     parser.add_argument('--mpd-port', default=6600, type=int, help="MPD Port")
-    parser.add_argument('--source-dev',
-                        default='alsa_input.usb-BurrBrown_from_Texas_Instruments_USB_AUDIO_CODEC-00.analog-stereo',
-                        help="name of the audio source")
-    parser.add_argument('--sink-dev', default='camilladsp-sink', help="name of the audio sink")
+    parser.add_argument('--source-dev', default=None, help="name of the audio source")
+    parser.add_argument('--sink-dev', default=None, help="name of the audio sink")
     args = parser.parse_args()
 
     ctrl = Controller(
