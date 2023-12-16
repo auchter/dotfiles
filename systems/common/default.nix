@@ -26,14 +26,6 @@
     experimental-features = nix-command flakes
   '';
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "google-chrome"
-    "obsidian"
-    "plexmediaserver"
-    "roomeqwizard"
-    "unifi-controller"
-  ];
-
   networking.useDHCP = false;
 
   services.pcscd.enable = true;
