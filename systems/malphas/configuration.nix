@@ -154,6 +154,35 @@
     systemWide = true;
   };
 
+  environment.etc = {
+    "pipewire/pipewire.conf.d/pipewire.conf".text = ''
+      context.properties = {
+        default.clock.rate = 96000
+      }
+      context.objects = [
+	{ factory = adapter
+          args = {
+              factory.name     = api.alsa.pcm.sink
+              node.name        = "camilladsp-sink"
+              node.description = "Alsa Loopback"
+              media.class      = "Audio/Sink"
+              api.alsa.path    = "hw:Loopback,0,0"
+              audio.format     = "S32LE"
+              audio.rate       = 96000
+              audio.channels   = 2
+              priority.session = 1400
+          }
+	}
+      ]
+    '';
+    "wireplumber/main.lua.d/81-stereo.lua".text = ''
+    '';
+  };
+
+  systemd.services.pipewire.restartTriggers = [
+    config.environment.etc."pipewire/pipewire.conf.d/pipewire.conf".text
+  ];
+
   users.users.mpd.extraGroups = [ "audio" "pipewire" ];
 
   boot.kernelModules = [ "snd-aloop" ];
