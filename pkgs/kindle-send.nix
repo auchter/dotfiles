@@ -2,7 +2,7 @@
 , writeShellApplication
 , pandoc
 , neomutt
-, nodePackages
+, readability-cli
 , curl
 }:
 
@@ -11,7 +11,7 @@ writeShellApplication {
   runtimeInputs = [
     curl
     neomutt
-    nodePackages.readability-cli
+    readability-cli
     pandoc
   ];
 
