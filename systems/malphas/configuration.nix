@@ -111,16 +111,6 @@
 
   sops.secrets.listenbrainz_pass = {};
 
-  services.mpdscribble = {
-    enable = false;
-    endpoints = {
-      "listenbrainz" = {
-        username = "e8beb414513f8";
-        passwordFile = config.sops.secrets.listenbrainz_pass.path;
-      };
-    };
-  };
-
   services.listenbrainz-mpd = {
     enable = true;
     tokenFile = config.sops.secrets.listenbrainz_pass.path;
