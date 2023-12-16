@@ -31,6 +31,12 @@
     options = [ "noatime" ];
   };
 
+  fileSystems."/mnt/ssd" = {
+    device = "/dev/disk/by-uuid/053afcd9-26c3-4fde-8466-40280f1195b3";
+    fsType = "ext4";
+    options = [ "noatime" ];
+  };
+
   fileSystems."/mnt/storage" = {
     device = "UUID=0789211e-1c89-442a-8372-d66172a9fe0c";
     fsType = "ext4";
