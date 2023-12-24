@@ -35,12 +35,58 @@ class CamillaDSPVolume:
                 _LOGGER.info(f"set_volume failed, {e}, retrying")
                 continue
 
+    def set_config(self, config):
+        for i in range(2):
+            if not self.cdsp.is_connected():
+                self.cdsp.connect()
+
+            try:
+                # TODO: Need to figure out what I want here...
+                return
+            except Exception as e:
+                _LOGGER.info(f"set_config failed, {e}, retrying")
+                continue
+
+
+class TurntableState:
+    def __init__(self, cdsp):
+        self.cdsp = cdsp
+        self.turntable_config = False
+
+    def enabled(self):
+        return self.turntable_config
+
+    def enable(self):
+        self.cdsp.set_config('_turntable')
+        self.turntable_config = True
+
+    def disable(self):
+        self.cdsp.set_config('_default')
+        self.turntable_config = False
+
+    def handle(self, msg):
+        if not self.enabled():
+            if msg == 'spinning':
+                self.enable()
+                return
+        if self.enabled():
+            if msg == 'off':
+                self.disable()
+
+
 async def controller(host, port, cdsp):
     client = MPDClient()
+    tt = TurntableState(cdsp)
 
     while True:
         await client.connect(host, port)
-        async for subsystem in client.idle(['mixer']):
+        await client.subscribe("turntable")
+        async for subsystem in client.idle(['mixer', 'message']):
+            messages = await client.readmessages()
+            for message in messages:
+                if message['channel'] == 'turntable':
+                    tt.handle(message['message'])
+
             status = await client.status()
             vol = int(status['volume'])
             cdsp.set_volume(vol)
