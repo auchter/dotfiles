@@ -300,6 +300,10 @@
             acl = [ "readwrite #" ];
             hashedPassword = "$7$101$UgWI1piCJbj3bgd7$1nP2ncFSoK6PmIzNzpBk55jC73IRTHtMNC0hWSe7PKpAALTTo0tn+PagsY8Q/uVffMV+q5tNp50AosqhGinZEw==";
           };
+          homeassistant = {
+            acl = [ "readwrite #" ];
+            hashedPassword = "$7$101$0H1bjprvH/niHX5G$vLZQ1cnISSwxWJCJjSC0yHGAmpxbgMl+FiZOyOiF5ttmJrmTHdfklc02AoXQYeco5a6oQsnX5OiZvyZ/kf55Jg==";
+          };
         };
       }
     ];
