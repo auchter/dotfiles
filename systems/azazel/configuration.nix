@@ -309,6 +309,8 @@
     ];
   };
 
+  sops.secrets.frigate_mqtt_passwd = { };
+
   modules.frigate = let
     reolink_go2rtc_restream = name: url: {
       "${name}_detect" = [ "ffmpeg:http://${url}/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=frigate&password=frigate" ];
@@ -337,6 +339,9 @@
     enable = true;
     storageDir = "/srv/frigate";
     tpuDevice = "/dev/apex_0";
+    environmentFiles = [
+      config.sops.secrets.frigate_mqtt_passwd.path
+    ];
     settings = {
 
       record = {
@@ -345,7 +350,10 @@
       };
 
       mqtt = {
-        enabled = false;
+        enabled = true;
+        user = "frigate";
+        password = "{FRIGATE_MQTT_PASSWORD}";
+        host = "azazel.local.phire.org";
       };
 
       detectors = {
