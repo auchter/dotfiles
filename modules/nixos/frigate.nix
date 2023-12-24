@@ -17,6 +17,13 @@ in {
       default = null;
       description = "TPU device to pass through";
     };
+
+    environmentFiles = mkOption {
+      type = with types; listOf path;
+      default = [];
+      description = "env files";
+    };
+
     settings = mkOption { };
   };
 
@@ -43,6 +50,7 @@ in {
           environment = {
             FRIGATE_RTSP_PASSWORD = "password";
           };
+          environmentFiles = cfg.environmentFiles;
           extraOptions = [
             "--shm-size=64m"
           ] ++ lib.optional (cfg.tpuDevice != null) "--device=${cfg.tpuDevice}:${cfg.tpuDevice}";
