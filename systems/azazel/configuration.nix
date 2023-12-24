@@ -282,8 +282,27 @@
 
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
+    1883 # mosquitto
     80 443 # nginx
   ];
+
+  services.mosquitto = {
+    enable = true;
+    listeners = [
+      {
+        users = {
+          root = {
+            acl = [ "readwrite #" ];
+            hashedPassword = "$7$101$nJzEroAJL8zLthtF$bp+MRRsu/a+15L9+inM/NtX46CF/lCQq7HPYbjmQQhg5cFNRl6j8VlsM2DcoU+XJib941sWLedEyDXzpVIlliw==";
+          };
+          frigate = {
+            acl = [ "readwrite #" ];
+            hashedPassword = "$7$101$UgWI1piCJbj3bgd7$1nP2ncFSoK6PmIzNzpBk55jC73IRTHtMNC0hWSe7PKpAALTTo0tn+PagsY8Q/uVffMV+q5tNp50AosqhGinZEw==";
+          };
+        };
+      }
+    ];
+  };
 
   modules.frigate = let
     reolink_go2rtc_restream = name: url: {
