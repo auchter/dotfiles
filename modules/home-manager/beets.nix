@@ -23,7 +23,7 @@ in {
 
     programs.beets = {
       enable = true;
-      package = pkgs.beets.override {
+      package = pkgs.beets-unstable.override {
         pluginOverrides = {
           alternatives = {
             enable = true;
@@ -37,6 +37,11 @@ in {
             enable = true;
             propagatedBuildInputs = [ pkgs.beets-rym ];
           };
+          # hack, remove eventually:
+          limit.builtin = true;
+          substitute.builtin = true;
+          advancedrewrite.builtin = true;
+          autobpm.builtin = true;
         };
       };
       settings = {
