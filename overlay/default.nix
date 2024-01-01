@@ -10,6 +10,6 @@ in
     additions
     # cdrdao # Removing
     nodePackages.readability-cli
-    raspberrypiWirelessFirmware
+    # raspberrypiWirelessFirmware
     signal-desktop
   ]
