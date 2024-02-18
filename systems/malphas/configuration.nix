@@ -67,11 +67,6 @@
     mpdHost = "azazel.local.phire.org";
   };
 
-  services.ampctrl = {
-    enable = true;
-    mpdHost = "azazel.local.phire.org";
-  };
-
   services.ttctrl = {
     enable = true;
     mpdHost = "azazel.local.phire.org";
