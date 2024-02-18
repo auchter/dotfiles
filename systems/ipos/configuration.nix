@@ -16,7 +16,7 @@
   };
 
   modules.miniflux = {
-    enable = true;
+    enable = false;
     vhost = "miniflux.phire.org";
   };
 
