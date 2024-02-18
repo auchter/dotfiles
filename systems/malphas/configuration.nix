@@ -49,23 +49,10 @@
     echo e > /proc/irq/240/smp_affinity
   '';
 
-  environment.systemPackages = with pkgs; [
-    camilladsp
-    listenbrainz-mpd
-  ];
-
   networking.firewall.allowedTCPPorts = [
     config.services.mpd.network.port
     4953
   ];
-
-  sops.secrets.listenbrainz_pass = {};
-
-  services.listenbrainz-mpd = {
-    enable = true;
-    tokenFile = config.sops.secrets.listenbrainz_pass.path;
-    mpdHost = "azazel.local.phire.org";
-  };
 
   services.ttctrl = {
     enable = true;

@@ -74,6 +74,14 @@
 
   systemd.services.mpd.serviceConfig.restart = "always";
 
+  sops.secrets.listenbrainz_pass = {};
+
+  services.listenbrainz-mpd = {
+    enable = false;
+    tokenFile = config.sops.secrets.listenbrainz_pass.path;
+    mpdHost = "azazel.local.phire.org";
+  };
+
   modules.upmpdcli = {
     enable = true;
   };
