@@ -11,15 +11,15 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_6_5;
-  boot.kernelPatches = [
-    {
-      name = "ina260";
-      patch = ./PATCH-hwmon-Add-support-for-the-INA260-chip-to-the-INA219-and-compatibles-driver.patch;
-      extraConfig = ''
-        SENSORS_INA2XX y
-      '';
-    }
-  ];
+  #boot.kernelPatches = [
+  #  {
+  #    name = "ina260";
+  #    patch = ./PATCH-hwmon-Add-support-for-the-INA260-chip-to-the-INA219-and-compatibles-driver.patch;
+  #    extraConfig = ''
+  #      SENSORS_INA2XX y
+  #    '';
+  #  }
+  #];
 
   networking.interfaces.eth0.useDHCP = true;
   modules.sshd.enable = true;
@@ -55,7 +55,7 @@
   ];
 
   services.ttctrl = {
-    enable = true;
+    enable = false;
     mpdHost = "azazel.local.phire.org";
   };
 
