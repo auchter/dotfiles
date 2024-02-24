@@ -28,11 +28,6 @@
     btAddr = "00:12:92:08:07:B9";
   };
 
-  services.ampctrl = {
-    enable = true;
-    mpdHost = "azazel.local.phire.org";
-  };
-
   # stereo config
 
   services.mpd = {
