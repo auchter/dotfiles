@@ -23,12 +23,12 @@
   modules.wifi = {
     enable = true;
     interfaces = [ "wlan0" ];
-    networks = [ "pH IoT" ];
+    networks = [ "pH" ];
   };
 
   modules.snapclient = {
     enable = true;
-    host = "malphas";
+    host = "azazel.local.phire.org";
     sampleFormat = "44100:16:*";
     soundcard = "front:CARD=Audio,DEV=0";
   };
