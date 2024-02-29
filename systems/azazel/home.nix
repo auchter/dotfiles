@@ -3,6 +3,7 @@
 
   modules.graphical = {
     enable = true;
+    useMpdVolume = true;
   };
 
   services.kanshi = {

@@ -7,6 +7,11 @@ let
 in {
   options.modules.graphical = {
     enable = mkEnableOption "enable graphical stuff";
+    useMpdVolume = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Make keyboard shortcuts control mpd volume";
+    };
     laptopOutput = mkOption {
       type = types.nullOr types.str;
       default = null;
@@ -57,6 +62,7 @@ in {
         keybindings = let
           adjustBrightness = amount: "exec ${pkgs.brightnessctl}/bin/brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
           adjustVolume = amount: "exec ${pkgs.alsa-utils}/bin/amixer -M set Master playback ${amount} | sed -e 's/%//g' -e 's/\\[//g' -e 's/]//g' | awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob";
+          adjustMpdVolume = amount: "exec ${pkgs.mpc_cli}/bin/mpc volume ${amount}";
           adjustSnapcastVolume = direction: "exec ${pkgs.home-assistant-cli}/bin/hass-cli service call media_player.volume_${direction} --arguments entity_id=media_player.snapcast_client_phire_preamp | awk '/volume_level: / { print $2 * 100 }' > $SWAYSOCK.wob";
         in lib.mkOptionDefault {
           "XF86AudioMute" = "exec ${pkgs.alsa-utils}/bin/amixer set Master toggle";
@@ -64,8 +70,8 @@ in {
           "XF86MonBrightnessDown" = adjustBrightness "1%-";
           "Shift+XF86MonBrightnessUp" = adjustBrightness "20%+";
           "Shift+XF86MonBrightnessDown" = adjustBrightness "20%-";
-          "XF86AudioRaiseVolume" = adjustVolume "5%+";
-          "XF86AudioLowerVolume" = adjustVolume "5%-";
+          "XF86AudioRaiseVolume" = if cfg.useMpdVolume then adjustMpdVolume "+1" else adjustVolume "5%+";
+          "XF86AudioLowerVolume" = if cfg.useMpdVolume then adjustMpdVolume "-1" else adjustVolume "5%-";
           "Shift+XF86AudioRaiseVolume" = adjustSnapcastVolume "up";
           "Shift+XF86AudioLowerVolume" = adjustSnapcastVolume "down";
           "XF86AudioMicMute" = "exec amixer set Capture toggle";
