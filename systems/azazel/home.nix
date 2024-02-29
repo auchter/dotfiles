@@ -6,20 +6,6 @@
     useMpdVolume = true;
   };
 
-  services.kanshi = {
-    enable = true;
-    profiles = {
-      default = {
-        outputs = [
-          {
-            criteria = "HDMI-A-3";
-            scale = 2.0;
-          }
-        ];
-      };
-    };
-  };
-
   modules.beets = {
     enable = true;
     musicDir = "/mnt/ssd/music";
