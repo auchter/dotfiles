@@ -6,9 +6,11 @@
     useMpdVolume = true;
   };
 
-  wayland.windowManager.sway.config = {
+  wayland.windowManager.sway.config = let
+    display = "HDMI-A-3";
+  in {
     output = { # swaymsg -t get_outputs
-      HDMI-A-3 = {
+      "${display}" = {
         scale = "2";
       };
     };
