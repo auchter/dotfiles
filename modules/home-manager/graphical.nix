@@ -75,6 +75,7 @@ in {
           "Shift+XF86AudioRaiseVolume" = adjustSnapcastVolume "up";
           "Shift+XF86AudioLowerVolume" = adjustSnapcastVolume "down";
           "XF86AudioMicMute" = "exec amixer set Capture toggle";
+          "XF86HomePage" = "exec ${pkgs.sway}/bin/swaymsg output HDMI-A-3 power toggle";
         };
         input = {
           "type:keyboard" = {
