@@ -6,6 +6,14 @@
     useMpdVolume = true;
   };
 
+  wayland.windowManager.sway.config = {
+    output = { # swaymsg -t get_outputs
+      HDMI-A-3 = {
+        scale = "2";
+      };
+    };
+  };
+
   modules.beets = {
     enable = true;
     musicDir = "/mnt/ssd/music";
