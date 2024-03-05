@@ -31,6 +31,7 @@
     host = "azazel.local.phire.org";
     sampleFormat = "44100:16:*";
     soundcard = "front:CARD=Audio,DEV=0";
+    mixer = "hardware:PCM";
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
