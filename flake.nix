@@ -64,6 +64,7 @@
       andras = mkSystem "andras" "raspberryPi-aarch64";
       agares = mkSystem "agares" "generic-x86_64";
       azazel = mkSystem "azazel" "generic-x86_64";
+      xaphan = mkSystem "xaphan" "generic-x86_64";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
       gpg-provision = mkSystem "gpg-provision" "generic-x86_64";
