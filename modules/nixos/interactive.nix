@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
-# Use this module for "interactive" devices,
-# that is, machines that you interact with directly
+# Use this module for "interactive" devices, ones that you want a graphical
+# interface etc.
 
 with lib;
 
@@ -13,7 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     # Don't enable powersaving for my USB mouse
     services.udev.extraRules = ''
       ENV{PRODUCT}=="46d/c025/9802", ATTR{power/control}="on"
@@ -48,6 +47,5 @@ in {
 
     # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
     programs.sway.enable = true;
-
   };
 }
