@@ -23,6 +23,34 @@
       fsType = "vfat";
     };
 
+  fileSystems."/mnt/unenc" = {
+    device = "/dev/disk/by-label/storage-unenc";
+    fsType = "ext4";
+    options = [ "noatime" "noauto" ];
+  };
+
+  fileSystems."/mnt/storage" = {
+    device = "UUID=0789211e-1c89-442a-8372-d66172a9fe0c";
+    fsType = "ext4";
+    options = [
+      "noauto"
+      "noatime"
+#      "x-mount.mkdir"
+      "x-systemd.requires=systemd-cryptsetup@storage_enc.service"
+    ];
+  };
+
+  environment.etc.crypttab = {
+    enable = true;
+    text = ''
+      storage_enc UUID=6d1c1ba4-62d5-4f46-a93a-e627fd186b35 none luks,noauto
+    '';
+  };
+
+  environment.systemPackages = with pkgs; [
+    cryptsetup
+  ];
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/395b3c2e-8b3e-41f3-80cf-60a478f15b7d"; }
     ];
