@@ -34,7 +34,7 @@
   fileSystems."/mnt/ssd" = {
     device = "/dev/disk/by-uuid/053afcd9-26c3-4fde-8466-40280f1195b3";
     fsType = "ext4";
-    options = [ "noatime" ];
+    options = [ "noatime" "noauto" ];
   };
 
   fileSystems."/mnt/storage" = {
