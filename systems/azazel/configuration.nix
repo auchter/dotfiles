@@ -20,19 +20,6 @@
     server = "ipos";
   };
 
-  # stereo config
-
-
-  sops.secrets.listenbrainz_pass = {};
-
-  services.listenbrainz-mpd = {
-    enable = false;
-    tokenFile = config.sops.secrets.listenbrainz_pass.path;
-    mpdHost = "azazel.local.phire.org";
-  };
-
-  # end stereo config
-
   services.nginx = {
     enable = true;
     virtualHosts = {
@@ -54,7 +41,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    config.services.mpd.network.port
     1935 # frigate
     1883 # mosquitto
     80 443 # nginx
