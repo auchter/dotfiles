@@ -12,7 +12,8 @@ let
       then (concatLists values)
     else (head values);
   finalConfig = zipAttrsWith mergeFunc ([cfg.config] ++ jsonConfigs);
-  configFile = pkgs.writeText "camilladsp.yml" (builtins.toJSON finalConfig);
+  # If config is empty, pass --wait to wait for a config from the websocket
+  configParam = if finalConfig == {} then "--wait" else pkgs.writeText "camilladsp.yml" (builtins.toJSON finalConfig);
 in {
   options.services.camilladsp = {
     enable = mkEnableOption "enable camilladsp";
@@ -49,7 +50,7 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = ''
-          ${cfg.package}/bin/camilladsp --port ${toString cfg.port} ${configFile}
+          ${cfg.package}/bin/camilladsp --port ${toString cfg.port} ${configParam}
         '';
         Type = "simple";
         Restart = "always";
