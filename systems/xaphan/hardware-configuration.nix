@@ -23,13 +23,13 @@
       fsType = "vfat";
     };
 
-  fileSystems."/mnt/unenc" = {
+  fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-label/storage-unenc";
     fsType = "ext4";
-    options = [ "noatime" "noauto" ];
+    options = [ "noatime" ];
   };
 
-  fileSystems."/mnt/storage" = {
+  fileSystems."/mnt/enc" = {
     device = "UUID=0789211e-1c89-442a-8372-d66172a9fe0c";
     fsType = "ext4";
     options = [
