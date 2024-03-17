@@ -19,9 +19,16 @@
 
   hardware.bluetooth.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    makemkv
+  ];
+
+  boot.kernelModules = [
+    "snd-aloop"
+    "sg"
+  ];
+
   # audio stuff
-  boot.kernelModules = [ "snd-aloop" ];
-  
   services.pipewire.systemWide = true;
 
   # TODO: migrate to extraConfig!
