@@ -19,10 +19,6 @@ in {
       ENV{PRODUCT}=="46d/c025/9802", ATTR{power/control}="on"
     '';
 
-
-    services.avahi.enable = true;
-    services.avahi.nssmdns = true;
-
     sound.enable = true;
     hardware.pulseaudio = {
       enable = true;
@@ -53,9 +49,5 @@ in {
     # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
     programs.sway.enable = true;
 
-    services.printing = {
-      enable = true;
-      drivers = [ pkgs.hplip ];
-    };
   };
 }
