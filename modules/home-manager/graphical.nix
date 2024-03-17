@@ -33,7 +33,6 @@ in {
 
       # packages
       feh
-      mpv
       mupdf
       obsidian
       signal-desktop
@@ -50,6 +49,27 @@ in {
 
     programs.firefox = {
       enable = true;
+    };
+
+    programs.mpv = {
+      enable = true;
+      config = {
+        hwdec = "vaapi";
+      };
+      profiles = {
+        downmix_audio_5_1 = {
+          profile-cond = ''get("audio-params/channel-count") >= 5 and get("audio-params/channel-count") < 7'';
+          profile-restore = "copy-equal";
+          volume-max = "200";
+          af = ''lavfi="lowpass=c=LFE:f=120,volume=1.6,pan=stereo|FL=0.5*FC+0.707*FL+0.707*BL+0.5*LFE|FR=0.5*FC+0.707*FR+0.707*BR+0.5*LFE"'';
+        };
+        downmix_audio_7_1 = {
+          profile-cond = ''get("audio-params/channel-count") >= 7'';
+          profile-restore = "copy-equal";
+          volume-max = "200";
+          af = ''lavfi="lowpass=c=LFE:f=120,volume=1.6,pan=stereo|FL=0.5*FC+0.3*FLC+0.3*FL+0.3*BL+0.3*SL+0.5*LFE|FR=0.5*FC+0.3*FRC+0.3*FR+0.3*BR+0.3*SR+0.5*LFE"'';
+        };
+      };
     };
 
     wayland.windowManager.sway = {
