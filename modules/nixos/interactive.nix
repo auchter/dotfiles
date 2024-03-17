@@ -10,6 +10,7 @@ let
 in {
   options.modules.interactive = {
     enable = mkEnableOption "Configuration for interactive devices";
+
   };
 
   config = mkIf cfg.enable {
@@ -19,12 +20,11 @@ in {
     '';
 
     sound.enable = true;
-    hardware.pulseaudio = {
+    security.rtkit.enable = true;
+    services.pipewire = {
       enable = true;
-      package = pkgs.pulseaudioFull;
-      extraConfig = ''
-        load-module module-bluetooth-policy auto_switch=2
-      '';
+      alsa.enable = true;
+      pulse.enable = true;
     };
 
     services.blueman.enable = true;
