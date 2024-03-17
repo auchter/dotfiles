@@ -17,6 +17,8 @@
     config.services.mpd.network.port
   ];
 
+  hardware.bluetooth.enable = true;
+
   # audio stuff
   boot.kernelModules = [ "snd-aloop" ];
   
@@ -111,6 +113,12 @@
   };
 
   # end audiostuff
+
+  services.mpdpower = {
+    enable = true;
+    mpdHost = "localhost";
+    btAddr = "00:12:92:08:07:B9";
+  };
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }

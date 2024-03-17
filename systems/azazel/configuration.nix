@@ -20,14 +20,6 @@
     server = "ipos";
   };
 
-  hardware.bluetooth.enable = true;
-
-  services.mpdpower = {
-    enable = true;
-    mpdHost = "localhost";
-    btAddr = "00:12:92:08:07:B9";
-  };
-
   # stereo config
 
 
