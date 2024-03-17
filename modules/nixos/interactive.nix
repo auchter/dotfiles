@@ -38,7 +38,17 @@ in {
     hardware.opengl = {
       enable = true;
       driSupport = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
+
+    environment.systemPackages = with pkgs; [
+      libva-utils
+      intel-gpu-tools
+    ];
 
     # HACK: globally enable sway instead of relying on home-manager to ensure /etc/pam.d/swaylock gets installed
     programs.sway.enable = true;
