@@ -54,16 +54,16 @@
       ## For aarch64-linux systems:
       # nix build .#nixosConfigurations.balan.config.system.build.sdImage
 
-      moloch = mkSystem "moloch" "generic-x86_64";
-      ipos = mkSystem "ipos" "generic-x86_64";
-      stolas = mkSystem "stolas" "generic-x86_64";
-      orobas = mkSystem "orobas" "generic-x86_64";
-      volac = mkSystem "volac" "generic-x86_64";
-      malphas = mkSystem "malphas" "pine64-pineH64B";
-      balan = mkSystem "balan" "pine64-pineH64B";
-      andras = mkSystem "andras" "raspberryPi-aarch64";
       agares = mkSystem "agares" "generic-x86_64";
+      andras = mkSystem "andras" "raspberryPi-aarch64";
       azazel = mkSystem "azazel" "generic-x86_64";
+      balan = mkSystem "balan" "pine64-pineH64B";
+      ipos = mkSystem "ipos" "generic-x86_64";
+      malphas = mkSystem "malphas" "pine64-pineH64B";
+      moloch = mkSystem "moloch" "generic-x86_64";
+      orobas = mkSystem "orobas" "generic-x86_64";
+      stolas = mkSystem "stolas" "generic-x86_64";
+      volac = mkSystem "volac" "generic-x86_64";
       xaphan = mkSystem "xaphan" "generic-x86_64";
 
       ## nix build .#nixosConfigurations.gpg-provision.config.system.build.isoImage
