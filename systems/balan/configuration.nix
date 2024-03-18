@@ -17,7 +17,6 @@
 
   modules.snapclient = {
     enable = true;
-    host = "azazel.local.phire.org";
     sampleFormat = "44100:16:*";
     soundcard = "front:CARD=adapter,DEV=0";
   };

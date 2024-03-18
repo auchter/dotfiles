@@ -9,7 +9,7 @@ in {
     enable = mkEnableOption "snapclient";
 
     host = mkOption {
-      default = null;
+      default = "xaphan.local.phire.org";
       description = "snapserver to connect to";
       type = types.nullOr types.str;
     };
