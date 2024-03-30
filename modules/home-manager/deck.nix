@@ -33,7 +33,7 @@ in {
     modules.zsh.enable = true;
     modules.mpd-client = {
       enable = true;
-      host = "azazel.local.phire.org";
+      host = "xaphan.local.phire.org";
     };
 
     services.kdeconnect = {
