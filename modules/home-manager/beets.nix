@@ -65,7 +65,6 @@ in {
           "edit"
           "fetchart"
           "fromfilename"
-          "ftintitle"
           "lastgenre"
           "lastimport"
           "lyrics"
@@ -95,9 +94,6 @@ in {
         convert = {
           never_convert_lossy_files = true;
           copy_album_art = true;
-        };
-        ftintitle = {
-          auto = true;
         };
         lastfm.user = "auchter";
         missing = {
