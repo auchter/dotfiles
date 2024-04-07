@@ -117,7 +117,7 @@ in {
           playlists  = mapAttrsToList (name: query: { name = "${name}.m3u"; } // query) cfg.smartPlaylists;
         };
         zero = {
-          fields = "genre comments";
+          fields = "comments";
           update_database = true;
         };
       };
