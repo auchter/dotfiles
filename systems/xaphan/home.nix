@@ -4,6 +4,10 @@
     useMpdVolume = true;
   };
 
+  programs.alacritty.settings = {
+    colors.primary.background = "#000000";
+  };
+
   wayland.windowManager.sway.config = let
     display = "HDMI-A-1";
   in {
