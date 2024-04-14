@@ -82,7 +82,7 @@ in {
         keybindings = let
           adjustBrightness = amount: "exec ${pkgs.brightnessctl}/bin/brightnessctl -e -m s ${amount} | cut -d',' -f4 | sed 's/%//' > $SWAYSOCK.wob";
           adjustVolume = amount: "exec ${pkgs.alsa-utils}/bin/amixer -M set Master playback ${amount} | sed -e 's/%//g' -e 's/\\[//g' -e 's/]//g' | awk '/Front (Left|Right):/ { vol += $5 } END { print vol / 2 }' > $SWAYSOCK.wob";
-          adjustMpdVolume = amount: "exec ${pkgs.mpc_cli}/bin/mpc volume ${amount}";
+          adjustMpdVolume = amount: "exec ${pkgs.mpc_cli}/bin/mpc volume ${amount} | awk '/volume/ { print $2 }' | tr -d '%' > $SWAYSOCK.wob";
           adjustSnapcastVolume = direction: "exec ${pkgs.home-assistant-cli}/bin/hass-cli service call media_player.volume_${direction} --arguments entity_id=media_player.snapcast_client_phire_preamp | awk '/volume_level: / { print $2 * 100 }' > $SWAYSOCK.wob";
         in lib.mkOptionDefault {
           "XF86AudioMute" = "exec ${pkgs.alsa-utils}/bin/amixer set Master toggle";
