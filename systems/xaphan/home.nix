@@ -14,6 +14,7 @@
     output = { # swaymsg -t get_outputs
       "${display}" = {
         scale = "2";
+        render_bit_depth = "10";
       };
     };
   };
