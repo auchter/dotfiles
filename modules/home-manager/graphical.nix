@@ -92,8 +92,8 @@ in {
           "Shift+XF86MonBrightnessDown" = adjustBrightness "20%-";
           "XF86AudioRaiseVolume" = if cfg.useMpdVolume then adjustMpdVolume "+1" else adjustVolume "5%+";
           "XF86AudioLowerVolume" = if cfg.useMpdVolume then adjustMpdVolume "-1" else adjustVolume "5%-";
-          "Shift+XF86AudioRaiseVolume" = adjustSnapcastVolume "up";
-          "Shift+XF86AudioLowerVolume" = adjustSnapcastVolume "down";
+          "Shift+XF86AudioRaiseVolume" = adjustMpdVolume "+1";
+          "Shift+XF86AudioLowerVolume" = adjustMpdVolume "-1";
           "XF86AudioMicMute" = "exec amixer set Capture toggle";
           "XF86HomePage" = "exec ${pkgs.sway}/bin/swaymsg output HDMI-A-3 power toggle";
         };
