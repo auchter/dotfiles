@@ -24,6 +24,13 @@ let
         type = "receiveonly";
       };
     };
+    "pixel_8_e933-photos" = {
+      pixel8 = {};
+      moloch = {
+        path = "~/Pixel8Camera";
+        type = "receiveonly";
+      };
+    };
     "music" = {
       stolas = {
         path = "/mnt/storage/music";
@@ -46,8 +53,7 @@ let
       };
     };
     "obsidian" = {
-      pixel7 = {};
-      pixel5a = {};
+      pixel8 = {};
       moloch = {
         path = "~/obsidian";
         type = "sendreceive";
