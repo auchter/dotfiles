@@ -7,6 +7,9 @@
       ../common
     ];
 
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.secrets.hass_token = { };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
